@@ -1,0 +1,45 @@
+﻿@inherits LayoutComponentBase
+
+
+<div class="main-container">
+
+    <div class="phone-container">
+        @Body
+
+
+
+        <div class="bottom-tabs">
+            <div class="bottom-tab bt-left">Explore</div>
+            <div class="bottom-tab bt-right">Schedule</div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+@code {
+    private int currentCount = 0;
+
+    enum AppTab
+    {
+        EXPLORE,
+        SCHEDULE
+    }
+
+    private AppTab currentTab = AppTab.EXPLORE;
+
+    private void switchToExplore()
+    {
+        currentCount++;
+    }
+
+    private void switchToSchedule()
+    {
+
+    }
+
+}
+
+

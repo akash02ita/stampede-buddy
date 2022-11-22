@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1703.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "stampede-buddy", "stampede-buddy\stampede-buddy.csproj", "{61F4D04A-ABB6-44D0-8DE9-BC80164CF5C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61F4D04A-ABB6-44D0-8DE9-BC80164CF5C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61F4D04A-ABB6-44D0-8DE9-BC80164CF5C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61F4D04A-ABB6-44D0-8DE9-BC80164CF5C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61F4D04A-ABB6-44D0-8DE9-BC80164CF5C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB5DC8BB-908D-4EAA-BEA6-1CB88CC3DC6F}
+	EndGlobalSection
+EndGlobal
