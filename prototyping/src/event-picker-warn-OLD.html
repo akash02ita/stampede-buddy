@@ -40,6 +40,25 @@
 
 
         <div class="phone-container">
+            <div id="warning-modal">
+                <div class="inner-modal">
+                    <div class="row my-3">
+                        <img class="col-3 icon-m" src="https://cdn-icons-png.flaticon.com/512/4201/4201973.png" />
+
+                        <div class="col-9">
+                            <strong class="lead">Scheduling Conflict</strong>
+                            <br />
+                            Do you want to replace <strong>Milky Chance</strong> with <strong>Lennon Stella</strong> in
+                            your favorites?
+                        </div>
+                    </div>
+                    <div class="row gap-3 mx-4">
+                        <div class="col btn btn-primary">Replace</div>
+                        <div class="col btn btn-danger">Cancel</div>
+                    </div>
+                </div>
+
+            </div>
 
             <div class="events-main-content">
 
@@ -63,67 +82,25 @@
 
                 <div id="events-container" class="container-fluid">
 
-                    <div class="title-back my-3">
-                        <img class="icon-s" src="https://cdn-icons-png.flaticon.com/512/3114/3114883.png" />
-                        <h1 class="mt-1">Browse Events</h1>
+                    <div class="flex my-3">
+                        <h1>Browse Events</h1>
                     </div>
 
-                    <div id=" filter-panel" class="mb-2 row">
+                    <div id="filter-panel" class="mb-2 row">
                         <div class="col-3 text-center bg-primary text-white">All</div>
                         <div class="col-3 text-center bg-secondary text-white">Rides</div>
                         <div class="col-3 text-center bg-secondary text-white">Food</div>
                         <div class="col-3 text-center bg-secondary text-white">Events</div>
                     </div>
 
-                    <div id="events-list" class="d-grid gap-3">
+                    <div id="events-list" class="d-grid gap-2">
 
                         <div class="event-card">
-                            <img class="event-card-img"
-                                src="https://www.theex.com/wp-content/uploads/2022/05/SuperDogs.png" alt="Snow"
-                                style="width:100%; height: 160px;">
-                            <div class="dim flex">
-                                <div class="card-content">
-                                    <h2>Superdogs</h2>
-                                    <div>A dogshow unlike any other!</div>
-                                    <div>BMO Centre @ 1:00pm, 3:00pm, 7:00pm</div>
-                                    <div class="d-grid gap-2 mt-2">
-                                        <button class="btn btn-primary" type="button">Add to Favourites</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="event-card">
-                            <img class="event-card-img"
-                                src="https://www.theex.com/wp-content/uploads/2022/05/SuperDogs.png" alt="Snow"
-                                style="width:100%; height: 160px;">
-                            <div class="dim flex">
-                                <div class="card-content">
-                                    <h2>Superdogs</h2>
-                                    <div>A dogshow unlike any other!</div>
-                                    <div>BMO Centre @ 1:00pm, 3:00pm, 7:00pm</div>
-                                    <div class="d-grid gap-2 mt-2">
-                                        <button class="btn btn-primary" type="button">Add to Favourites</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="event-card">
-                            <img class="event-card-img"
-                                src="https://www.theex.com/wp-content/uploads/2022/05/SuperDogs.png" alt="Snow"
-                                style="width:100%; height: 160px;">
-                            <div class="dim flex">
-                                <div class="card-content">
-                                    <h2>Superdogs</h2>
-                                    <div>A dogshow unlike any other!</div>
-                                    <div>BMO Centre @ 1:00pm, 3:00pm, 7:00pm</div>
-                                    <div class="d-grid gap-2 mt-2">
-                                        <button class="btn btn-primary" type="button">Add to Favourites</button>
-                                    </div>
-                                </div>
+                            <h2>Sample Event</h2>
+                            <div>Tagline for the event.</div>
+                            <div>Location @ 1:00pm</div>
+                            <div class="d-grid gap-2 my-2">
+                                <button class="btn btn-primary" type="button">Add to Favourites</button>
                             </div>
                         </div>
 
