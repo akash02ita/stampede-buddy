@@ -1,0 +1,113 @@
+﻿@using System;
+@using System.Collections;
+
+<div>
+    <div class="d-flex gap-2 justify-content-center">
+
+        <div class="left-favourites" @onclick="DecrementEvent">
+            l
+        </div>
+
+        <div class="justify-content-center">
+            <div class="event-card">
+                <img class="favourite-card-img"
+                     src="https://origin.calgarystampede.com/sites/default/files/crazymouse-hero-1440x600.jpg"
+                     alt="Snow" style="width:100%; height: 150px;">
+                <div class="dim flex">
+                    <div class="card-content">
+                        <h2>@Events[EventIndex].EventName</h2>
+                        <div>@Events[EventIndex].TagLine</div>
+                        <div><span>@Events[EventIndex].Times</span> - <span>@Events[EventIndex].Location</span></div>
+                        <div class="d-grid gap-2 mt-2">
+                            <button class="btn btn-danger" type="button">
+                                Begin
+                                navigation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex w-100 justify-content-center my-2 gap-2">
+                @for (int i = 0; i < Events.Count; i++)
+                {
+                    @if (i == EventIndex)
+                    {
+                        <div class="active-dot"></div>
+                    } else {
+                        <div class="dot"></div>
+                    }
+
+                }
+            </div>
+
+        </div>
+
+
+        <div class="right-favourites" @onclick="IncrementEvent"> r </div>
+
+    </div>
+</div>
+
+@code {
+
+
+    // we need to parse event data JSON into this section !!
+
+    // parameters are specified when using this component from a larger component
+    // data can flow from the main page -> this component
+
+    // we can add a fake "fetch" function to "get" the data and pass it in
+
+    public class Event
+    {
+        public string EventName { get; set; } = "Crazy Mouse";
+
+        public string TagLine { get; set; } = "A rotating roller coaster!";
+
+        public string Times { get; set; } = "ALL DAY";
+
+        public string Location { get; set; } = "Midway";
+    }
+
+    /// <summary>
+    /// The list of events to display in this component. 
+    /// </summary>
+    [Parameter]
+    public List<Event> Events { get; set; } = new List<Event> { new Event(), new Event(), new Event() };
+
+
+    /// <summary>
+    /// The event from Events which is currently being focused/displayed. 
+    /// </summary>
+    [Parameter]
+    public int EventIndex { get; set; } = 0;
+
+    private void IncrementEvent()
+    {
+        if (EventIndex + 1 == Events.Count)
+        {
+            EventIndex = 0;
+        } else
+        {
+            EventIndex += 1;
+        }
+
+    }
+
+    private void DecrementEvent()
+    {
+
+        if (EventIndex - 1 < 0)
+        {
+            EventIndex = Events.Count - 1;
+        } else
+        {
+            EventIndex -= 1;
+        }
+    }
+
+
+    }
+
+
+

@@ -571,6 +571,7 @@ flex-col {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .left-favourites {
@@ -583,6 +584,7 @@ flex-col {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 /* Explore page */
