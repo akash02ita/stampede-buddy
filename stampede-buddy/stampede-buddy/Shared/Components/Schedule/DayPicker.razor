@@ -48,7 +48,10 @@
 <h2 class="">You've selected:</h2>
 <h2 class="display-5">July 15th</h2>
 
-@code {
+    <div class="mb-3 w-75 btn btn-primary btn-block btn-lg " @onclick="() => {setScreenCallback.InvokeAsync(MainLayout.ScheduleScreens.EVENT_BROWSER); }">Continue</div>
 
+@code {
+    [Parameter]
+    public EventCallback<MainLayout.ScheduleScreens> setScreenCallback { get; set; }
 }
 
