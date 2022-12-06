@@ -1,7 +1,44 @@
-﻿<h3>Component1</h3>
+﻿@if (!isCollapsed)
+{
+    <div id="explore-menu" class="row w-100 justify-content-center">
+        <div class="menu-toggle" @onclick="toggleCollapsed">
+            <hr class="menu-control my-1" /> </div>
+            <h1 class="my-1 py-0">Discover</h1>
+            <p class="lead">Find the nearest...</p>
+            <div class="d-flex justify-content-center gap-4">
+                <img class="one-touch-icon" src="https://cdn-icons-png.flaticon.com/512/3033/3033725.png" />
+                <img class="one-touch-icon" src="https://cdn-icons-png.flaticon.com/512/584/584031.png" />
+                <img class="one-touch-icon" src="https://cdn-icons-png.flaticon.com/512/4014/4014943.png" />
+            </div>
 
-@code {
-    [Parameter]
-    public bool isCollapsed { get; set; } = false;
-}
+            <label for="search-bar" class="form-label"></label>
+            <input type="email" class="my-2" id="search-bar-sm" placeholder="Find something...">
+
+            <div class="lead mb-2">
+                Explore nearby <span class="btn btn-sm btn-danger dropdown-toggle mx-2">rides</span>
+            </div>
+
+            <stampede_buddy.Shared.Components.QuickEventBrowser></stampede_buddy.Shared.Components.QuickEventBrowser>
+
+        </div>
+        }
+        else
+        {
+        <div id="discover-collapsed-menu" class="row w-100 justify-content-center">
+            <div class="menu-toggle" @onclick="toggleCollapsed"><hr class="menu-control my-1"/></div>
+            <h1 class="my-1 py-0">Discover</h1>
+        </div>
+        }
+
+        @code {
+
+            [Parameter]
+            public bool isCollapsed { get; set; } = true;
+
+            private void toggleCollapsed()
+            {
+                isCollapsed = !isCollapsed;
+            }
+
+        }
 

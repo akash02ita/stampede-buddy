@@ -447,7 +447,19 @@ flex-col {
     border: 1px solid rgba(0, 0, 0, 0.746);
     opacity: 100%;
     border-radius: 10px;
-    width: 30%
+    width: 30%;
+}
+.menu-toggle 
+{
+    width: 100%;
+/*    padding-top: 20px;*/
+/*    padding-bottom: 20px;*/
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    cursor: pointer;
+
 }
 
 #schedule-list {
