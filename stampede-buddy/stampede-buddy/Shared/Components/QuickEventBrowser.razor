@@ -73,7 +73,7 @@
     /// The list of events to display in this component. 
     /// </summary>
     [Parameter]
-    public List<Event> Events { get; set; } = new List<Event> { new Event(), new Event(), new Event() };
+    public List<Event> Events { get; set; } = new List<Event> { new Event(), new Event(), new Event() }; // the fake event data goes here!
 
 
     /// <summary>
@@ -82,6 +82,9 @@
     [Parameter]
     public int EventIndex { get; set; } = 0;
 
+    /// <summary>
+    /// Increments the event (moves to the right, wraps around at the end).
+    /// </summary>
     private void IncrementEvent()
     {
         if (EventIndex + 1 == Events.Count)
@@ -94,6 +97,9 @@
 
     }
 
+    /// <summary>
+    /// Decrements the event (moves to the left, wraps around at the beginning).
+    /// </summary>
     private void DecrementEvent()
     {
 

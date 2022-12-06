@@ -1,0 +1,92 @@
+﻿
+@switch (currentScreen)
+{
+    case MainLayout.ScheduleScreens.DAY_PICKER:
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link active">1. Pick a day</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">3</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled">4</a>
+            </li>
+        </ul>
+        break;
+    case MainLayout.ScheduleScreens.EVENT_BROWSER:
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link" @onclick="() => { setScreenCallback.InvokeAsync(MainLayout.ScheduleScreens.DAY_PICKER); }">1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">2. Browse Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">3</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled">4</a>
+            </li>
+        </ul>
+        break;
+    case MainLayout.ScheduleScreens.SCHEDULE_PICKER:
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link" href="#">1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">2.</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">3. Choose Schedule</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled">4</a>
+            </li>
+        </ul>
+        break;
+    case MainLayout.ScheduleScreens.ATTEND:
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link" href="#">1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">3</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active">4. Attend Stampede!</a>
+            </li>
+        </ul>
+
+        break;
+}
+
+@code {
+
+    /// <summary>
+    /// A callback that will change the main state to the correct screen.
+    /// </summary>
+    public Action selectScreen { get; set; } = () => { };
+
+
+    public void handleUpdate(MainLayout.ScheduleScreens newScreen)
+    {
+        selectScreen();
+    }
+
+
+    [Parameter]
+    public MainLayout.ScheduleScreens currentScreen { get; set; } = MainLayout.ScheduleScreens.DAY_PICKER;
+
+    [Parameter]
+    public EventCallback<MainLayout.ScheduleScreens> setScreenCallback { get; set; }
+
+}
+

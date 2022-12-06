@@ -17,8 +17,10 @@
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
     <Folder Include="Shared\Components\" />
+    <Folder Include="Shared\Components\Schedule\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Shared\Components\" />
+    <None Remove="Shared\Components\Schedule\" />
   </ItemGroup>
 </Project>
