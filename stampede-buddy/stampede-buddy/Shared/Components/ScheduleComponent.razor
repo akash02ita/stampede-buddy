@@ -1,0 +1,34 @@
+﻿
+
+<stampede_buddy.Shared.Components.Schedule.ScheduleNavigator currentScreen="@currentScreen" setScreenCallback="@setScreenCallback" />
+
+@switch (currentScreen)
+{
+    case MainLayout.ScheduleScreens.DAY_PICKER:
+        <stampede_buddy.Shared.Components.Schedule.DayPicker setScreenCallback="@setScreenCallback"/>
+        break;
+
+    case MainLayout.ScheduleScreens.EVENT_BROWSER:
+        <stampede_buddy.Shared.Components.Schedule.EventBrowser setScreenCallback="@setScreenCallback" />
+        break;
+
+    case MainLayout.ScheduleScreens.SCHEDULE_PICKER:
+        <stampede_buddy.Shared.Components.Schedule.SchedulePicker setScreenCallback="@setScreenCallback" />
+        break;
+
+    case MainLayout.ScheduleScreens.ATTEND:
+        <stampede_buddy.Shared.Components.Schedule.Attend setScreenCallback="@setScreenCallback"/>
+        break;
+    default:
+        break;
+}
+
+@code {
+    [Parameter]
+    public MainLayout.ScheduleScreens currentScreen { get; set; } = MainLayout.ScheduleScreens.DAY_PICKER;
+
+    [Parameter]
+    public EventCallback<MainLayout.ScheduleScreens> setScreenCallback { get; set; }
+
+}
+
