@@ -295,17 +295,18 @@ flex-col {
     width: 100%;
 }
 
+.bottom-tab-active {
+    background-color: rgb(235, 57, 57);
+    color: white;
+}
+
 .bt-right {
-    background-color: white;
     border-bottom-right-radius: 70px;
     border-top: 1px solid black;
     border-left: 1px solid black;
-    color: black;
 }
 
 .bt-left {
-    background-color: rgb(235, 57, 57);
-    color: white;
     border-top: 1px solid black;
     border-bottom-left-radius: 70px;
 }
@@ -447,7 +448,19 @@ flex-col {
     border: 1px solid rgba(0, 0, 0, 0.746);
     opacity: 100%;
     border-radius: 10px;
-    width: 30%
+    width: 30%;
+}
+.menu-toggle 
+{
+    width: 100%;
+/*    padding-top: 20px;*/
+/*    padding-bottom: 20px;*/
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    cursor: pointer;
+
 }
 
 #schedule-list {
@@ -571,6 +584,7 @@ flex-col {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .left-favourites {
@@ -583,6 +597,7 @@ flex-col {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 /* Explore page */
@@ -772,4 +787,7 @@ flex-col {
 .search-result-title {
     font-family: "League Spartan";
     font-size: 2.8rem;
+}
+.nav-link {
+    cursor: pointer;
 }

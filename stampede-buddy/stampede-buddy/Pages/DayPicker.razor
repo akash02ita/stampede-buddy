@@ -67,11 +67,15 @@
 
 
 
-    <div class="mb-3 w-75 btn btn-primary btn-block btn-lg ">Continue</div>
+    <div class="mb-3 w-75 btn btn-primary btn-block btn-lg " @onclick="() => {setScreenCallback.InvokeAsync(MainLayout.ScheduleScreens.EVENT_BROWSER); }">Continue</div>
 
 </div>
 
 @code {
+
+    // used to alter screen from child component. call with setScreenCallback.InvokeAsync(...)
+    [Parameter]
+    public EventCallback<MainLayout.ScheduleScreens> setScreenCallback { get; set; }
 
 }
 
