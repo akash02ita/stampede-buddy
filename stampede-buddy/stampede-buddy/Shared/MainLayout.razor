@@ -3,14 +3,39 @@
 
 <div class="main-container">
 
-    <div class="phone-container">
-        @Body
+    <div class="explore-phone-container">
 
 
+        @if (currentTab == AppTab.EXPLORE)
+        {
+                <stampede_buddy.Shared.Components.ExploreComponent/>
+        } else if (currentTab == AppTab.SCHEDULE)
+        {
+                <stampede_buddy.Shared.Components.ScheduleComponent currentScreen="@scheduleScreen" setScreenCallback="@setScreenCallback"/>
+        }
+
+        @*@Body*@
 
         <div class="bottom-tabs">
-            <div class="bottom-tab bt-left">Explore</div>
-            <div class="bottom-tab bt-right">Schedule</div>
+
+            @if (currentTab == AppTab.EXPLORE)
+            {
+                <div class="bottom-tab-active bottom-tab bt-left" @onclick="switchToExplore">Explore</div>
+            }
+            else
+            {
+                <div class="bottom-tab bt-left" @onclick="switchToExplore">Explore</div>
+            }
+
+            @if (currentTab == AppTab.SCHEDULE)
+            {
+                <div href="/schedule" class="bottom-tab-active bottom-tab bt-right" @onclick="switchToSchedule">Schedule</div>
+            }
+            else
+            {
+                <div href="/schedule" class="bottom-tab bt-right" @onclick="switchToSchedule">Schedule</div>
+            }
+
         </div>
     </div>
 
@@ -20,7 +45,6 @@
 
 
 @code {
-    private int currentCount = 0;
 
     enum AppTab
     {
@@ -32,13 +56,41 @@
 
     private void switchToExplore()
     {
-        currentCount++;
+        currentTab = AppTab.EXPLORE;
+        Console.WriteLine(scheduleScreen);
     }
 
     private void switchToSchedule()
     {
-
+        currentTab = AppTab.SCHEDULE;
+        Console.WriteLine(scheduleScreen);
     }
+
+
+    public enum ScheduleScreens
+    {
+        DAY_PICKER,
+        EVENT_BROWSER,
+        SCHEDULE_PICKER,
+        ATTEND,
+    }
+
+    private ScheduleScreens scheduleScreen = ScheduleScreens.DAY_PICKER;
+
+    /// <summary>
+    /// Example function that will just move to the next screen when called.
+    /// </summary>
+    public void advanceScreen()
+    {
+        scheduleScreen += 1;
+    }
+
+    public void setScreenCallback(ScheduleScreens newScreen)
+    {
+        // need to create a warning step here for when the user tries to go back to the day picker screen
+        scheduleScreen = newScreen;
+    }
+
 
 }
 

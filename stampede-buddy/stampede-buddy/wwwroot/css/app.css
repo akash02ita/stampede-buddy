@@ -295,17 +295,18 @@ flex-col {
     width: 100%;
 }
 
+.bottom-tab-active {
+    background-color: rgb(235, 57, 57);
+    color: white;
+}
+
 .bt-right {
-    background-color: white;
     border-bottom-right-radius: 70px;
     border-top: 1px solid black;
     border-left: 1px solid black;
-    color: black;
 }
 
 .bt-left {
-    background-color: rgb(235, 57, 57);
-    color: white;
     border-top: 1px solid black;
     border-bottom-left-radius: 70px;
 }
@@ -447,7 +448,19 @@ flex-col {
     border: 1px solid rgba(0, 0, 0, 0.746);
     opacity: 100%;
     border-radius: 10px;
-    width: 30%
+    width: 30%;
+}
+.menu-toggle 
+{
+    width: 100%;
+/*    padding-top: 20px;*/
+/*    padding-bottom: 20px;*/
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    cursor: pointer;
+
 }
 
 #schedule-list {
@@ -571,6 +584,7 @@ flex-col {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .left-favourites {
@@ -583,6 +597,7 @@ flex-col {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 /* Explore page */
@@ -686,4 +701,93 @@ flex-col {
     border-top-right-radius: 20px;
     overflow: hidden;
     border-radius: 40px;
+}
+
+
+
+/* SEARCH SCREEN STYLES */
+
+
+#input-bar {
+    width: 80%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-s {
+    width: 40px;
+    height: 40px;
+}
+
+#search-bar {
+    -webkit-appearance: none;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+    border: 2px solid black;
+    padding: 11px 0px 11px 20px;
+    font-family: "Poppins";
+    font-size: 1.3em;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 20px 0;
+}
+
+.search-results {
+    margin: 0 0 0 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+hr {
+    border: 0.5px solid rgb(0, 0, 0, 0.4);
+    width: 80%;
+}
+
+.search-result {
+    display: flex;
+    border: 1px solid black;
+    width: 90%;
+    border-radius: 10px;
+    padding: 12px;
+    justify-content: space-between;
+}
+
+    .search-result:hover {
+        background-color: rgba(0,0,0,0.1);
+    }
+
+
+flex-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-result-content {
+    height: 100%;
+    margin: 0 0 0 15px;
+}
+
+.search-result-title {
+    font-family: "League Spartan";
+    font-size: 2.8rem;
+}
+.nav-link {
+    cursor: pointer;
 }
