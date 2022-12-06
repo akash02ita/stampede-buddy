@@ -3,10 +3,8 @@
 
     <div id="events-container" class="container-fluid">
 
-        <div class="title-back my-3">
-            <img class="icon-s" src="https://cdn-icons-png.flaticon.com/512/3114/3114883.png" />
-            <h1 class="mt-1">Browse Events</h1>
-        </div>
+        <BackButton currentScreen="@currentScreen" setScreenCallback="@setScreenCallback" Title="Browse Events"/>
+
 
         <div id=" filter-panel" class="mb-2 row">
             <div class="col-3 text-center bg-primary text-white">All</div>
@@ -100,7 +98,7 @@
 
     </div>
 
-    <div id="event-menu" class="">
+    <div id="event-menu" class="d-flex flex-column justify-content-center align-items-center">
 
         <label for="search-bar" class="form-label"></label>
         <input type="email" class="" id="search-bar-sm" placeholder="Search here!">
@@ -117,5 +115,9 @@
         // should be passed callbacks for adding to schedule & favorites respectively
         [Parameter]
         public EventCallback<MainLayout.ScheduleScreens> setScreenCallback { get; set; }
+        [Parameter]
+        public MainLayout.ScheduleScreens currentScreen { get; set; } = MainLayout.ScheduleScreens.DAY_PICKER;
+
+
     }
 

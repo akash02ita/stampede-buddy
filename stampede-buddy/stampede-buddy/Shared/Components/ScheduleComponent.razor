@@ -9,15 +9,15 @@
         break;
 
     case MainLayout.ScheduleScreens.EVENT_BROWSER:
-        <stampede_buddy.Shared.Components.Schedule.EventBrowser setScreenCallback="@setScreenCallback" />
+        <stampede_buddy.Shared.Components.Schedule.EventBrowser currentScreen="@currentScreen" setScreenCallback="@setScreenCallback" />
         break;
 
     case MainLayout.ScheduleScreens.SCHEDULE_PICKER:
-        <stampede_buddy.Shared.Components.Schedule.SchedulePicker setScreenCallback="@setScreenCallback" />
+        <stampede_buddy.Shared.Components.Schedule.SchedulePicker currentScreen="@currentScreen"  setScreenCallback="@setScreenCallback" />
         break;
 
     case MainLayout.ScheduleScreens.ATTEND:
-        <stampede_buddy.Shared.Components.Schedule.Attend setScreenCallback="@setScreenCallback"/>
+        <stampede_buddy.Shared.Components.Schedule.Attend currentScreen="@currentScreen" setScreenCallback="@setScreenCallback"/>
         break;
     default:
         break;

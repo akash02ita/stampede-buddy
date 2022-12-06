@@ -1,5 +1,5 @@
 ﻿@inherits LayoutComponentBase
-
+@using stampede_buddy
 
 <div class="main-container">
 
@@ -8,10 +8,11 @@
 
         @if (currentTab == AppTab.EXPLORE)
         {
-                <stampede_buddy.Shared.Components.ExploreComponent/>
-        } else if (currentTab == AppTab.SCHEDULE)
+            <stampede_buddy.Shared.Components.ExploreComponent isDiscoverCollapsed="@isDiscoverCollapsed" toggleCollapsed="@toggleCollapsed"/>
+        }
+        else if (currentTab == AppTab.SCHEDULE)
         {
-                <stampede_buddy.Shared.Components.ScheduleComponent currentScreen="@scheduleScreen" setScreenCallback="@setScreenCallback"/>
+            <stampede_buddy.Shared.Components.ScheduleComponent currentScreen="@scheduleScreen" setScreenCallback="@setScreenCallback" />
         }
 
         @*@Body*@
@@ -46,6 +47,15 @@
 
 @code {
 
+
+    private bool isDiscoverCollapsed = false;
+
+    private void toggleCollapsed()
+    {
+        isDiscoverCollapsed = !isDiscoverCollapsed;
+    }
+
+
     enum AppTab
     {
         EXPLORE,
@@ -65,7 +75,6 @@
         currentTab = AppTab.SCHEDULE;
         Console.WriteLine(scheduleScreen);
     }
-
 
     public enum ScheduleScreens
     {
@@ -90,7 +99,6 @@
         // need to create a warning step here for when the user tries to go back to the day picker screen
         scheduleScreen = newScreen;
     }
-
 
 }
 

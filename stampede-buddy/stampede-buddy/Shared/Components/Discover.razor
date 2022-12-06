@@ -34,12 +34,10 @@
         @code {
 
             [Parameter]
-            public bool isCollapsed { get; set; } = true;
+            public bool isCollapsed { get; set; } = false;
 
-            private void toggleCollapsed()
-            {
-                isCollapsed = !isCollapsed;
-            }
+            [Parameter]
+            public EventCallback toggleCollapsed { get; set; }
 
         }
 
