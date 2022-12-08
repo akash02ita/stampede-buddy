@@ -1,4 +1,4 @@
-﻿
+﻿@inject HttpClient Http
 <div class="events-main-content">
 
     <div id="events-container" class="container-fluid">
@@ -110,13 +110,26 @@
 
     </div>
 
-    @code {
+@code {
 
-        // should be passed callbacks for adding to schedule & favorites respectively
-        [Parameter]
-        public EventCallback<MainLayout.ScheduleScreens> setScreenCallback { get; set; }
-        [Parameter]
-        public MainLayout.ScheduleScreens currentScreen { get; set; } = MainLayout.ScheduleScreens.DAY_PICKER;
+    // should be passed callbacks for adding to schedule & favorites respectively
+    [Parameter]
+    public EventCallback<MainLayout.ScheduleScreens> setScreenCallback { get; set; }
+    [Parameter]
+    public MainLayout.ScheduleScreens currentScreen { get; set; } = MainLayout.ScheduleScreens.DAY_PICKER;
+
+    private MainLayout.BaseEvent[]? availableEvents;
+    //private MainLayout.ScheduledEvent[]? availableScheduledEvents;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // get both kinds of events, concat arrays, then shuffle the combined array. 
+        // need to dynamically render based on type
+
+        availableEvents = await Http.GetFromJsonAsync<MainLayout.Event[]>("sample-data/events.json");
+    }
+
+
 
 
     }
