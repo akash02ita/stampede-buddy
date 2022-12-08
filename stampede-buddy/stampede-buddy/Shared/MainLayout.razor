@@ -12,7 +12,11 @@
         }
         else if (currentTab == AppTab.SCHEDULE)
         {
-            <stampede_buddy.Shared.Components.ScheduleComponent currentScreen="@scheduleScreen" setScreenCallback="@setScreenCallback" />
+            <CascadingValue Value="@Favorites">
+                <CascadingValue Value="@Schedule">
+                    <stampede_buddy.Shared.Components.ScheduleComponent currentScreen="@scheduleScreen" setScreenCallback="@setScreenCallback" />
+                </CascadingValue>
+            </CascadingValue>
         }
 
         @*@Body*@
@@ -98,6 +102,69 @@
     {
         // need to create a warning step here for when the user tries to go back to the day picker screen
         scheduleScreen = newScreen;
+    }
+
+    public abstract class BaseEvent
+    {
+
+        public BaseEvent()
+        {
+            EventName = "Superdogs";
+            Description = "A totally rad dog show.";
+            BriefDescription = "lololol";
+            Dates = new int[]{1, 2, 3};
+            Location = "Midway";
+        }
+
+        public string? EventName { get; set; }
+        public string? Description { get; set; }
+        public string? BriefDescription { get; set; }
+        public int[]? Dates { get; set; }
+        public string? Location { get; set; }
+
+    }
+
+
+    public class Event : BaseEvent {
+        public Event() : base()
+        {
+            Time = "All day"
+        }
+        public string? Time {get;set;}
+        
+    }
+
+    public class ScheduledEvent : Event
+    {
+        public ScheduledEvent() : base()
+        {
+            Times = new string[] { "1:00pm, 2:00pm, 3:00pm" };
+        }
+        public string[]? Times { get; set; }
+    }
+
+    public List<Event> Favorites { get; set; } = new List<Event> { new Event(), new Event() };
+    public List<ScheduledEvent> Schedule { get; set; } = new List<ScheduledEvent> { new ScheduledEvent(), new ScheduledEvent() };
+
+
+    public void addToFavourites(Event e)
+    {
+
+    }
+
+    public void removeFromFavorites(Event e)
+    {
+
+    }
+
+    public void addToSchedule(Event e)
+    {
+
+    }
+
+    public void removeFromSchedule(Event e)
+    {
+        
     }
 
 }

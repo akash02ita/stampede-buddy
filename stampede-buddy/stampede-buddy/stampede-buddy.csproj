@@ -16,8 +16,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
-    <Folder Include="Shared\Components\" />
-    <Folder Include="Shared\Components\Schedule\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Shared\Components\" />

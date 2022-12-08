@@ -64,12 +64,18 @@
 
 
         <div id="event-times" class="row justify-content-center">
-            <div class="schedule-card text-white">
-                <h5 class="my-2">Superdogs</h5>
-            </div>
+
+            @if (SelectedSchedule != null)
+            {
+                @foreach (var Event in SelectedSchedule)
+                {
+                    <ScheduleCard Event="@Event" />
+
+                }
+            }
 
             <div class="schedule-card-disabled text-white">
-                <h5 class="my-2">Superdogs</h5>
+                <h5 class="my-2">Empty Event</h5>
             </div>
 
         </div>
@@ -79,6 +85,12 @@
 
 
 @code {
+
+    /// <summary>
+    /// The user's selected schedule, if it exists
+    /// </summary>
+    [CascadingParameter]
+    protected List<MainLayout.ScheduledEvent>? SelectedSchedule { get; set; }
 
 }
 

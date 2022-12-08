@@ -58,6 +58,7 @@
 
     // we can add a fake "fetch" function to "get" the data and pass it in
 
+    /*
     public class Event
     {
         public string EventName { get; set; } = "Crazy Mouse";
@@ -67,13 +68,13 @@
         public string Times { get; set; } = "ALL DAY";
 
         public string Location { get; set; } = "Midway";
-    }
+    }*/
 
     /// <summary>
     /// The list of events to display in this component. 
     /// </summary>
     [Parameter]
-    public List<Event> Events { get; set; } = new List<Event> { new Event(), new Event(), new Event() }; // the fake event data goes here!
+    public List<MainLayout.Event> Events { get; set; } = new List<MainLayout.Event> { new MainLayout.Event(), new MainLayout.Event(), new MainLayout.Event() }; // the fake event data goes here!
 
 
     /// <summary>

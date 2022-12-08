@@ -650,6 +650,7 @@ flex-col {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 #explore-menu {
