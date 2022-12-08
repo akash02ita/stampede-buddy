@@ -128,7 +128,7 @@
     public class Event : BaseEvent {
         public Event() : base()
         {
-            Time = "All day"
+            Time = "All day";
         }
         public string? Time {get;set;}
         
@@ -143,13 +143,13 @@
         public string[]? Times { get; set; }
     }
 
-    public List<Event> Favorites { get; set; } = new List<Event> { new Event(), new Event() };
+    public List<Event> Favorites { get; set; } = new List<Event> { new Event(), new Event(), new Event(), new Event(), new Event() };
     public List<ScheduledEvent> Schedule { get; set; } = new List<ScheduledEvent> { new ScheduledEvent(), new ScheduledEvent() };
 
 
     public void addToFavourites(Event e)
     {
-
+        // hello
     }
 
     public void removeFromFavorites(Event e)

@@ -21,7 +21,7 @@
             <h2 class="col-10 text-left">Your favourites:</h2>
         </div>
 
-        <QuickEventBrowser/>
+        <QuickEventBrowser Events="@Favorites"/>
 
     </div>
 
@@ -34,6 +34,9 @@
 
     [Parameter]
     public MainLayout.ScheduleScreens currentScreen { get; set; }
+
+    [CascadingParameter]
+    public List<MainLayout.Event>? Favorites { get; set; } = new List<MainLayout.Event>();
 
     }
 
