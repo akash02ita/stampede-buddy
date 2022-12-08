@@ -368,7 +368,7 @@ flex-col {
     width: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     color: white;
 }
 
@@ -484,7 +484,6 @@ flex-col {
     position: relative;
     height: 420px;
     padding-bottom: 35px;
-    overflow-y: auto;
 }
 
 .timeslot {
@@ -594,7 +593,7 @@ flex-col {
 
 .right-favourites {
     margin-top: 10px;
-    width: 30%;
+    width: 20px;
     height: 130px;
     border-radius: 0.5em;
     background-color: rgba(179, 20, 20, 0.2);
@@ -607,7 +606,7 @@ flex-col {
 
 .left-favourites {
     margin-top: 10px;
-    width: 30%;
+    width: 20px;
     height: 130px;
     border-radius: 0.5em;
     background-color: rgba(179, 20, 20, 0.2);

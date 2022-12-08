@@ -1,8 +1,10 @@
-﻿<div class="events-main-content">
+﻿@using stampede_buddy
+@inject AppState AppState
+<div class="events-main-content">
 
     <div id="events-container" class="container-fluid">
 
-        <BackButton currentScreen="@currentScreen" setScreenCallback="@setScreenCallback" Title="Your Schedule" />
+        <BackButton  Title="Your Schedule" />
 
         <div id="filter-panel" class="mb-2 row justify-content-center text-center">
         </div>
@@ -21,7 +23,7 @@
             <h2 class="col-10 text-left">Your favourites:</h2>
         </div>
 
-        <QuickEventBrowser Events="@Favorites"/>
+        <QuickEventBrowser Events="@AppState.Favorites"/>
 
     </div>
 
@@ -30,13 +32,11 @@
 @code {
 
     [Parameter]
-    public EventCallback<MainLayout.ScheduleScreens> setScreenCallback { get; set; }
+    public EventCallback<ScheduleScreen> setScreenCallback { get; set; }
 
     [Parameter]
-    public MainLayout.ScheduleScreens currentScreen { get; set; }
+    public ScheduleScreen currentScreen { get; set; }
 
-    [CascadingParameter]
-    public List<MainLayout.Event>? Favorites { get; set; } = new List<MainLayout.Event>();
 
     }
 

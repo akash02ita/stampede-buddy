@@ -5,6 +5,11 @@
     "image": "https://www.theex.com/wp-content/uploads/2022/05/SuperDogs.png",
     "briefDescription": "A dogshow unlike any other!",
     "location": "BMO Center",
+    "times": [
+      "1:00pm",
+      "3:00pm",
+      "7:00pm"
+    ],
     "dates": [
       "7",
       "8",
@@ -25,6 +30,9 @@
     "image": "https://www.barrheadtravel.co.uk/media/4199/eveningshow_012.jpg",
     "briefDescription": "The iconic Stampede experience.",
     "location": "GMC Stadium",
+    "times": [
+      "7:45pm"
+    ],
     "dates": [
       "7",
       "8",
@@ -45,6 +53,11 @@
     "image": "https://images.ctfassets.net/gk8hs8lmghf8/6vWiDl6MMxn6WFXLtQ66aO/6de16b57a703af6eadfce22aee5dc86a/48216991632_a617ae1a5d_k.jpg",
     "briefDescription": "Adrenaline-packed motorcross action!",
     "location": "Saddledome",
+    "times": [
+      "1:40pm",
+      "4:00pm",
+      "7:30pm"
+    ],
     "dates": [
       "7",
       "8",
@@ -65,6 +78,9 @@
     "image": "https://images.ctfassets.net/gk8hs8lmghf8/7oNgHcqJcc72SqISx5s8sl/225fd85779fbd64bd35f50127724e4e9/48207043292_33b53adb1a_k.jpg",
     "briefDescription": "The original Stampede party tent.",
     "location": "Nashville North",
+    "times": [
+      "9:00pm"
+    ],
     "dates": [
       "7",
       "8",
@@ -85,6 +101,9 @@
     "image": "https://images.dailyhive.com/20180522091559/Screen-Shot-2018-05-22-at-9.14.27-AM.png",
     "briefDescription": "The ultimate outdoor live music experience.",
     "location": "Coca-Cola Stage",
+    "times": [
+      "8:00pm"
+    ],
     "dates": [
       "7",
       "8",
@@ -105,6 +124,10 @@
     "image": "https://images.ctfassets.net/kvjgfo1yo21w/4fpe93ZsXXLdMRS38z4swV/c9275e6fe17036370f12442bd58288ec/Showband.jpg",
     "briefDescription": "See the world-renowned ensemble live!",
     "location": "Saddledome steps",
+    "times": [
+      "1:20pm",
+      "8:00pm"
+    ],
     "dates": [
       "7",
       "8",
@@ -125,6 +148,9 @@
     "image": "https://dht7q8fif4gks.cloudfront.net/2022-05/powwow_flickr_calgary%2Bstampede_blake_chorley_1.jpg",
     "briefDescription": "Watch talented Indigenous performers.",
     "location": "Saddledome",
+    "times": [
+      "3:00pm"
+    ],
     "dates": [
       "7",
       "8",
@@ -145,6 +171,9 @@
     "image": "https://images.ctfassets.net/gk8hs8lmghf8/4sZ9IhylDJOxYUXGAgxa9Q/3e0111fd7e10d5b2ab8d3e45f6114f31/DragBrunchSocial_Web_002.jpg",
     "briefDescription": "Bringing opulence and eleganza to YYC!",
     "location": "Nashville North",
+    "times": [
+      "11:00am"
+    ],
     "dates": [
       "7",
       "8",
@@ -165,6 +194,9 @@
     "image": "https://images.ctfassets.net/gk8hs8lmghf8/5qTO2neSKHGxkliH7GNuIn/7d3281b3d5a84d5fb1b6919d81acb2c8/2019-07-14_CS19_Showdown__Hailey_Kinsel_0596_Billie-Jean_Duff__1___1_.jpg",
     "briefDescription": "The world's best competitors and animals!",
     "location": "GMC Stadium",
+    "times": [
+      "1:30pm"
+    ],
     "dates": [
       "7",
       "8",
@@ -185,6 +217,9 @@
     "image": "https://scontent.fyyc2-1.fna.fbcdn.net/v/t31.18172-8/19092902_10156670041394815_3168088544964629265_o.jpg?_nc_cat=101&ccb=1-7&_nc_sid=9267fe&_nc_ohc=Ss6proH5sU4AX-5UmG-&_nc_ht=scontent.fyyc2-1.fna&oh=00_AfAFDr7DJFmOG1AxJqEhiG7pD-YJecWS_8ZtSp6gz0_xbw&oe=63B88B1C",
     "briefDescription": "See world-famous performers live!",
     "location": "Virgin Plus Stage",
+    "times": [
+      "8:00pm"
+    ],
     "dates": [
       "7",
       "8",
@@ -230,6 +265,11 @@
     "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
     "briefDescription": "Tagline for the event",
     "location": "Location",
+    "times": [
+      "1:00pm",
+      "2:00pm",
+      "3:00pm"
+    ],
     "dates": [
       "7",
       "8",
@@ -250,6 +290,11 @@
     "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
     "briefDescription": "Tagline for the event",
     "location": "Location",
+    "times": [
+      "1:00pm",
+      "2:00pm",
+      "3:00pm"
+    ],
     "dates": [
       "7",
       "8",
@@ -270,6 +315,11 @@
     "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
     "briefDescription": "Tagline for the event",
     "location": "Location",
+    "times": [
+      "1:00pm",
+      "2:00pm",
+      "3:00pm"
+    ],
     "dates": [
       "7",
       "8",
@@ -290,6 +340,11 @@
     "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
     "briefDescription": "Tagline for the event",
     "location": "Location",
+    "times": [
+      "1:00pm",
+      "2:00pm",
+      "3:00pm"
+    ],
     "dates": [
       "7",
       "8",
@@ -310,6 +365,11 @@
     "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
     "briefDescription": "Tagline for the event",
     "location": "Location",
+    "times": [
+      "1:00pm",
+      "2:00pm",
+      "3:00pm"
+    ],
     "dates": [
       "7",
       "8",
@@ -330,6 +390,11 @@
     "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
     "briefDescription": "Tagline for the event",
     "location": "Location",
+    "times": [
+      "1:00pm",
+      "2:00pm",
+      "3:00pm"
+    ],
     "dates": [
       "7",
       "8",
@@ -350,6 +415,11 @@
     "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
     "briefDescription": "Tagline for the event",
     "location": "Location",
+    "times": [
+      "1:00pm",
+      "2:00pm",
+      "3:00pm"
+    ],
     "dates": [
       "7",
       "8",
@@ -370,6 +440,11 @@
     "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
     "briefDescription": "Tagline for the event",
     "location": "Location",
+    "times": [
+      "1:00pm",
+      "2:00pm",
+      "3:00pm"
+    ],
     "dates": [
       "7",
       "8",
@@ -390,6 +465,11 @@
     "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
     "briefDescription": "Tagline for the event",
     "location": "Location",
+    "times": [
+      "1:00pm",
+      "2:00pm",
+      "3:00pm"
+    ],
     "dates": [
       "7",
       "8",
@@ -410,6 +490,11 @@
     "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
     "briefDescription": "Tagline for the event",
     "location": "Location",
+    "times": [
+      "1:00pm",
+      "2:00pm",
+      "3:00pm"
+    ],
     "dates": [
       "7",
       "8",

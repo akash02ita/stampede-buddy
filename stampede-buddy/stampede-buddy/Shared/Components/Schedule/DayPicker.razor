@@ -1,4 +1,6 @@
-﻿
+﻿@inject AppState AppState
+
+
 <h2 class="m-4">Pick a day to visit!</h2>
 
 <div class="day-picker">
@@ -48,10 +50,8 @@
 <h2 class="">You've selected:</h2>
 <h2 class="display-5">July 15th</h2>
 
-    <div class="mb-3 w-75 btn btn-primary btn-block btn-lg " @onclick="() => {setScreenCallback.InvokeAsync(MainLayout.ScheduleScreens.EVENT_BROWSER); }">Continue</div>
+<Continue ClassName="mb-3 w-75 btn btn-primary btn-block btn-lg " />
 
 @code {
-    [Parameter]
-    public EventCallback<MainLayout.ScheduleScreens> setScreenCallback { get; set; }
 }
 

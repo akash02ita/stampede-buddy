@@ -1,7 +1,7 @@
 ﻿@using System;
 @using System.Collections;
 
-<div>
+<div class="w-100">
     <div class="d-flex gap-2 justify-content-center">
 
         <div class="left-favourites" @onclick="DecrementEvent">
@@ -15,9 +15,9 @@
                      alt="Snow" style="width:100%; height: 150px;">
                 <div class="dim flex">
                     <div class="card-content">
-                        <h2>@Events[EventIndex].EventName</h2>
+                        <h5>@Events[EventIndex].EventName</h5>
                         <div>@Events[EventIndex].BriefDescription</div>
-                        <div><span>@Events[EventIndex].Time</span> - <span>@Events[EventIndex].Location</span></div>
+                        <div><span>Anytime</span> - <span>@Events[EventIndex].Location</span></div>
                         <div class="d-grid gap-2 mt-2">
                             <button class="btn btn-danger" type="button">
                                 Begin
@@ -74,7 +74,7 @@
     /// The list of events to display in this component. 
     /// </summary>
     [Parameter]
-    public List<MainLayout.Event> Events { get; set; } = new List<MainLayout.Event> { new MainLayout.Event(), new MainLayout.Event(), new MainLayout.Event() }; // the fake event data goes here!
+    public List<Event> Events { get; set; } = new List<Event> { new Event(), new Event(), new Event() }; // the fake event data goes here!
 
 
     /// <summary>

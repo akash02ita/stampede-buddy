@@ -1,29 +1,29 @@
 ﻿@inherits LayoutComponentBase
 @using stampede_buddy
+@inject AppState AppState
+@implements IDisposable
 
 <div class="main-container">
 
     <div class="explore-phone-container">
 
 
-        @if (currentTab == AppTab.EXPLORE)
+        @if (AppState.CurrentTab == AppTab.EXPLORE)
         {
-            <stampede_buddy.Shared.Components.ExploreComponent isDiscoverCollapsed="@isDiscoverCollapsed" toggleCollapsed="@toggleCollapsed"/>
+            <stampede_buddy.Shared.Components.ExploreComponent/>
         }
-        else if (currentTab == AppTab.SCHEDULE)
+        else if (AppState.CurrentTab == AppTab.SCHEDULE)
         {
-            <CascadingValue Value="@Favorites">
-                <CascadingValue Value="@Schedule">
-                    <stampede_buddy.Shared.Components.ScheduleComponent currentScreen="@scheduleScreen" setScreenCallback="@setScreenCallback" />
-                </CascadingValue>
-            </CascadingValue>
+
+            <stampede_buddy.Shared.Components.ScheduleComponent/>
+
         }
 
         @*@Body*@
 
         <div class="bottom-tabs">
 
-            @if (currentTab == AppTab.EXPLORE)
+            @if (AppState.CurrentTab == AppTab.EXPLORE)
             {
                 <div class="bottom-tab-active bottom-tab bt-left" @onclick="switchToExplore">Explore</div>
             }
@@ -32,7 +32,7 @@
                 <div class="bottom-tab bt-left" @onclick="switchToExplore">Explore</div>
             }
 
-            @if (currentTab == AppTab.SCHEDULE)
+            @if (AppState.CurrentTab == AppTab.SCHEDULE)
             {
                 <div href="/schedule" class="bottom-tab-active bottom-tab bt-right" @onclick="switchToSchedule">Schedule</div>
             }
@@ -52,119 +52,25 @@
 @code {
 
 
-    private bool isDiscoverCollapsed = false;
-
-    private void toggleCollapsed()
-    {
-        isDiscoverCollapsed = !isDiscoverCollapsed;
-    }
-
-
-    enum AppTab
-    {
-        EXPLORE,
-        SCHEDULE
-    }
-
-    private AppTab currentTab = AppTab.EXPLORE;
-
     private void switchToExplore()
     {
-        currentTab = AppTab.EXPLORE;
-        Console.WriteLine(scheduleScreen);
+        AppState.setTab(AppTab.EXPLORE);
     }
 
     private void switchToSchedule()
     {
-        currentTab = AppTab.SCHEDULE;
-        Console.WriteLine(scheduleScreen);
+        AppState.setTab(AppTab.SCHEDULE);
     }
 
-    public enum ScheduleScreens
+
+    protected override void OnInitialized()
     {
-        DAY_PICKER,
-        EVENT_BROWSER,
-        SCHEDULE_PICKER,
-        ATTEND,
+        AppState.OnChange += StateHasChanged;
     }
 
-    private ScheduleScreens scheduleScreen = ScheduleScreens.DAY_PICKER;
-
-    /// <summary>
-    /// Example function that will just move to the next screen when called.
-    /// </summary>
-    public void advanceScreen()
+    public void Dispose()
     {
-        scheduleScreen += 1;
-    }
-
-    public void setScreenCallback(ScheduleScreens newScreen)
-    {
-        // need to create a warning step here for when the user tries to go back to the day picker screen
-        scheduleScreen = newScreen;
-    }
-
-    public abstract class BaseEvent
-    {
-
-        public BaseEvent()
-        {
-            EventName = "Superdogs";
-            Description = "A totally rad dog show.";
-            BriefDescription = "lololol";
-            Dates = new int[]{1, 2, 3};
-            Location = "Midway";
-        }
-
-        public string? EventName { get; set; }
-        public string? Description { get; set; }
-        public string? BriefDescription { get; set; }
-        public int[]? Dates { get; set; }
-        public string? Location { get; set; }
-
-    }
-
-
-    public class Event : BaseEvent {
-        public Event() : base()
-        {
-            Time = "All day";
-        }
-        public string? Time {get;set;}
-        
-    }
-
-    public class ScheduledEvent : Event
-    {
-        public ScheduledEvent() : base()
-        {
-            Times = new string[] { "1:00pm, 2:00pm, 3:00pm" };
-        }
-        public string[]? Times { get; set; }
-    }
-
-    public List<Event> Favorites { get; set; } = new List<Event> { new Event(), new Event(), new Event(), new Event(), new Event() };
-    public List<ScheduledEvent> Schedule { get; set; } = new List<ScheduledEvent> { new ScheduledEvent(), new ScheduledEvent() };
-
-
-    public void addToFavourites(Event e)
-    {
-        // hello
-    }
-
-    public void removeFromFavorites(Event e)
-    {
-
-    }
-
-    public void addToSchedule(Event e)
-    {
-
-    }
-
-    public void removeFromSchedule(Event e)
-    {
-        
+        AppState.OnChange -= StateHasChanged;
     }
 
 }
