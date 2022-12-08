@@ -420,7 +420,7 @@ flex-col {
 
 
 #schedule-picker-menu {
-    width: 95%;
+    /*    width: 95%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -432,8 +432,18 @@ flex-col {
     padding-bottom: 10px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    overflow: hidden;
+    overflow: hidden;*/
+
+    width: 95%;
+    display: inline-block;
+    position: absolute;
+    top: 470px;
+    background-color: white;
+    padding: 10px 10px 0px 10px;
+    border-radius: 20px;
+
 }
+
 
 .schedule-map {
     width: 100%;
@@ -464,7 +474,7 @@ flex-col {
 }
 
 #schedule-list {
-    height: 300px;
+    height: 450px;
     padding-bottom: 20px;
     overflow-y: auto;
 }
@@ -473,7 +483,7 @@ flex-col {
 #times-container {
     position: relative;
     height: 420px;
-    padding-bottom: 25px;
+    padding-bottom: 35px;
     overflow-y: auto;
 }
 
@@ -482,15 +492,15 @@ flex-col {
 }
 
 .time-divider {
-    border: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+/*    border: 0px;*/
+/*    border-bottom: 0.5px solid rgba(0, 0, 0, 0.42);*/
     opacity: 100%;
-    padding-top: 5px;
     width: 95%;
 }
 
 #time-lines {
     width: 100%;
+/*    background-color: rgba(0, 0, 0, 0.04);*/
 }
 
 .event-times {
@@ -504,18 +514,18 @@ flex-col {
     background: rgba(255, 0, 0, 0.549);
     width: 90%;
     border-radius: 5px;
-    height: 42px;
+    height: 48px;
 }
 
 .schedule-time-label {
-    font-size: 0.5em;
+    font-size: 0.7em;
 }
 
 /* Schedule attend screen */
 
 
 #schedule-attend-menu {
-    width: 95%;
+    /*    width: 95%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -527,7 +537,15 @@ flex-col {
     padding-bottom: 10px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    overflow: hidden;
+    overflow: hidden;*/
+
+    width: 95%;
+    display: inline-block;
+    position: absolute;
+    top: 470px;
+    background-color: white;
+    padding: 10px 10px 0px 10px;
+    border-radius: 20px;
 }
 
 .event-card {

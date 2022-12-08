@@ -16,92 +16,18 @@
             <hr />
         </div>
 
+        
+        <ScheduleView/>
 
-        <div id="schedule-list" class="d-grid gap-3">
+    </div>
 
-            <div id="times-container" class="row justify-content-center">
+        <div id="schedule-picker-menu" class="d-flex flex-column justify-content-center align-items-center">
 
-                <div id="time-lines" class="row gap-4 justify-content-center">
-                    <div class="row align-items-center">
-                        <div class="col-1 schedule-time-label">10am</div>
-                        <div class="col-11">
-                            <hr class="time-divider">
-                        </div>
-                    </div>
+            <img class="schedule-map" src="images/map.png" />
 
-                    <div class="row align-items-center">
-                        <div class="col-1 schedule-time-label">11am</div>
-                        <div class="col-11">
-                            <hr class="time-divider">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center">
-                        <div class="col-1 schedule-time-label">12am</div>
-                        <div class="col-11">
-                            <hr class="time-divider">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center">
-                        <div class="col-1 schedule-time-label">2pm</div>
-                        <div class="col-11">
-                            <hr class="time-divider">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center">
-                        <div class="col-1 schedule-time-label">3pm</div>
-                        <div class="col-11">
-                            <hr class="time-divider">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center">
-                        <div class="col-1 schedule-time-label">4pm</div>
-                        <div class="col-11">
-                            <hr class="time-divider">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center">
-                        <div class="col-1 schedule-time-label">5pm</div>
-                        <div class="col-11">
-                            <hr class="time-divider">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center">
-                        <div class="col-1 schedule-time-label">6pm</div>
-                        <div class="col-11">
-                            <hr class="time-divider">
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <div id="event-times" class="row justify-content-center">
-                    <div class="schedule-card text-white">
-                        <h5 class="my-2">Superdogs</h5>
-                    </div>
-                </div>
-            </div>
+            <div class="mt-2 w-100 btn btn-primary btn-block btn-lg " @onclick=" () => { setScreenCallback.InvokeAsync(MainLayout.ScheduleScreens.ATTEND); }">Use this schedule!</div>
 
         </div>
-
-
-    </div>
-
-    <div id="schedule-picker-menu" class="">
-
-        <hr class="menu-control" />
-
-        <img class="schedule-map" src="images/map.png" />
-
-        <div class="mt-2 w-100 btn btn-primary btn-block btn-lg " @onclick=" () => { setScreenCallback.InvokeAsync(MainLayout.ScheduleScreens.ATTEND); }">Use this schedule!</div>
-
-    </div>
 
     </div>
     @code {
