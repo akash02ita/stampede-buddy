@@ -115,8 +115,9 @@
     <div id="event-menu" class="d-flex flex-column justify-content-center align-items-center">
 
         <label for="search-bar" class="form-label"></label>
-        <input type="email" class="" id="search-bar-sm" placeholder="Search here!">
-
+        <div class="w-100" @onclick="AppState.enterEventSearch">
+        <input type="search" class="" id="search-bar-sm" placeholder="Search here!">
+        </div>
         <div class="mt-3 w-100 btn btn-primary  text-white btn-block btn-lg ">Favorites</div>
         <Continue ClassName="mt-3 w-100 btn btn-primary  text-white btn-block btn-lg" />
     </div>

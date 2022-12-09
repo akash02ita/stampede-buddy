@@ -19,7 +19,7 @@
 
         var minsOffset = (itemHeight * mins) / 60;
 
-        var offsetString = $"top: { (dividerHeight / 2) + minsOffset + (hoursSinceMidnight * (itemHeight))}px; height:{gap + dividerHeight}px";
+        var offsetString = $"top: { (dividerHeight / 2) + minsOffset + (hoursSinceMidnight * (itemHeight))}px; height:t{gap + dividerHeight}px";
             <div class="schedule-card text-white" style=@offsetString>
                 <div class="lead mt-1" style="font-size: 1.2em">@Event?.EventName</div>
             <div style="font-size: 0.8em">@time at @Event?.Location</div>

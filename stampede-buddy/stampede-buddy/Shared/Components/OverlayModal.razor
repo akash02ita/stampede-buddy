@@ -1,0 +1,149 @@
+﻿@inject AppState AppState
+@implements IDisposable
+
+@if (AppState.ShowOverlay)
+{
+
+    @if (AppState.CurrentOverlayState == OverlayState.NAVIGATION)
+    {
+        <div class="navigation-overlay-container">
+
+            <div id="navigate-header" class="">
+                <h3 class="text-center">Heading to @AppState.NavigationDestination</h3>
+                <div class="d-flex justify-content-center align-items-center gap-4">
+                    <div class="mt-3">
+                        <img class="nav-dir-icon" src=" https://cdn-icons-png.flaticon.com/512/271/271226.png" />
+                    </div>
+                    <div class="mt-3 lead text-center">Turn right in 30m</div>
+                </div>
+                <p class="text-center w-100 mt-2">(this feature is still under development)</p>
+            </div>
+
+            <div id="nav-menu">
+                <div class="row w-100">
+                    <div class="btn btn-danger btn-block btn" @onclick="dismissOverlay">Exit Navigation</div>
+
+                </div>
+            </div>
+
+        </div>
+    }
+    else if (AppState.CurrentOverlayState == OverlayState.SEARCH_MAIN)
+    {
+        <div class="overlay-container">
+            <div class="mt-4">
+                <div class="search-content">
+                    <div id="input-bar">
+
+                        <!-- <img class="icon-s" src="https://cdn-icons-png.flaticon.com/512/507/507257.png" /> -->
+                        <img class="icon-s " src="https://cdn-icons-png.flaticon.com/512/2223/2223615.png" @onclick="dismissOverlay" style="cursor: pointer;" />
+                        <!-- <img class="icon-s" src="https://cdn-icons-png.flaticon.com/512/751/751463.png" /> -->
+                        <label for="search-bar mr-3" class="form-label"></label>
+                        <input type="email" class="" id="search-bar" placeholder="Search here!">
+
+
+                    </div>
+                    <hr>
+                    <div class="search-results">
+
+                        <div class="search-result">
+                            <!-- <img class="icon-s" src="https://cdn-icons-png.flaticon.com/512/684/684908.png" /> -->
+                            <div class="flex">
+                                <div class="flex-col">
+                                    <img class="icon-s" src="https://cdn-icons-png.flaticon.com/512/684/684850.png" />
+                                    <div>800m</div>
+                                </div>
+
+                                <div class="flex-col search-result-content">
+                                    <div class="search-result-title">Superdogs</div>
+                                    <div>BMO Center</div>
+                                </div>
+                            </div>
+
+                            <div class="btn btn-danger"> Go!</div>
+                        </div>
+                    </div>
+                    <!-- end phone container -->
+                </div>
+            </div>
+        </div>
+    } else if (AppState.CurrentOverlayState == OverlayState.SEARCH_EVENT_BROWSER)
+    {
+        <div class="overlay-container">
+            <div class="mt-4">
+                <div class="search-content">
+                    <div id="input-bar">
+
+                        <!-- <img class="icon-s" src="https://cdn-icons-png.flaticon.com/512/507/507257.png" /> -->
+                        <img class="icon-s " src="https://cdn-icons-png.flaticon.com/512/2223/2223615.png" @onclick="dismissOverlay" style="cursor: pointer;" />
+                        <!-- <img class="icon-s" src="https://cdn-icons-png.flaticon.com/512/751/751463.png" /> -->
+                        <label for="search-bar mr-3" class="form-label"></label>
+                        <input type="email" class="" id="search-bar" placeholder="Search here!">
+
+
+                    </div>
+                    <hr>
+                    <div class="search-results">
+
+                        <div class="search-result">
+                            <!-- <img class="icon-s" src="https://cdn-icons-png.flaticon.com/512/684/684908.png" /> -->
+                            <div class="flex">
+                                <div class="flex-col">
+                                    <img class="icon-s" src="https://cdn-icons-png.flaticon.com/512/684/684850.png" />
+                                    <div>800m</div>
+                                </div>
+
+                                <div class="flex-col search-result-content">
+                                    <div class="search-result-title">Superdogs</div>
+                                    <div>BMO Center</div>
+                                </div>
+                            </div>
+
+                            <div class="btn btn-danger"> Go!</div>
+                        </div>
+                    </div>
+                    <!-- end phone container -->
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="overlay-container">
+        </div>
+    }
+
+} else
+{
+    
+}
+
+
+@code {
+    [Parameter]
+    public bool Show { get; set; } = false;
+
+    private void dismissOverlay()
+    {
+        AppState.SetOverlayVisible(false);
+
+        if (AppState.CurrentOverlayState == OverlayState.NAVIGATION)
+        {
+            AppState.ToggleCollapsed();
+        }
+
+        StateHasChanged();
+    }
+
+    protected override void OnInitialized()
+    {
+        AppState.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        AppState.OnChange -= StateHasChanged;
+    }
+
+
+}

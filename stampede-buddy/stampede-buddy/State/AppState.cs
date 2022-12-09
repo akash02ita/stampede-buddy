@@ -1,4 +1,6 @@
-﻿namespace stampede_buddy
+﻿using Microsoft.AspNetCore.Components;
+
+namespace stampede_buddy
 {
 
     public abstract class BaseEvent
@@ -53,7 +55,13 @@
         EXPLORE,
         SCHEDULE
     }
-
+    public enum OverlayState
+    {
+        WARNING,
+        NAVIGATION,
+        SEARCH_MAIN,
+        SEARCH_EVENT_BROWSER
+    }
 
 
     /// <summary>
@@ -162,6 +170,58 @@
         }
 
         #endregion
+
+
+        #region overlay management
+        public bool ShowOverlay { get; private set; } = false;
+
+        public void SetOverlayVisible (bool isVisible)
+        {
+            ShowOverlay = isVisible;
+            NotifyStateChanged();
+
+        }
+
+        public Type OverlayComponentType { get; set; }
+
+        public Dictionary<string, object> OverlayParameters { get; set; }
+        
+        
+        public void enterNavigation(string destination)
+        {
+            isDiscoverCollapsed = true;
+            NavigationDestination = destination;
+            CurrentTab = AppTab.EXPLORE;
+            CurrentOverlayState = OverlayState.NAVIGATION;
+            ShowOverlay = true;
+            // set navigation to show
+            NotifyStateChanged();
+        }
+
+
+
+        public OverlayState CurrentOverlayState { get; private set; } = OverlayState.SEARCH_MAIN;
+
+
+        public string NavigationDestination { get; private set; } = "Superdogs";
+
+        public void enterMainSearch()
+        {
+            CurrentOverlayState = OverlayState.SEARCH_MAIN;
+            ShowOverlay = true;
+            NotifyStateChanged();
+        }
+
+        public void enterEventSearch()
+        {
+            CurrentOverlayState = OverlayState.SEARCH_EVENT_BROWSER;
+            ShowOverlay = true;
+            NotifyStateChanged();
+        }
+
+        #endregion
+
+
 
     }
 

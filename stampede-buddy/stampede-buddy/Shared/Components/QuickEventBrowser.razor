@@ -1,7 +1,7 @@
 ﻿@using System;
 @using System.Collections;
 @inject HttpClient Http
-
+@inject AppState AppState
 
 @if (Events?.Count > 0)
 {
@@ -23,7 +23,13 @@
                             <div>@Events[EventIndex].BriefDescription</div>
                             <div><span>Anytime</span> - <span>@Events[EventIndex].Location</span></div>
                             <div class="d-grid gap-2 mt-2">
-                                <button class="btn btn-danger" type="button">
+                                <button class="btn btn-danger" type="button" @onclick="() => {
+                                    var destination = Events[EventIndex].Location;
+                                    if (destination is not null)
+                                    {
+                                        AppState.enterNavigation(destination);
+                                    }
+                                    }" >
                                     Begin
                                     navigation
                                 </button>
