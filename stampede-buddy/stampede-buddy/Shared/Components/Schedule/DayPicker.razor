@@ -14,21 +14,39 @@
         <div class="date-heading"> F</div>
         <div class="date-heading"> S</div>
 
+        @foreach (var item in days)
+        {
+            @* extract each value by casting: ArrayList expects elements are currently objects *@
+            int d = (int) ((ArrayList) item)[0];
+            bool clickable = (bool) ((ArrayList) item)[1];
+            string cn = (string) ((ArrayList) item)[2];
 
-        <div class="date date-invalid"> 3</div>
+            @if (clickable)
+            {
+                <div class=@cn @onclick="(() => updateSelection(d))"> @d </div>   
+            }
+            else {
+
+                <div class=@cn> @d </div>   
+            }
+        }
+
+        @* this dead code may be deleted *@
+        @* <div class="date date-invalid"> 3</div>
         <div class="date date-invalid"> 4</div>
         <div class="date date-invalid"> 5</div>
         <div class="date date-invalid"> 6</div>
-        <div class="date-item"> 7</div>
-        <div class="date-promo date-item "> 8</div>
-        <div class="date-item"> 9</div>
-        <div class="date-item"> 10</div>
-        <div class="date-item"> 11</div>
-        <div class="date-promo-2 date-item"> 12</div>
-        <div class="date-item"> 13</div>
-        <div class="date-item"> 14</div>
-        <div class="date-item data-selected"> 15</div>
-        <div class="date-item"> 16</div>
+        
+        <div @onclick="( () => updateSelection(7))" class="date-item"> 7</div>
+        <div @onclick="( () => updateSelection(7))" class="date-promo date-item "> 8</div>
+        <div @onclick="( () => updateSelection(7))" class="date-item"> 9</div>
+        <div @onclick="( () => updateSelection(7))" class="date-item"> 10</div>
+        <div @onclick="( () => updateSelection(7))" class="date-item"> 11</div>
+        <div @onclick="( () => updateSelection(7))" class="date-promo-2 date-item"> 12</div>
+        <div @onclick="( () => updateSelection(7))" class="date-item"> 13</div>
+        <div @onclick="( () => updateSelection(7))" class="date-item"> 14</div>
+        <div @onclick="( () => updateSelection(7))" class="date-item data-selected"> 15</div>
+        <div @onclick="( () => updateSelection(7))" class="date-item"> 16</div>
 
         <div class="date date-invalid"> 17</div>
         <div class="date date-invalid"> 17</div>
@@ -36,7 +54,7 @@
         <div class="date date-invalid"> 20</div>
         <div class="date date-invalid"> 21</div>
         <div class="date date-invalid"> 22</div>
-        <div class="date date-invalid"> 23</div>
+        <div class="date date-invalid"> 23</div> *@
 
     </div>
 </div>
@@ -47,11 +65,78 @@
     <li class="promo-label-2">July 12th: Family Day</li>
 </ul>
 
+@if (selectedDay >= 1 && selectedDay <= 31)
+{
 <h2 class="">You've selected:</h2>
-<h2 class="display-5">July 15th</h2>
+<h2 class="display-5">July @selectedDay@postfix</h2>
+}
+else {
+    <h2 class="">No selection so far</h2>
+    <h2 class="display-5">...</h2>
+}
+
+@* dead code *@
+@* <h2 class="">You've selected:</h2>
+<h2 class="display-5">July 15th</h2> *@
 
 <Continue ClassName="mb-3 w-75 btn btn-primary btn-block btn-lg " />
 
 @code {
+    @using System.Collections; // for array list
+
+    [Parameter]
+    public EventCallback<ScheduleScreen> setScreenCallback { get; set; }
+
+    private int selectedDay = -1;
+    private string @postfix = "th";
+
+    private ArrayList days = new ArrayList() {
+        @* [daynum, isItClickable, classname] *@
+        new ArrayList() {3, false, "date date-invalid"}, 
+        new ArrayList() {4, false, "date date-invalid"}, 
+        new ArrayList() {5, false, "date date-invalid"}, 
+        new ArrayList() {6, false, "date date-invalid"}, 
+
+        new ArrayList() { 7, true, "date-item"},
+        new ArrayList() { 8, true, "date-promo date-item "},
+        new ArrayList() { 9, true, "date-item"},
+        new ArrayList() {10, true, "date-item"},
+        new ArrayList() {11, true, "date-item"},
+        new ArrayList() {12, true, "date-promo-2 date-item"},
+        new ArrayList() {13, true, "date-item"},
+        new ArrayList() {14, true, "date-item"},
+        new ArrayList() {15, true, "date-item data-selected"},
+        new ArrayList() {16, true, "date-item"},
+
+        new ArrayList() {17, false, "date date-invalid"},
+        new ArrayList() {17, false, "date date-invalid"},
+        new ArrayList() {19, false, "date date-invalid"},
+        new ArrayList() {20, false, "date date-invalid"},
+        new ArrayList() {21, false, "date date-invalid"},
+        new ArrayList() {22, false, "date date-invalid"},
+        new ArrayList() {23, false, "date date-invalid"}
+    };
+
+    
+    @* TODO: make a list of pairs (day, dayclass), day=int, dayclass=""*@
+
+    private void updateSelection(int day)
+    {
+        Console.WriteLine("new selected day: " + day);
+        selectedDay = day;
+
+        if (day == 1 || day == 21 || day == 31) {
+            postfix = "st";
+        }
+        else if (day == 2 || day == 22) {
+            postfix = "snd";
+        }
+        else if (day == 3 || day == 23 ) {
+            postfix = "rd";
+        }
+        else {
+            postfix = "th";
+        }
+    }
 }
 
