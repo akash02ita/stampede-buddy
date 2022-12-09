@@ -662,7 +662,7 @@ flex-col {
     top: 300px;
     background-color: white;
     padding: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
     overflow: hidden;
@@ -671,6 +671,9 @@ flex-col {
 .one-touch-icon {
     width: 20%;
     height: auto;
+    background-color: rgb(235, 57, 57);
+    border-radius: 10px;
+    padding: 10px;
 }
 
 #navigate-header {
@@ -699,7 +702,7 @@ flex-col {
     top: 680px;
     background-color: rgb(255, 255, 255);
     padding: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
     overflow: hidden;

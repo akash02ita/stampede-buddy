@@ -1,4 +1,6 @@
-﻿@if (!isCollapsed)
+﻿@inject AppState AppState
+
+@if (!AppState.isDiscoverCollapsed)
 {
     <div id="explore-menu" class="row w-100 justify-content-center">
         <div class="menu-toggle" @onclick="toggleCollapsed">
@@ -31,13 +33,14 @@
         </div>
         }
 
-        @code {
+@code {
 
-            [Parameter]
-            public bool isCollapsed { get; set; } = false;
+    private void toggleCollapsed()
+    {
+        AppState.ToggleCollapsed();
+    }
 
-            [Parameter]
-            public EventCallback toggleCollapsed { get; set; }
 
-        }
+
+}
 

@@ -8,11 +8,11 @@
             l
         </div>
 
-        <div class="justify-content-center">
+        <div class="justify-content-center w-100">
             <div class="event-card">
                 <img class="favourite-card-img"
                      src="@Events[EventIndex].Image"
-                     alt="Snow" style="width:100%; height: 150px;">
+                     alt="Snow" style="width:100%; height: 150px; object-fit: fill;">
                 <div class="dim flex">
                     <div class="card-content">
                         <h5>@Events[EventIndex].EventName</h5>
@@ -49,26 +49,6 @@
 </div>
 
 @code {
-
-
-    // we need to parse event data JSON into this section !!
-
-    // parameters are specified when using this component from a larger component
-    // data can flow from the main page -> this component
-
-    // we can add a fake "fetch" function to "get" the data and pass it in
-
-    /*
-    public class Event
-    {
-        public string EventName { get; set; } = "Crazy Mouse";
-
-        public string TagLine { get; set; } = "A rotating roller coaster!";
-
-        public string Times { get; set; } = "ALL DAY";
-
-        public string Location { get; set; } = "Midway";
-    }*/
 
     /// <summary>
     /// The list of events to display in this component. 

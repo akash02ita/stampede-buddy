@@ -5,15 +5,15 @@
 
     <div id="events-container" class="container-fluid">
 
-        <BackButton  Title="Browse Events"/>
+        <BackButton Title="Browse Events"/>
 
 
 
         <div id=" filter-panel" class="mb-2 row">
-            <div class="col-3 text-center bg-primary text-white" @onclick="() => {SetFilter(EventBrowserFilter.ALL);}">All</div>
-            <div class="col-3 text-center bg-secondary text-white" @onclick="() => {SetFilter(EventBrowserFilter.RIDES);}">Rides</div>
-            <div class="col-3 text-center bg-secondary text-white" @onclick="() => {SetFilter(EventBrowserFilter.FOOD);}">Food</div>
-            <div class="col-3 text-center bg-secondary text-white" @onclick="() => {SetFilter(EventBrowserFilter.EVENTS);}">Events</div>
+            <div class="col-3 text-center @FilterTabClassNames[0]" @onclick="() => {SetFilter(EventBrowserFilter.ALL);}">All</div>
+            <div class="col-3 text-center @FilterTabClassNames[1]" @onclick="() => {SetFilter(EventBrowserFilter.RIDES);}">Rides</div>
+            <div class="col-3 text-center @FilterTabClassNames[2]" @onclick="() => {SetFilter(EventBrowserFilter.FOOD);}">Food</div>
+            <div class="col-3 text-center @FilterTabClassNames[3]" @onclick="() => {SetFilter(EventBrowserFilter.EVENTS);}">Events</div>
         </div>
 
         <div id="events-list" class="d-grid gap-3">
@@ -131,7 +131,6 @@
     private List<BaseEvent>? allAvailableEvents;
     private List<BaseEvent>? filteredEvents;
 
-
     public EventBrowserFilter Filter { get; set; } = EventBrowserFilter.ALL;
 
     public enum EventBrowserFilter
@@ -141,6 +140,11 @@
         FOOD,
         EVENTS
     }
+
+    private const string ACTIVE_FILTER_CLASS_NAME = "bg-primary text-white";
+    private const string INACTIVE_FILTER_CLASS_NAME = "bg-secondary text-white";
+
+    public string[] FilterTabClassNames = new string[] { ACTIVE_FILTER_CLASS_NAME, INACTIVE_FILTER_CLASS_NAME, INACTIVE_FILTER_CLASS_NAME, INACTIVE_FILTER_CLASS_NAME};
 
     protected override async Task OnInitializedAsync()
     {
@@ -157,24 +161,7 @@
             // shuffle the events and assign to member variable
             allAvailableEvents = allEvents.OrderBy(a => Guid.NewGuid()).ToList();
 
-
-            if (Filter == EventBrowserFilter.ALL)
-            {
-                filteredEvents = allAvailableEvents;
-                return;
-            } else if (Filter == EventBrowserFilter.FOOD)
-            {
-                filteredEvents = allAvailableEvents.Where(x => x.Type == "food").ToList();
-            }
-            else if (Filter == EventBrowserFilter.RIDES)
-            {
-                filteredEvents = allAvailableEvents.Where(x => x.Type == "rides").ToList();
-            }
-            else if (Filter == EventBrowserFilter.EVENTS)
-            {
-                filteredEvents = allAvailableEvents.Where(x => x.Type == "event").ToList();
-
-            }
+            refreshFilter(EventBrowserFilter.ALL);
 
         }
 
@@ -184,29 +171,38 @@
     {
         Filter = newFilter;
 
-        if (Filter == EventBrowserFilter.ALL)
-        {
-            filteredEvents = allAvailableEvents;
-            return;
-        }
-        else if (Filter == EventBrowserFilter.FOOD)
-        {
-            filteredEvents = allAvailableEvents?.Where(x => x.Type == "food").ToList();
-        }
-        else if (Filter == EventBrowserFilter.RIDES)
-        {
-            filteredEvents = allAvailableEvents?.Where(x => x.Type == "rides").ToList();
-        }
-        else if (Filter == EventBrowserFilter.EVENTS)
-        {
-            filteredEvents = allAvailableEvents?.Where(x => x.Type == "event").ToList();
+        refreshFilter(newFilter);
 
-        }
         StateHasChanged();
 
     }
 
+    public void refreshFilter(EventBrowserFilter newFilter)
+    {
+        if (newFilter == EventBrowserFilter.ALL)
+        {
+            filteredEvents = allAvailableEvents;
+            FilterTabClassNames = new string[] { ACTIVE_FILTER_CLASS_NAME, INACTIVE_FILTER_CLASS_NAME, INACTIVE_FILTER_CLASS_NAME, INACTIVE_FILTER_CLASS_NAME };
 
+            return;
+        }
+        else if (newFilter == EventBrowserFilter.FOOD)
+        {
+            filteredEvents = allAvailableEvents?.Where(x => x.Type == "food").ToList();
+            FilterTabClassNames = new string[] { INACTIVE_FILTER_CLASS_NAME, INACTIVE_FILTER_CLASS_NAME, ACTIVE_FILTER_CLASS_NAME, INACTIVE_FILTER_CLASS_NAME };
+
+        }
+        else if (newFilter == EventBrowserFilter.RIDES)
+        {
+            filteredEvents = allAvailableEvents?.Where(x => x.Type == "rides").ToList();
+            FilterTabClassNames = new string[] { INACTIVE_FILTER_CLASS_NAME, ACTIVE_FILTER_CLASS_NAME, INACTIVE_FILTER_CLASS_NAME, INACTIVE_FILTER_CLASS_NAME };
+        }
+        else if (newFilter == EventBrowserFilter.EVENTS)
+        {
+            filteredEvents = allAvailableEvents?.Where(x => x.Type == "event").ToList();
+            FilterTabClassNames = new string[] { INACTIVE_FILTER_CLASS_NAME, INACTIVE_FILTER_CLASS_NAME, INACTIVE_FILTER_CLASS_NAME, ACTIVE_FILTER_CLASS_NAME };
+        }
+    }
 
     }
 

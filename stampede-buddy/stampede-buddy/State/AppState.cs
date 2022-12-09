@@ -148,7 +148,7 @@
 
         public bool isDiscoverCollapsed { get; private set; } = false;
 
-        private void toggleCollapsed()
+        public void ToggleCollapsed()
         {
             isDiscoverCollapsed = !isDiscoverCollapsed;
             NotifyStateChanged();

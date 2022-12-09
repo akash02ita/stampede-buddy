@@ -1,7 +1,7 @@
 ﻿@inject AppState AppState
 
 <div class="mt-3"></div>
-@switch (currentScreen)
+@switch (AppState.CurrentScheduleScreen)
 {
     case ScheduleScreen.DAY_PICKER:
         <ul class="nav nav-pills">
@@ -9,7 +9,7 @@
                 <a class="nav-link active">1. Pick a day</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">2</a>
+                <a class="nav-link disabled" >2</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#">3</a>
@@ -22,10 +22,10 @@
     case ScheduleScreen.EVENT_BROWSER:
         <ul class="nav nav-pills">
             <li class="nav-item">
-                <a class="nav-link" @onclick="() => { setScreenCallback.InvokeAsync(ScheduleScreen.DAY_PICKER); }">1</a>
+                <a class="nav-link" @onclick="() => { AppState.setScheduleScreen(ScheduleScreen.DAY_PICKER); }">1</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">2. Browse Events</a>
+                <a class="nav-link active">2. Browse Events</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#">3</a>
@@ -38,13 +38,13 @@
     case ScheduleScreen.SCHEDULE_PICKER:
         <ul class="nav nav-pills">
             <li class="nav-item">
-                <a class="nav-link" href="#">1</a>
+                <a class="nav-link" @onclick="() => { AppState.setScheduleScreen(ScheduleScreen.DAY_PICKER); }">1</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">2.</a>
+                <a class="nav-link" @onclick="() => { AppState.setScheduleScreen(ScheduleScreen.EVENT_BROWSER); }">2</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="#">3. Choose Schedule</a>
+                <a class="nav-link active">3. Choose Schedule</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled">4</a>
@@ -54,13 +54,13 @@
     case ScheduleScreen.ATTEND:
         <ul class="nav nav-pills">
             <li class="nav-item">
-                <a class="nav-link" href="#">1</a>
+                <a class="nav-link" @onclick="() => { AppState.setScheduleScreen(ScheduleScreen.DAY_PICKER); }">1</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">2</a>
+                <a class="nav-link" @onclick="() => { AppState.setScheduleScreen(ScheduleScreen.EVENT_BROWSER); }">2</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">3</a>
+                <a class="nav-link" @onclick="() => { AppState.setScheduleScreen(ScheduleScreen.SCHEDULE_PICKER); }" >3</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active">4. Attend Stampede!</a>
@@ -71,24 +71,15 @@
 }
 
 @code {
-
-    /// <summary>
-    /// A callback that will change the main state to the correct screen.
-    /// </summary>
-    public Action selectScreen { get; set; } = () => { };
-
-
-    public void handleUpdate(ScheduleScreen newScreen)
+    protected override void OnInitialized()
     {
-        selectScreen();
+        AppState.OnChange += StateHasChanged;
     }
 
-
-    [Parameter]
-    public ScheduleScreen currentScreen { get; set; } = ScheduleScreen.DAY_PICKER;
-
-    [Parameter]
-    public EventCallback<ScheduleScreen> setScreenCallback { get; set; }
+    public void Dispose()
+    {
+        AppState.OnChange -= StateHasChanged;
+    }
 
 }
 

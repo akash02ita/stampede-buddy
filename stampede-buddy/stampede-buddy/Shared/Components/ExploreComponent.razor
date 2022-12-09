@@ -2,16 +2,10 @@
 
     <img class="explore-map" src="images/map-super-tall.png" />
 
-    <stampede_buddy.Shared.Components.Discover isCollapsed="@isDiscoverCollapsed" toggleCollapsed="@toggleCollapsed" />
+    <stampede_buddy.Shared.Components.Discover />
 
 </div>
 @code {
-
-    [Parameter]
-    public bool isDiscoverCollapsed { get; set; } = false;
-
-    [Parameter]
-    public EventCallback toggleCollapsed { get; set; }
 
 }
 
