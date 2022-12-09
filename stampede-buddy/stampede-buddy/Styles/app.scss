@@ -471,7 +471,7 @@ flex-col {
 
 #schedule-list {
     height: 450px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
     overflow-y: auto;
 }
 
@@ -479,7 +479,6 @@ flex-col {
 #times-container {
     position: relative;
     height: 420px;
-    padding-bottom: 35px;
 }
 
 .timeslot {
@@ -491,11 +490,17 @@ flex-col {
 /*    border-bottom: 0.5px solid rgba(0, 0, 0, 0.42);*/
     opacity: 100%;
     width: 95%;
+    margin: 1.1px 0px 1.1px 0px;
 }
 
 #time-lines {
     width: 100%;
 /*    background-color: rgba(0, 0, 0, 0.04);*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
 }
 
 .event-times {
@@ -504,12 +509,11 @@ flex-col {
 
 .schedule-card {
     position: absolute;
-    top: 30px;
-    /* use transform programatically instead */
     background: rgba(255, 0, 0, 0.549);
-    width: 90%;
+    width: 80%;
     border-radius: 5px;
     height: 48px;
+    margin-left: 20px;
 }
 
 .schedule-time-label {

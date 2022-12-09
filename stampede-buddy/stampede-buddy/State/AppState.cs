@@ -83,6 +83,13 @@
         #region schedule screen management
 
 
+        public int SelectedDay {get; private set;}
+
+        public void setSelectedDay(int newDay)
+        {
+            SelectedDay = newDay;
+        }
+
         public ScheduleScreen CurrentScheduleScreen { get; private set; } = ScheduleScreen.DAY_PICKER;
 
         public void setScheduleScreen(ScheduleScreen newScreen)
