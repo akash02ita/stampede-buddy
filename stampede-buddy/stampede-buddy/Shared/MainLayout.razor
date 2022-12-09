@@ -1,24 +1,29 @@
 ﻿@inherits LayoutComponentBase
-
+@using stampede_buddy
+@inject AppState AppState
+@implements IDisposable
 
 <div class="main-container">
 
     <div class="explore-phone-container">
 
 
-        @if (currentTab == AppTab.EXPLORE)
+        @if (AppState.CurrentTab == AppTab.EXPLORE)
         {
-                <stampede_buddy.Shared.Components.ExploreComponent/>
-        } else if (currentTab == AppTab.SCHEDULE)
+            <stampede_buddy.Shared.Components.ExploreComponent/>
+        }
+        else if (AppState.CurrentTab == AppTab.SCHEDULE)
         {
-                <stampede_buddy.Shared.Components.ScheduleComponent currentScreen="@scheduleScreen" setScreenCallback="@setScreenCallback"/>
+
+            <stampede_buddy.Shared.Components.ScheduleComponent/>
+
         }
 
         @*@Body*@
 
         <div class="bottom-tabs">
 
-            @if (currentTab == AppTab.EXPLORE)
+            @if (AppState.CurrentTab == AppTab.EXPLORE)
             {
                 <div class="bottom-tab-active bottom-tab bt-left" @onclick="switchToExplore">Explore</div>
             }
@@ -27,7 +32,7 @@
                 <div class="bottom-tab bt-left" @onclick="switchToExplore">Explore</div>
             }
 
-            @if (currentTab == AppTab.SCHEDULE)
+            @if (AppState.CurrentTab == AppTab.SCHEDULE)
             {
                 <div href="/schedule" class="bottom-tab-active bottom-tab bt-right" @onclick="switchToSchedule">Schedule</div>
             }
@@ -46,51 +51,27 @@
 
 @code {
 
-    enum AppTab
-    {
-        EXPLORE,
-        SCHEDULE
-    }
-
-    private AppTab currentTab = AppTab.EXPLORE;
 
     private void switchToExplore()
     {
-        currentTab = AppTab.EXPLORE;
-        Console.WriteLine(scheduleScreen);
+        AppState.setTab(AppTab.EXPLORE);
     }
 
     private void switchToSchedule()
     {
-        currentTab = AppTab.SCHEDULE;
-        Console.WriteLine(scheduleScreen);
+        AppState.setTab(AppTab.SCHEDULE);
     }
 
 
-    public enum ScheduleScreens
+    protected override void OnInitialized()
     {
-        DAY_PICKER,
-        EVENT_BROWSER,
-        SCHEDULE_PICKER,
-        ATTEND,
+        AppState.OnChange += StateHasChanged;
     }
 
-    private ScheduleScreens scheduleScreen = ScheduleScreens.DAY_PICKER;
-
-    /// <summary>
-    /// Example function that will just move to the next screen when called.
-    /// </summary>
-    public void advanceScreen()
+    public void Dispose()
     {
-        scheduleScreen += 1;
+        AppState.OnChange -= StateHasChanged;
     }
-
-    public void setScreenCallback(ScheduleScreens newScreen)
-    {
-        // need to create a warning step here for when the user tries to go back to the day picker screen
-        scheduleScreen = newScreen;
-    }
-
 
 }
 

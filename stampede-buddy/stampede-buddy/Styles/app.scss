@@ -1,6 +1,4 @@
-﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
-
-html, body {
+﻿html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -14,8 +12,6 @@ a, .btn-link {
 
 .btn-primary {
     color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
 }
 
 .content {
@@ -333,9 +329,9 @@ flex-col {
     width: 95%;
     display: inline-block;
     position: absolute;
-    top: 550px;
+    top: 510px;
     background-color: white;
-    padding: 10px;
+    padding: 10px 10px 0px 10px;
     border-radius: 20px;
 }
 
@@ -368,7 +364,7 @@ flex-col {
     width: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     color: white;
 }
 
@@ -420,7 +416,7 @@ flex-col {
 
 
 #schedule-picker-menu {
-    width: 95%;
+    /*    width: 95%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -432,8 +428,18 @@ flex-col {
     padding-bottom: 10px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    overflow: hidden;
+    overflow: hidden;*/
+
+    width: 95%;
+    display: inline-block;
+    position: absolute;
+    top: 470px;
+    background-color: white;
+    padding: 10px 10px 0px 10px;
+    border-radius: 20px;
+
 }
+
 
 .schedule-map {
     width: 100%;
@@ -464,7 +470,7 @@ flex-col {
 }
 
 #schedule-list {
-    height: 300px;
+    height: 450px;
     padding-bottom: 20px;
     overflow-y: auto;
 }
@@ -473,8 +479,7 @@ flex-col {
 #times-container {
     position: relative;
     height: 420px;
-    padding-bottom: 25px;
-    overflow-y: auto;
+    padding-bottom: 35px;
 }
 
 .timeslot {
@@ -482,15 +487,15 @@ flex-col {
 }
 
 .time-divider {
-    border: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+/*    border: 0px;*/
+/*    border-bottom: 0.5px solid rgba(0, 0, 0, 0.42);*/
     opacity: 100%;
-    padding-top: 5px;
     width: 95%;
 }
 
 #time-lines {
     width: 100%;
+/*    background-color: rgba(0, 0, 0, 0.04);*/
 }
 
 .event-times {
@@ -504,18 +509,18 @@ flex-col {
     background: rgba(255, 0, 0, 0.549);
     width: 90%;
     border-radius: 5px;
-    height: 42px;
+    height: 48px;
 }
 
 .schedule-time-label {
-    font-size: 0.5em;
+    font-size: 0.7em;
 }
 
 /* Schedule attend screen */
 
 
 #schedule-attend-menu {
-    width: 95%;
+    /*    width: 95%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -527,7 +532,15 @@ flex-col {
     padding-bottom: 10px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    overflow: hidden;
+    overflow: hidden;*/
+
+    width: 95%;
+    display: inline-block;
+    position: absolute;
+    top: 470px;
+    background-color: white;
+    padding: 10px 10px 0px 10px;
+    border-radius: 20px;
 }
 
 .event-card {
@@ -576,7 +589,7 @@ flex-col {
 
 .right-favourites {
     margin-top: 10px;
-    width: 30%;
+    width: 20px;
     height: 130px;
     border-radius: 0.5em;
     background-color: rgba(179, 20, 20, 0.2);
@@ -589,7 +602,7 @@ flex-col {
 
 .left-favourites {
     margin-top: 10px;
-    width: 30%;
+    width: 20px;
     height: 130px;
     border-radius: 0.5em;
     background-color: rgba(179, 20, 20, 0.2);
@@ -632,6 +645,7 @@ flex-col {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 #explore-menu {
@@ -644,7 +658,7 @@ flex-col {
     top: 300px;
     background-color: white;
     padding: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
     overflow: hidden;
@@ -653,6 +667,9 @@ flex-col {
 .one-touch-icon {
     width: 20%;
     height: auto;
+    background-color: rgb(235, 57, 57);
+    border-radius: 10px;
+    padding: 10px;
 }
 
 #navigate-header {
@@ -681,7 +698,7 @@ flex-col {
     top: 680px;
     background-color: rgb(255, 255, 255);
     padding: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
     overflow: hidden;
