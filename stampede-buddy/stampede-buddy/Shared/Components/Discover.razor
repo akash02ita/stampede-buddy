@@ -1,7 +1,11 @@
 ﻿@inject AppState AppState
+@implements IDisposable
 
 @if (!AppState.isDiscoverCollapsed)
 {
+    var washroom = "Washroom";
+    var atm = "ATM";
+    var helpDesk = "Help Desk";
     <div id="explore-menu" class="row w-100 justify-content-center">
         <div class="menu-toggle" @onclick="toggleCollapsed">
             <hr class="menu-control my-1" />
@@ -10,9 +14,11 @@
         <p class="lead">Find the nearest...</p>
         <div class="d-flex justify-content-center gap-4">
             @*Need to make these buttons here look more like buttons. Find non-coloured icons? Maybe use bootstrap icons?*@
-            <img class="one-touch-icon" src="https://cdn-icons-png.flaticon.com/512/3033/3033725.png" />
-            <img class="one-touch-icon" src="https://cdn-icons-png.flaticon.com/512/584/584031.png" />
-            <img class="one-touch-icon" src="https://cdn-icons-png.flaticon.com/512/4014/4014943.png" />
+            
+            
+            <img class="one-touch-icon" src="https://cdn-icons-png.flaticon.com/512/3033/3033725.png" @onclick="() => {AppState.enterNavigation(washroom);}" />
+            <img class="one-touch-icon" src="https://cdn-icons-png.flaticon.com/512/584/584031.png" @onclick="() => {AppState.enterNavigation(atm);}" />
+            <img class="one-touch-icon" src="https://cdn-icons-png.flaticon.com/512/4014/4014943.png" @onclick="() => {AppState.enterNavigation(helpDesk);}" />
         </div>
 
         <label for="search-bar" class="form-label"></label>
@@ -48,7 +54,15 @@ else
         AppState.ToggleCollapsed();
     }
 
+    protected override void OnInitialized()
+    {
+        AppState.OnChange += StateHasChanged;
+    }
 
+    public void Dispose()
+    {
+        AppState.OnChange -= StateHasChanged;
+    }
 
 }
 
