@@ -1,0 +1,17 @@
+﻿@inject AppState AppState
+
+<div class="@ClassName" @onclick="NextScreen">@ButtonText</div>
+
+@code {
+    [Parameter]
+    public string? ClassName { get; set; }
+
+
+    [Parameter]
+    public string? ButtonText { get; set; } = "Continue";
+
+    public void NextScreen()
+    {
+        AppState.GoToNextScreen();
+    }
+}

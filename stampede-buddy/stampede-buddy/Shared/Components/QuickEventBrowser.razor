@@ -1,79 +1,74 @@
 ﻿@using System;
 @using System.Collections;
+@inject HttpClient Http
 
-<div>
-    <div class="d-flex gap-2 justify-content-center">
 
-        <div class="left-favourites" @onclick="DecrementEvent">
-            l
-        </div>
+@if (Events?.Count > 0)
+{
+    <div class="w-100">
+        <div class="d-flex gap-2 justify-content-center">
 
-        <div class="justify-content-center">
-            <div class="event-card">
-                <img class="favourite-card-img"
-                     src="https://origin.calgarystampede.com/sites/default/files/crazymouse-hero-1440x600.jpg"
-                     alt="Snow" style="width:100%; height: 150px;">
-                <div class="dim flex">
-                    <div class="card-content">
-                        <h2>@Events[EventIndex].EventName</h2>
-                        <div>@Events[EventIndex].TagLine</div>
-                        <div><span>@Events[EventIndex].Times</span> - <span>@Events[EventIndex].Location</span></div>
-                        <div class="d-grid gap-2 mt-2">
-                            <button class="btn btn-danger" type="button">
-                                Begin
-                                navigation
-                            </button>
+            <div class="left-favourites" @onclick="DecrementEvent">
+                l
+            </div>
+
+            <div class="justify-content-center w-100">
+                <div class="event-card">
+                    <img class="favourite-card-img"
+                     src="@Events[EventIndex].Image"
+                     alt="Snow" style="width:100%; height: 150px; object-fit: fill;">
+                    <div class="dim flex">
+                        <div class="card-content">
+                            <h5>@Events[EventIndex].EventName</h5>
+                            <div>@Events[EventIndex].BriefDescription</div>
+                            <div><span>Anytime</span> - <span>@Events[EventIndex].Location</span></div>
+                            <div class="d-grid gap-2 mt-2">
+                                <button class="btn btn-danger" type="button">
+                                    Begin
+                                    navigation
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="d-flex w-100 justify-content-center my-2 gap-2">
-                @for (int i = 0; i < Events.Count; i++)
-                {
-                    @if (i == EventIndex)
+                <div class="d-flex w-100 justify-content-center my-2 gap-2">
+                    @for (int i = 0; i < Events.Count; i++)
                     {
-                        <div class="active-dot"></div>
-                    } else {
-                        <div class="dot"></div>
-                    }
+                        @if (i == EventIndex)
+                        {
+                            <div class="active-dot"></div>
+                        }
+                        else
+                        {
+                            <div class="dot"></div>
+                        }
 
-                }
+                    }
+                </div>
+
             </div>
+
+
+            <div class="right-favourites" @onclick="IncrementEvent"> r </div>
 
         </div>
-
-
-        <div class="right-favourites" @onclick="IncrementEvent"> r </div>
-
     </div>
-</div>
+} else
+{
+    <div>
+        <h1>No events found.</h1>
+    </div>
+}
+
+
 
 @code {
-
-
-    // we need to parse event data JSON into this section !!
-
-    // parameters are specified when using this component from a larger component
-    // data can flow from the main page -> this component
-
-    // we can add a fake "fetch" function to "get" the data and pass it in
-
-    public class Event
-    {
-        public string EventName { get; set; } = "Crazy Mouse";
-
-        public string TagLine { get; set; } = "A rotating roller coaster!";
-
-        public string Times { get; set; } = "ALL DAY";
-
-        public string Location { get; set; } = "Midway";
-    }
 
     /// <summary>
     /// The list of events to display in this component. 
     /// </summary>
     [Parameter]
-    public List<Event> Events { get; set; } = new List<Event> { new Event(), new Event(), new Event() }; // the fake event data goes here!
+    public List<Event>? Events { get; set; }
 
 
     /// <summary>
@@ -87,7 +82,7 @@
     /// </summary>
     private void IncrementEvent()
     {
-        if (EventIndex + 1 == Events.Count)
+        if (EventIndex + 1 == Events?.Count)
         {
             EventIndex = 0;
         } else
@@ -113,7 +108,33 @@
     }
 
 
+
+    protected override async Task OnInitializedAsync()
+    {
+        // get both kinds of events, concat arrays, then shuffle the combined array.
+        // need to dynamically render based on type
+
+        if (Events != null)
+        {
+            // if Events is defined thru a parameter, do not fetch data to fill it with
+            return;
+        }
+
+        var regularEvents = await Http.GetFromJsonAsync<Event[]>("sample-data/events.json");
+
+        if (regularEvents != null)
+        {
+            List<Event> allEvents = new List<Event>().Concat(regularEvents).ToList();
+
+            // shuffle the events and assign to member variable
+            allEvents = allEvents.OrderBy(a => Guid.NewGuid()).ToList().GetRange(0, 8);
+
+            Events = allEvents;
+
+        }
+
     }
+}
 
 
 

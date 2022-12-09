@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "wwwroot/css/theme.css",
+    "inputFile": "Styles/Theme.scss",
+    "options": {
+      "autoPrefix": "last 2 versions",
+      "sourceMap": true
+    }
+  }
+]

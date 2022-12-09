@@ -1,0 +1,71 @@
+﻿
+@if (Events != null || Events?.Count > 0)
+{
+    <div id="schedule-list" class="d-grid gap-3">
+
+        <div id="times-container" class="row justify-content-center">
+
+            <div id="time-lines" class="">
+
+
+                    <div class="d-flex align-items-center w-100" style="height: 18px;">
+                    <div class="col-1 schedule-time-label">12am</div>
+                    <div class="col-11">
+                        <hr class="time-divider">
+                    </div>
+                </div>
+
+                @for (int i = 1; i < 25; i++)
+                {
+                    var hour = (i < 12) ? $"{i}am" : $"{i-12}pm";
+                    <div class="d-flex align-items-center w-100" style="height: 18px;">
+                    <div class="col-1 schedule-time-label">@hour</div>
+                    <div class="col-11">
+                        <hr class="time-divider">
+                    </div>
+                </div>
+
+                }
+
+            </div>
+
+
+            <div id="event-times" class="row justify-content-center">
+
+                @if (Events != null)
+                {
+                    @foreach (var Event in Events)
+                    {
+                        <ScheduleCard Event="@Event" />
+                    }
+                }
+
+                <div class="schedule-card-disabled text-white">
+                    <h5 class="my-2">Empty Event</h5>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+} else
+{
+    <div>
+        <h1>No events were added to your schedule.</h1>
+    </div>
+}
+
+
+
+@code {
+    private string[] ALL_TIMES = new string[] { "12:00am", "1:00am", "1:00am" };
+
+    /// <summary>
+    /// The user's selected schedule, if it exists
+    /// </summary>
+    [Parameter]
+    public List<ScheduledEvent>? Events { get; set; }
+
+}
+
