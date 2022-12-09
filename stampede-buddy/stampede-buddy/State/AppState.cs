@@ -12,6 +12,7 @@
             Dates = new string[] { "1", "2", "3" };
             Location = "Midway";
             Type = "event";
+            Image = "https://www.amusementsofamerica.com/aoa/midway/images/66L.jpg";
         }
 
         public string? EventName { get; set; }

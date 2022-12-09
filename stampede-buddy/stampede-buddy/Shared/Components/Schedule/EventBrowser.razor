@@ -172,7 +172,7 @@
             }
             else if (Filter == EventBrowserFilter.EVENTS)
             {
-                filteredEvents = allAvailableEvents.Where(x => x.Type == "events").ToList();
+                filteredEvents = allAvailableEvents.Where(x => x.Type == "event").ToList();
 
             }
 
@@ -199,7 +199,7 @@
         }
         else if (Filter == EventBrowserFilter.EVENTS)
         {
-            filteredEvents = allAvailableEvents?.Where(x => x.Type == "events").ToList();
+            filteredEvents = allAvailableEvents?.Where(x => x.Type == "event").ToList();
 
         }
         StateHasChanged();
