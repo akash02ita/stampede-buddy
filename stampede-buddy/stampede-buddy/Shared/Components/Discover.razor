@@ -22,7 +22,9 @@
         </div>
 
         <label for="search-bar" class="form-label"></label>
-        <input type="email" class="my-2" id="search-bar-sm" placeholder="Find something...">
+        <div @onclick="AppState.enterMainSearch">
+            <input type="search" class="my-2" id="search-bar-sm" placeholder="Find something...">
+        </div>
 
         <div class="lead mb-2">
             Explore nearby <span class="btn btn-sm btn-danger dropdown-toggle mx-2" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">rides</span>

@@ -161,7 +161,7 @@ namespace stampede_buddy
 
         #region explore screen management
 
-        public bool isDiscoverCollapsed { get; private set; } = true;
+        public bool isDiscoverCollapsed { get; private set; } = false;
 
         public void ToggleCollapsed()
         {
@@ -173,7 +173,7 @@ namespace stampede_buddy
 
 
         #region overlay management
-        public bool ShowOverlay { get; private set; } = true;
+        public bool ShowOverlay { get; private set; } = false;
 
         public void SetOverlayVisible (bool isVisible)
         {
@@ -200,14 +200,24 @@ namespace stampede_buddy
 
 
 
-        public OverlayState CurrentOverlayState { get; private set; } = OverlayState.NAVIGATION;
+        public OverlayState CurrentOverlayState { get; private set; } = OverlayState.SEARCH_MAIN;
 
 
         public string NavigationDestination { get; private set; } = "Superdogs";
 
+        public void enterMainSearch()
+        {
+            CurrentOverlayState = OverlayState.SEARCH_MAIN;
+            ShowOverlay = true;
+            NotifyStateChanged();
+        }
 
-
-
+        public void enterEventSearch()
+        {
+            CurrentOverlayState = OverlayState.SEARCH_EVENT_BROWSER;
+            ShowOverlay = true;
+            NotifyStateChanged();
+        }
 
         #endregion
 
