@@ -1,4 +1,6 @@
-﻿<div class="events-main-content">
+﻿@inject AppState AppState
+
+<div class="events-main-content">
 
     <div id="events-container" class="container-fluid">
 
@@ -16,8 +18,15 @@
             <hr />
         </div>
 
+        @if (AppState.Schedule.Count > 0) 
+        {
+            //List<List<ScheduledEvent>> permutations = computeScheduleOptions(AppState.Schedule);
+            //List<ScheduledEvent> selectedOption = permutations[optionsIndex];
+            <ScheduleView Events="@AppState.Schedule" />
+        } else {
+            <ScheduleView /> // if the user has no events in their schedule, the component will render error message.
+        }
         
-        <ScheduleView/>
 
     </div>
 
@@ -28,14 +37,21 @@
         </div>
 
     </div>
-    @code {
+@code {
 
 
-        [Parameter]
-        public EventCallback<ScheduleScreen> setScreenCallback { get; set; }
-        [Parameter]
-        public ScheduleScreen currentScreen { get; set; } = ScheduleScreen.DAY_PICKER;
+    [Parameter]
+    public EventCallback<ScheduleScreen> setScreenCallback { get; set; }
+    [Parameter]
+    public ScheduleScreen currentScreen { get; set; } = ScheduleScreen.DAY_PICKER;
 
+
+    private List<List<ScheduledEvent>> computeScheduleOptions (List<ScheduledEvent> desiredEvents)
+    {
+        return new List<List<ScheduledEvent>>();
+    }
+
+    private int optionsIndex { get; set; } = 0;
 
     }
 

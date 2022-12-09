@@ -1,6 +1,5 @@
 ﻿@inject AppState AppState
 
-
 <h2 class="m-4">Pick a day to visit!</h2>
 
 <div class="day-picker">
@@ -105,7 +104,7 @@ else {
         new ArrayList() {12, true, "date-promo-2 date-item"},
         new ArrayList() {13, true, "date-item"},
         new ArrayList() {14, true, "date-item"},
-        new ArrayList() {15, true, "date-item data-selected"},
+        new ArrayList() {15, true, "date-item"},
         new ArrayList() {16, true, "date-item"},
 
         new ArrayList() {17, false, "date date-invalid"},
@@ -125,6 +124,8 @@ else {
         Console.WriteLine("new selected day: " + day);
         selectedDay = day;
 
+        AppState.setSelectedDay(day);
+
         if (day == 1 || day == 21 || day == 31) {
             postfix = "st";
         }
@@ -137,6 +138,7 @@ else {
         else {
             postfix = "th";
         }
+
     }
 }
 
