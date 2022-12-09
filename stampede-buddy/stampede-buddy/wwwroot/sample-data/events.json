@@ -1,6 +1,7 @@
 [
   {
     "eventName": "Family Squeezed Lemonade",
+    "description": "",
     "image": "https://images.ctfassets.net/gk8hs8lmghf8/5SDX6Vv7m0Sevst4muO0wg/154b4811ae8787f2e4415cb9ac91f6c7/Duck_Pond_Lemonade_jpg.jpg?fit=fill&fm=webp&h=240&q=85&w=415",
     "briefDescription": "Freshly squeezed!",
     "location": "Food trucks",
@@ -21,8 +22,8 @@
 
   {
     "eventName": "Happy Fish",
-    "description": "Music, spectacular stunts, and jaw-dropping pyrotechnics. As the sun sets, the Bell Grandstand Show takes the stage to dazzle audiences with elaborate song, dance and live music performances. Feel the excitement, move to the music, and soar with the fireworks!",
-    "image": "https://images.squarespace-cdn.com/content/v1/53f43705e4b03f018aae7cf3/1552325319618-6S600NJ88T0KZUG4NNFW/happyfishiphonefoodtruck-2.jpg",
+    "description": "",
+    "image": "https://www.thespruceeats.com/thmb/B2oWCR7mIqoNEAOLCQoCuB3GKqU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/easy-fried-fish-fillets-3056505-Final-5b9fc8b6c9e77c0050cd8171-e0c602a3dbae4d56955ea69bb4100207.jpg",
     "briefDescription": "Fish with a twist!",
     "location": "Food trucks",
     "dates": [
@@ -42,7 +43,7 @@
 
   {
     "eventName": "The Dumpling Hero",
-    "description": "Whether you're an adrenaline junkie or just exploring all that Stampede Park has to offer, you'll get hooked on the high-flying flips and daring tricks of Freestyle Motorcross. Every day, three times a day, plus an encore performance in the evening with a backdrop of fireworks, you'll watch world-class Freestyle Motocross athletes perform their best stunt routines.",
+    "description": "",
     "image": "https://images.ctfassets.net/gk8hs8lmghf8/34l9LhkOa3vtrcvCwpILvb/810d84ddb08c2b56863ada261ad54505/Bao_Baos-min.jpeg?fit=fill&fm=webp&h=240&q=85&w=415",
     "briefDescription": "Asian treats with Stampede flavor!",
     "location": "Food trucks",
@@ -63,7 +64,7 @@
 
   {
     "eventName": "Lemon Heaven",
-    "description": "The Best Country Music Venue in the City. Featuring Meghan Patrick, Tenille Townes, Tebey, and many, many more!",
+    "description": "",
     "image": "https://images.ctfassets.net/gk8hs8lmghf8/3kQdyqv6YQpmNdnDf5Nahn/f9e83ee841260067a8cfe1bddd47dae4/Cotton_Candy_Lemonade.png.jpg?fit=fill&fm=webp&h=240&q=85&w=415",
     "briefDescription": "Try the new Cotton Candy lemonade!",
     "location": "Midway, BMO Centre",
@@ -84,8 +85,8 @@
 
   {
     "eventName": "Steve-Os Sweets and Treats",
-    "description": "From rock, to hip hop, to pop and EDM, this multi-genre lineup has something for everyone!",
-    "image": "https://images.dailyhive.com/20180522091559/Screen-Shot-2018-05-22-at-9.14.27-AM.png",
+    "description": "",
+    "image": "https://insanelygoodrecipes.com/wp-content/uploads/2021/09/Caramelized-Deep-Fried-Churros.jpg",
     "briefDescription": "Frying all kinds of treats.",
     "location": "Saddledome steps",
     "dates": [
@@ -104,8 +105,113 @@
   },
 
   {
+    "eventName": "Avatara Pizza",
+    "description": "",
+    "image": "https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/2021-04/Pizza-Hero.jpg?itok=S848Wwsc",
+    "briefDescription": "Creative aritsanal Pizza!",
+    "location": "BMO Centre",
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "food"
+  },
+
+  {
+    "eventName": "Fry Guys",
+    "description": "",
+    "image": "https://www.vmcdn.ca/f/files/via/images/food/flamin-_cheeto-s_fries.jpg;w=960;h=640;bgcolor=000000",
+    "briefDescription": "Wildy creative french fries!",
+    "location": "Midway",
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "food"
+  },
+
+  {
+    "eventName": "Hungry Beast",
+    "description": "",
+    "image": "https://goop-img.com/wp-content/uploads/2016/12/bowledandbeautiful1-1.jpg",
+    "briefDescription": "Hearty, deepfried, delicious.",
+    "location": "Midway",
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "food"
+  },
+
+  {
+    "eventName": "Melt Town",
+    "description": "",
+    "image": "https://www.longisland.com/site_media/images/article/subarticle_image/shutterstock_291466391.jpg",
+    "briefDescription": "World-famous grilled cheese.",
+    "location": "Midway",
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "food"
+  },
+
+  {
+    "eventName": "Mr. Vegetable",
+    "description": "",
+    "image": "https://img-global.cpcdn.com/recipes/e92a15dae58c25a2/1200x630cq70/photo.jpg",
+    "briefDescription": "Deepfried goodness!",
+    "location": "Midway",
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "food"
+  },
+
+  {
     "eventName": "The Superwheel",
-    "description": "A Calgary Stampede Foundation Youth Program, the world famous Calgary Stampede Showband is comprised of 140 dedicated community youth. With over 100 appearances during the 10-day festival, there are many great opportunities to experience this versatile ensemble’s innovative performances and unique visual entertainment. Featured twice daily on the Saddledome Steps, the Rodeo, and many other pop-up performances throughout the park, these talented youth performers are proud to bring entertainment and their unique brand of western hospitality direct to you!",
+    "description": "",
     "image": "https://images.dailyhive.com/20220620091231/Collage-Maker-20-Jun-2022-10.11-AM.jpg",
     "briefDescription": "The largest ferris wheel ever!",
     "location": "Midway",
@@ -126,10 +232,10 @@
 
   {
     "eventName": "Crazy Mouse",
-    "description": "Get ready for a new celebration of culture and a gathering of community at Stampede 2022! Happening July 12-14 in the Saddledome, this one-of-a-kind event produced in collaboration with Powwow Times features competitive dancing, drumming, singing and a showcase of other Indigenous performances. You’re invited to experience this event as the best Indigenous dancers and singers from Canada and the United States compete for $175,000 in prize money!",
+    "description": "",
     "image": "https://www.amusementsofamerica.com/aoa/midway/images/66L.jpg",
     "briefDescription": "A spinning roller coaster!",
-    "location": "Saddledome",
+    "location": "Midway",
     "dates": [
       "7",
       "8",
@@ -146,11 +252,11 @@
   },
 
   {
-    "eventName": "Drag Brunch",
-    "description": "Headlined and Hosted by Nicky Doll, and Co-hosted by Karla Marx, you won’t want to miss this glamourous event.",
-    "image": "https://images.ctfassets.net/gk8hs8lmghf8/4sZ9IhylDJOxYUXGAgxa9Q/3e0111fd7e10d5b2ab8d3e45f6114f31/DragBrunchSocial_Web_002.jpg",
-    "briefDescription": "Bringing opulence and eleganza to YYC!",
-    "location": "Nashville North",
+    "eventName": "Zipper",
+    "description": "",
+    "image": "https://i.ytimg.com/vi/eUWmqNXXurw/maxresdefault.jpg",
+    "briefDescription": "Tumbling, spinning fun!",
+    "location": "Midway",
     "dates": [
       "7",
       "8",
@@ -167,11 +273,11 @@
   },
 
   {
-    "eventName": "Calgary Stampede Rodeo",
-    "description": "The calibre of a rodeo comes down to two things: the skill of the competitors and the quality of the horses, bulls and steers. The Stampede Rodeo features the world’s best competitors and animals. Watch as cowboys and cowgirls face off in a furious display of skill and grit, with every win building towards Showdown Sunday, at the World's Largest Outdoor Rodeo. Calgary Stampede Rodeo and Evening Show tickets purchased in advance include admission to Stampede Park on the day the ticket is valid for.",
-    "image": "https://images.ctfassets.net/gk8hs8lmghf8/5qTO2neSKHGxkliH7GNuIn/7d3281b3d5a84d5fb1b6919d81acb2c8/2019-07-14_CS19_Showdown__Hailey_Kinsel_0596_Billie-Jean_Duff__1___1_.jpg",
-    "briefDescription": "The world's best competitors and animals!",
-    "location": "GMC Stadium",
+    "eventName": "Polar Express",
+    "description": "",
+    "image": "https://origin.calgarystampede.com/sites/default/files/midway-polar-express-hero-1440x600.jpg",
+    "briefDescription": "A spinning, wavy experience!",
+    "location": "Midway",
     "dates": [
       "7",
       "8",
@@ -188,11 +294,11 @@
   },
 
   {
-    "eventName": "Virgin Plus Concert",
-    "description": "These acts need no introduction. They’ve sold millions of albums, won countless awards, and have fans all across the world. The list of iconic chart-toppers who’ve rocked the Scotiabank Saddledome stage includes Garth Brooks, Katy Perry, Keith Urban and Reba—the list goes on.",
-    "image": "https://scontent.fyyc2-1.fna.fbcdn.net/v/t31.18172-8/19092902_10156670041394815_3168088544964629265_o.jpg?_nc_cat=101&ccb=1-7&_nc_sid=9267fe&_nc_ohc=Ss6proH5sU4AX-5UmG-&_nc_ht=scontent.fyyc2-1.fna&oh=00_AfAFDr7DJFmOG1AxJqEhiG7pD-YJecWS_8ZtSp6gz0_xbw&oe=63B88B1C",
-    "briefDescription": "See world-famous performers live!",
-    "location": "Virgin Plus Stage",
+    "eventName": "Mega Drop",
+    "description": "",
+    "image": "https://www.calgarystampede.com/blog/wp-content/uploads/2013/05/20110709Stampede08446-550x366.jpg",
+    "briefDescription": "Not for the faint of heart!",
+    "location": "Midway",
     "dates": [
       "7",
       "8",
@@ -209,10 +315,220 @@
   },
 
   {
-    "eventName": "Sample Event",
-    "description": "A full-length description of the event.",
-    "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
-    "briefDescription": "Tagline for the event",
+    "eventName": "1001 Nacths",
+    "description": "",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/1001_Nachts_-_panoramio.jpg/800px-1001_Nachts_-_panoramio.jpg?20170411220758",
+    "briefDescription": "Swing like a pendulum!",
+    "location": "Midway",
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "rides"
+  },
+
+  {
+    "eventName": "Fire Ball",
+    "description": "",
+    "image": "https://i.ytimg.com/vi/P2zcraDAOHA/maxresdefault.jpg",
+    "briefDescription": "Put your adrenaline on loop!",
+    "location": "Midway",
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "rides"
+  },
+
+  {
+    "eventName": "Slingshot",
+    "description": "",
+    "image": "https://images.dailyhive.com/20170713153214/sling-shot-calgary-stampede.jpg",
+    "briefDescription": "Get fired from a slingshot!",
+    "location": "Midway",
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "rides"
+  },
+
+  {
+    "eventName": "Skyscraper",
+    "description": "",
+    "image": "https://i.ytimg.com/vi/65tCkUwttqA/maxresdefault.jpg",
+    "briefDescription": "Plummet and spin!",
+    "location": "Midway",
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "rides"
+  },
+
+  {
+    "eventName": "Mach 3",
+    "description": "",
+    "image": "https://www.ctvnews.ca/polopoly_fs/1.3505177.1500228419!/httpImage/image.jpg_gen/derivatives/landscape_620/image.jpg",
+    "briefDescription": "Swing at incredible speeds!",
+    "location": "Midway",
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "rides"
+  },
+
+  {
+    "eventName": "Western Oasis",
+    "description": "",
+    "image": "https://www.calgarystampede.com/blog/wp-content/uploads/2013/05/20120713_DSC_8013_ShaneKuhnWesternOasisBMO00005.jpg",
+    "briefDescription": "Enjoy western art and wine!",
+    "location": "Western Oasis",
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "event"
+  },
+
+  {
+    "eventName": "BMO Kid's Zone",
+    "description": "",
+    "image": "https://images.ctfassets.net/gk8hs8lmghf8/DV2yf7oWoGxMXt9corBys/75e93517bc05444f199f56a67d1c536a/48259009116_e35f446cd8_k.jpg?fit=fill&fm=webp&h=490&q=85&w=710",
+    "briefDescription": "Fun for kids of all ages.",
+    "location": "BMO Centre",
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "event"
+  },
+
+  {
+    "eventName": "Calgary Stampede Market",
+    "description": "",
+    "image": "https://origin.calgarystampede.com/sites/default/files/stampede-store-hero-1440x600_assorted.jpg",
+    "briefDescription": "A dynamic mix of retail and entertainment.",
+    "location": "BMO Centre",
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "event"
+  },
+
+  {
+    "eventName": "Calgary Stampede Art Show",
+    "description": "",
+    "image": "http://images.ctfassets.net/gk8hs8lmghf8/6L81pbo8rBBTFI3qxazAtI/aa7dccb67efe3b9b351d833485f81321/9230889055_33cb66a608_k.jpg",
+    "briefDescription": "Traditional and modern forms of creativity.",
+    "location": "Western Oasis",
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "event"
+  },
+
+  {
+    "eventName": "Elbow River Camp",
+    "description": "",
+    "image": "https://images.ctfassets.net/gk8hs8lmghf8/6A0JbAarjRsSpDKenybjP7/3191469dad6def168f9287d9fe0ef6de/Elbow_River_Camp__1_.jpg",
+    "briefDescription": "Tipis, artisans, Bannock and more!",
+    "location": "Elbow River Camp",
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "event"
+  },
+
+  {
+    "eventName": "Sample Ride",
+    "description": "A full-length description of the ride.",
+    "image": "https://www.mtolympuspark.com/wp-content/uploads/2019/11/hero-hades-360-1920x750-c-default.jpg",
+    "briefDescription": "Tagline for the ride",
     "location": "Location",
     "times": [
       "1:00pm",
@@ -231,14 +547,248 @@
       "15",
       "16"
     ],
-    "type": "event"
+    "type": "rides"
   },
 
   {
-    "eventName": "Sample Event",
-    "description": "A full-length description of the event.",
-    "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
-    "briefDescription": "Tagline for the event",
+    "eventName": "Sample Ride",
+    "description": "A full-length description of the ride.",
+    "image": "https://www.mtolympuspark.com/wp-content/uploads/2019/11/hero-hades-360-1920x750-c-default.jpg",
+    "briefDescription": "Tagline for the ride",
+    "location": "Location",
+    "times": [
+      "1:00pm",
+      "2:00pm",
+      "3:00pm"
+    ],
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "rides"
+  },
+
+  {
+    "eventName": "Sample Ride",
+    "description": "A full-length description of the ride.",
+    "image": "https://www.mtolympuspark.com/wp-content/uploads/2019/11/hero-hades-360-1920x750-c-default.jpg",
+    "briefDescription": "Tagline for the ride",
+    "location": "Location",
+    "times": [
+      "1:00pm",
+      "2:00pm",
+      "3:00pm"
+    ],
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "rides"
+  },
+
+  {
+    "eventName": "Sample Ride",
+    "description": "A full-length description of the ride.",
+    "image": "https://www.mtolympuspark.com/wp-content/uploads/2019/11/hero-hades-360-1920x750-c-default.jpg",
+    "briefDescription": "Tagline for the ride",
+    "location": "Location",
+    "times": [
+      "1:00pm",
+      "2:00pm",
+      "3:00pm"
+    ],
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "rides"
+  },
+
+  {
+    "eventName": "Sample Ride",
+    "description": "A full-length description of the ride.",
+    "image": "https://www.mtolympuspark.com/wp-content/uploads/2019/11/hero-hades-360-1920x750-c-default.jpg",
+    "briefDescription": "Tagline for the ride",
+    "location": "Location",
+    "times": [
+      "1:00pm",
+      "2:00pm",
+      "3:00pm"
+    ],
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "rides"
+  },
+
+  {
+    "eventName": "Sample Ride",
+    "description": "A full-length description of the ride.",
+    "image": "https://www.mtolympuspark.com/wp-content/uploads/2019/11/hero-hades-360-1920x750-c-default.jpg",
+    "briefDescription": "Tagline for the ride",
+    "location": "Location",
+    "times": [
+      "1:00pm",
+      "2:00pm",
+      "3:00pm"
+    ],
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "rides"
+  },
+
+  {
+    "eventName": "Sample Ride",
+    "description": "A full-length description of the ride.",
+    "image": "https://www.mtolympuspark.com/wp-content/uploads/2019/11/hero-hades-360-1920x750-c-default.jpg",
+    "briefDescription": "Tagline for the ride",
+    "location": "Location",
+    "times": [
+      "1:00pm",
+      "2:00pm",
+      "3:00pm"
+    ],
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "rides"
+  },
+
+  {
+    "eventName": "Sample Ride",
+    "description": "A full-length description of the ride.",
+    "image": "https://www.mtolympuspark.com/wp-content/uploads/2019/11/hero-hades-360-1920x750-c-default.jpg",
+    "briefDescription": "Tagline for the ride",
+    "location": "Location",
+    "times": [
+      "1:00pm",
+      "2:00pm",
+      "3:00pm"
+    ],
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "rides"
+  },
+
+  {
+    "eventName": "Sample Ride",
+    "description": "A full-length description of the ride.",
+    "image": "https://www.mtolympuspark.com/wp-content/uploads/2019/11/hero-hades-360-1920x750-c-default.jpg",
+    "briefDescription": "Tagline for the ride",
+    "location": "Location",
+    "times": [
+      "1:00pm",
+      "2:00pm",
+      "3:00pm"
+    ],
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "rides"
+  },
+
+  {
+    "eventName": "Sample Ride",
+    "description": "A full-length description of the ride.",
+    "image": "https://www.mtolympuspark.com/wp-content/uploads/2019/11/hero-hades-360-1920x750-c-default.jpg",
+    "briefDescription": "Tagline for the ride",
+    "location": "Location",
+    "times": [
+      "1:00pm",
+      "2:00pm",
+      "3:00pm"
+    ],
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "rides"
+  },
+
+  {
+    "eventName": "Sample Food Location",
+    "description": "A full-length description of the food location.",
+    "image": "https://media.istockphoto.com/id/1218981208/photo/croquette-cooking.jpg?s=612x612&w=0&k=20&c=DsE3KvDISVoPUoA8bfCCGLalvaC7h-e6OFkqjBy-VRA=",
+    "briefDescription": "Tagline for the food location",
     "location": "Location",
     "dates": [
       "7",
@@ -252,14 +802,14 @@
       "15",
       "16"
     ],
-    "type": "event"
+    "type": "food"
   },
 
   {
-    "eventName": "Sample Event",
-    "description": "A full-length description of the event.",
-    "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
-    "briefDescription": "Tagline for the event",
+    "eventName": "Sample Food Location",
+    "description": "A full-length description of the food location.",
+    "image": "https://media.istockphoto.com/id/1218981208/photo/croquette-cooking.jpg?s=612x612&w=0&k=20&c=DsE3KvDISVoPUoA8bfCCGLalvaC7h-e6OFkqjBy-VRA=",
+    "briefDescription": "Tagline for the food location",
     "location": "Location",
     "dates": [
       "7",
@@ -273,14 +823,14 @@
       "15",
       "16"
     ],
-    "type": "event"
+    "type": "food"
   },
 
   {
-    "eventName": "Sample Event",
-    "description": "A full-length description of the event.",
-    "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
-    "briefDescription": "Tagline for the event",
+    "eventName": "Sample Food Location",
+    "description": "A full-length description of the food location.",
+    "image": "https://media.istockphoto.com/id/1218981208/photo/croquette-cooking.jpg?s=612x612&w=0&k=20&c=DsE3KvDISVoPUoA8bfCCGLalvaC7h-e6OFkqjBy-VRA=",
+    "briefDescription": "Tagline for the food location",
     "location": "Location",
     "dates": [
       "7",
@@ -294,14 +844,14 @@
       "15",
       "16"
     ],
-    "type": "event"
+    "type": "food"
   },
 
   {
-    "eventName": "Sample Event",
-    "description": "A full-length description of the event.",
-    "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
-    "briefDescription": "Tagline for the event",
+    "eventName": "Sample Food Location",
+    "description": "A full-length description of the food location.",
+    "image": "https://media.istockphoto.com/id/1218981208/photo/croquette-cooking.jpg?s=612x612&w=0&k=20&c=DsE3KvDISVoPUoA8bfCCGLalvaC7h-e6OFkqjBy-VRA=",
+    "briefDescription": "Tagline for the food location",
     "location": "Location",
     "dates": [
       "7",
@@ -315,14 +865,14 @@
       "15",
       "16"
     ],
-    "type": "event"
+    "type": "food"
   },
 
   {
-    "eventName": "Sample Event",
-    "description": "A full-length description of the event.",
-    "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
-    "briefDescription": "Tagline for the event",
+    "eventName": "Sample Food Location",
+    "description": "A full-length description of the food location.",
+    "image": "https://media.istockphoto.com/id/1218981208/photo/croquette-cooking.jpg?s=612x612&w=0&k=20&c=DsE3KvDISVoPUoA8bfCCGLalvaC7h-e6OFkqjBy-VRA=",
+    "briefDescription": "Tagline for the food location",
     "location": "Location",
     "dates": [
       "7",
@@ -336,14 +886,14 @@
       "15",
       "16"
     ],
-    "type": "event"
+    "type": "food"
   },
 
   {
-    "eventName": "Sample Event",
-    "description": "A full-length description of the event.",
-    "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
-    "briefDescription": "Tagline for the event",
+    "eventName": "Sample Food Location",
+    "description": "A full-length description of the food location.",
+    "image": "https://media.istockphoto.com/id/1218981208/photo/croquette-cooking.jpg?s=612x612&w=0&k=20&c=DsE3KvDISVoPUoA8bfCCGLalvaC7h-e6OFkqjBy-VRA=",
+    "briefDescription": "Tagline for the food location",
     "location": "Location",
     "dates": [
       "7",
@@ -357,14 +907,14 @@
       "15",
       "16"
     ],
-    "type": "event"
+    "type": "food"
   },
 
   {
-    "eventName": "Sample Event",
-    "description": "A full-length description of the event.",
-    "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
-    "briefDescription": "Tagline for the event",
+    "eventName": "Sample Food Location",
+    "description": "A full-length description of the food location.",
+    "image": "https://media.istockphoto.com/id/1218981208/photo/croquette-cooking.jpg?s=612x612&w=0&k=20&c=DsE3KvDISVoPUoA8bfCCGLalvaC7h-e6OFkqjBy-VRA=",
+    "briefDescription": "Tagline for the food location",
     "location": "Location",
     "dates": [
       "7",
@@ -378,14 +928,14 @@
       "15",
       "16"
     ],
-    "type": "event"
+    "type": "food"
   },
 
   {
-    "eventName": "Sample Event",
-    "description": "A full-length description of the event.",
-    "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
-    "briefDescription": "Tagline for the event",
+    "eventName": "Sample Food Location",
+    "description": "A full-length description of the food location.",
+    "image": "https://media.istockphoto.com/id/1218981208/photo/croquette-cooking.jpg?s=612x612&w=0&k=20&c=DsE3KvDISVoPUoA8bfCCGLalvaC7h-e6OFkqjBy-VRA=",
+    "briefDescription": "Tagline for the food location",
     "location": "Location",
     "dates": [
       "7",
@@ -399,14 +949,14 @@
       "15",
       "16"
     ],
-    "type": "event"
+    "type": "food"
   },
 
   {
-    "eventName": "Sample Event",
-    "description": "A full-length description of the event.",
-    "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
-    "briefDescription": "Tagline for the event",
+    "eventName": "Sample Food Location",
+    "description": "A full-length description of the food location.",
+    "image": "https://media.istockphoto.com/id/1218981208/photo/croquette-cooking.jpg?s=612x612&w=0&k=20&c=DsE3KvDISVoPUoA8bfCCGLalvaC7h-e6OFkqjBy-VRA=",
+    "briefDescription": "Tagline for the food location",
     "location": "Location",
     "dates": [
       "7",
@@ -420,14 +970,14 @@
       "15",
       "16"
     ],
-    "type": "event"
+    "type": "food"
   },
 
   {
-    "eventName": "Sample Event",
-    "description": "A full-length description of the event.",
-    "image": "https://media.istockphoto.com/id/1133692578/photo/exhibition-event-hall-blur-background-of-trade-show-business-world-or-international-expo.jpg?s=612x612&w=0&k=20&c=RO8AoZjZyBz8ZU8tC6STPq2WVEwe13dr7Nem8yN3NZU=",
-    "briefDescription": "Tagline for the event",
+    "eventName": "Sample Food Location",
+    "description": "A full-length description of the food location.",
+    "image": "https://media.istockphoto.com/id/1218981208/photo/croquette-cooking.jpg?s=612x612&w=0&k=20&c=DsE3KvDISVoPUoA8bfCCGLalvaC7h-e6OFkqjBy-VRA=",
+    "briefDescription": "Tagline for the food location",
     "location": "Location",
     "dates": [
       "7",
@@ -441,7 +991,7 @@
       "15",
       "16"
     ],
-    "type": "event"
+    "type": "food"
   }
 
 ]
