@@ -11,6 +11,7 @@
             BriefDescription = "lololol";
             Dates = new string[] { "1", "2", "3" };
             Location = "Midway";
+            Type = "event";
         }
 
         public string? EventName { get; set; }
@@ -79,6 +80,7 @@
 
 
         #region schedule screen management
+
 
         public ScheduleScreen CurrentScheduleScreen { get; private set; } = ScheduleScreen.DAY_PICKER;
 

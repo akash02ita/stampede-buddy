@@ -1,10 +1,9 @@
 [
   {
-    "eventName": "SuperDogs",
-    "description": "For over forty years the SuperDogs have entertained millions live and on television with their original, family-friendly productions. More recently their innovative virtual shows and digital shorts have reached a global audience, generating millions of views.",
-    "image": "https://www.theex.com/wp-content/uploads/2022/05/SuperDogs.png",
-    "briefDescription": "A dogshow unlike any other!",
-    "location": "BMO Center",
+    "eventName": "Family Squeezed Lemonade",
+    "image": "https://images.ctfassets.net/gk8hs8lmghf8/5SDX6Vv7m0Sevst4muO0wg/154b4811ae8787f2e4415cb9ac91f6c7/Duck_Pond_Lemonade_jpg.jpg?fit=fill&fm=webp&h=240&q=85&w=415",
+    "briefDescription": "Freshly squeezed!",
+    "location": "Food trucks",
     "dates": [
       "7",
       "8",
@@ -16,15 +15,16 @@
       "14",
       "15",
       "16"
-    ]
+    ],
+    "type": "food"
   },
 
   {
-    "eventName": "Bell Grandstand",
+    "eventName": "Happy Fish",
     "description": "Music, spectacular stunts, and jaw-dropping pyrotechnics. As the sun sets, the Bell Grandstand Show takes the stage to dazzle audiences with elaborate song, dance and live music performances. Feel the excitement, move to the music, and soar with the fireworks!",
-    "image": "https://www.barrheadtravel.co.uk/media/4199/eveningshow_012.jpg",
-    "briefDescription": "The iconic Stampede experience.",
-    "location": "GMC Stadium",
+    "image": "https://images.squarespace-cdn.com/content/v1/53f43705e4b03f018aae7cf3/1552325319618-6S600NJ88T0KZUG4NNFW/happyfishiphonefoodtruck-2.jpg",
+    "briefDescription": "Fish with a twist, from octopus to tacos.",
+    "location": "Food trucks",
     "dates": [
       "7",
       "8",
@@ -36,15 +36,16 @@
       "14",
       "15",
       "16"
-    ]
+    ],
+    "type": "food"
   },
 
   {
-    "eventName": "Monster Energy Compound",
+    "eventName": "The Dumpling Hero",
     "description": "Whether you're an adrenaline junkie or just exploring all that Stampede Park has to offer, you'll get hooked on the high-flying flips and daring tricks of Freestyle Motorcross. Every day, three times a day, plus an encore performance in the evening with a backdrop of fireworks, you'll watch world-class Freestyle Motocross athletes perform their best stunt routines.",
-    "image": "https://images.ctfassets.net/gk8hs8lmghf8/6vWiDl6MMxn6WFXLtQ66aO/6de16b57a703af6eadfce22aee5dc86a/48216991632_a617ae1a5d_k.jpg",
-    "briefDescription": "Adrenaline-packed motorcross action!",
-    "location": "Saddledome",
+    "image": "https://images.ctfassets.net/gk8hs8lmghf8/34l9LhkOa3vtrcvCwpILvb/810d84ddb08c2b56863ada261ad54505/Bao_Baos-min.jpeg?fit=fill&fm=webp&h=240&q=85&w=415",
+    "briefDescription": "Asian treats with Stampede flavor!",
+    "location": "Food trucks",
     "dates": [
       "7",
       "8",
@@ -56,15 +57,16 @@
       "14",
       "15",
       "16"
-    ]
+    ],
+    "type": "food"
   },
 
   {
-    "eventName": "Nashville North",
+    "eventName": "Lemon Heaven",
     "description": "The Best Country Music Venue in the City. Featuring Meghan Patrick, Tenille Townes, Tebey, and many, many more!",
-    "image": "https://images.ctfassets.net/gk8hs8lmghf8/7oNgHcqJcc72SqISx5s8sl/225fd85779fbd64bd35f50127724e4e9/48207043292_33b53adb1a_k.jpg",
-    "briefDescription": "The original Stampede party tent.",
-    "location": "Nashville North",
+    "image": "https://images.ctfassets.net/gk8hs8lmghf8/3kQdyqv6YQpmNdnDf5Nahn/f9e83ee841260067a8cfe1bddd47dae4/Cotton_Candy_Lemonade.png.jpg?fit=fill&fm=webp&h=240&q=85&w=415",
+    "briefDescription": "Try the new Cotton Candy lemonade!",
+    "location": "Midway, BMO Centre",
     "dates": [
       "7",
       "8",
@@ -76,34 +78,15 @@
       "14",
       "15",
       "16"
-    ]
+    ],
+    "type": "food"
   },
 
   {
-    "eventName": "Coca-Cola Stage",
+    "eventName": "Steve-Os Sweets and Treats",
     "description": "From rock, to hip hop, to pop and EDM, this multi-genre lineup has something for everyone!",
     "image": "https://images.dailyhive.com/20180522091559/Screen-Shot-2018-05-22-at-9.14.27-AM.png",
-    "briefDescription": "The ultimate outdoor live music experience.",
-    "location": "Coca-Cola Stage",
-    "dates": [
-      "7",
-      "8",
-      "9",
-      "10",
-      "11",
-      "12",
-      "13",
-      "14",
-      "15",
-      "16"
-    ]
-  },
-
-  {
-    "eventName": "Calgary Stampede Showband",
-    "description": "A Calgary Stampede Foundation Youth Program, the world famous Calgary Stampede Showband is comprised of 140 dedicated community youth. With over 100 appearances during the 10-day festival, there are many great opportunities to experience this versatile ensemble’s innovative performances and unique visual entertainment. Featured twice daily on the Saddledome Steps, the Rodeo, and many other pop-up performances throughout the park, these talented youth performers are proud to bring entertainment and their unique brand of western hospitality direct to you!",
-    "image": "https://images.ctfassets.net/kvjgfo1yo21w/4fpe93ZsXXLdMRS38z4swV/c9275e6fe17036370f12442bd58288ec/Showband.jpg",
-    "briefDescription": "See the world-renowned ensemble live!",
+    "briefDescription": "Frying all kinds of treats.",
     "location": "Saddledome steps",
     "dates": [
       "7",
@@ -116,14 +99,36 @@
       "14",
       "15",
       "16"
-    ]
+    ],
+    "type": "food"
   },
 
   {
-    "eventName": "Calgary Stampede Powwow",
+    "eventName": "The Superwheel",
+    "description": "A Calgary Stampede Foundation Youth Program, the world famous Calgary Stampede Showband is comprised of 140 dedicated community youth. With over 100 appearances during the 10-day festival, there are many great opportunities to experience this versatile ensemble’s innovative performances and unique visual entertainment. Featured twice daily on the Saddledome Steps, the Rodeo, and many other pop-up performances throughout the park, these talented youth performers are proud to bring entertainment and their unique brand of western hospitality direct to you!",
+    "image": "https://images.dailyhive.com/20220620091231/Collage-Maker-20-Jun-2022-10.11-AM.jpg",
+    "briefDescription": "The largest ferris wheel ever!",
+    "location": "Midway",
+    "dates": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "type": "rides"
+  },
+
+  {
+    "eventName": "Crazy Mouse",
     "description": "Get ready for a new celebration of culture and a gathering of community at Stampede 2022! Happening July 12-14 in the Saddledome, this one-of-a-kind event produced in collaboration with Powwow Times features competitive dancing, drumming, singing and a showcase of other Indigenous performances. You’re invited to experience this event as the best Indigenous dancers and singers from Canada and the United States compete for $175,000 in prize money!",
-    "image": "https://dht7q8fif4gks.cloudfront.net/2022-05/powwow_flickr_calgary%2Bstampede_blake_chorley_1.jpg",
-    "briefDescription": "Watch talented Indigenous performers.",
+    "image": "https://www.amusementsofamerica.com/aoa/midway/images/66L.jpg",
+    "briefDescription": "A spinning roller coaster!",
     "location": "Saddledome",
     "dates": [
       "7",
@@ -136,7 +141,8 @@
       "14",
       "15",
       "16"
-    ]
+    ],
+    "type": "rides"
   },
 
   {
@@ -156,7 +162,8 @@
       "14",
       "15",
       "16"
-    ]
+    ],
+    "type": "rides"
   },
 
   {
@@ -176,7 +183,8 @@
       "14",
       "15",
       "16"
-    ]
+    ],
+    "type": "rides"
   },
 
   {
@@ -196,7 +204,8 @@
       "14",
       "15",
       "16"
-    ]
+    ],
+    "type": "rides"
   },
 
   {
@@ -221,7 +230,8 @@
       "14",
       "15",
       "16"
-    ]
+    ],
+    "type": "event"
   },
 
   {
@@ -241,7 +251,8 @@
       "14",
       "15",
       "16"
-    ]
+    ],
+    "type": "event"
   },
 
   {
@@ -261,7 +272,8 @@
       "14",
       "15",
       "16"
-    ]
+    ],
+    "type": "event"
   },
 
   {
@@ -281,7 +293,8 @@
       "14",
       "15",
       "16"
-    ]
+    ],
+    "type": "event"
   },
 
   {
@@ -301,7 +314,8 @@
       "14",
       "15",
       "16"
-    ]
+    ],
+    "type": "event"
   },
 
   {
@@ -321,7 +335,8 @@
       "14",
       "15",
       "16"
-    ]
+    ],
+    "type": "event"
   },
 
   {
@@ -341,7 +356,8 @@
       "14",
       "15",
       "16"
-    ]
+    ],
+    "type": "event"
   },
 
   {
@@ -361,7 +377,8 @@
       "14",
       "15",
       "16"
-    ]
+    ],
+    "type": "event"
   },
 
   {
@@ -381,7 +398,8 @@
       "14",
       "15",
       "16"
-    ]
+    ],
+    "type": "event"
   },
 
   {
@@ -401,7 +419,8 @@
       "14",
       "15",
       "16"
-    ]
+    ],
+    "type": "event"
   },
 
   {
@@ -421,7 +440,8 @@
       "14",
       "15",
       "16"
-    ]
+    ],
+    "type": "event"
   }
 
 ]

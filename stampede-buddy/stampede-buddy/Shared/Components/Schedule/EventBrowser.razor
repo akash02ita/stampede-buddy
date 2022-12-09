@@ -1,4 +1,6 @@
 ﻿@inject HttpClient Http
+@inject AppState AppState
+
 <div class="events-main-content">
 
     <div id="events-container" class="container-fluid">
@@ -6,19 +8,20 @@
         <BackButton  Title="Browse Events"/>
 
 
+
         <div id=" filter-panel" class="mb-2 row">
-            <div class="col-3 text-center bg-primary text-white">All</div>
-            <div class="col-3 text-center bg-secondary text-white">Rides</div>
-            <div class="col-3 text-center bg-secondary text-white">Food</div>
-            <div class="col-3 text-center bg-secondary text-white">Events</div>
+            <div class="col-3 text-center bg-primary text-white" @onclick="() => {SetFilter(EventBrowserFilter.ALL);}">All</div>
+            <div class="col-3 text-center bg-secondary text-white" @onclick="() => {SetFilter(EventBrowserFilter.RIDES);}">Rides</div>
+            <div class="col-3 text-center bg-secondary text-white" @onclick="() => {SetFilter(EventBrowserFilter.FOOD);}">Food</div>
+            <div class="col-3 text-center bg-secondary text-white" @onclick="() => {SetFilter(EventBrowserFilter.EVENTS);}">Events</div>
         </div>
 
         <div id="events-list" class="d-grid gap-3">
 
 
-            @if (availableEvents != null)
+            @if (filteredEvents != null)
             {
-                @foreach (var e in availableEvents)
+                @foreach (var e in filteredEvents)
                 {
                     <EventBrowserEventCard Event="@e" />
                 }
@@ -125,7 +128,19 @@
 
     // should be passed callbacks for adding to schedule & favorites respectively
 
-    private List<BaseEvent>? availableEvents;
+    private List<BaseEvent>? allAvailableEvents;
+    private List<BaseEvent>? filteredEvents;
+
+
+    public EventBrowserFilter Filter { get; set; } = EventBrowserFilter.ALL;
+
+    public enum EventBrowserFilter
+    {
+        ALL,
+        RIDES,
+        FOOD,
+        EVENTS
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -140,12 +155,56 @@
             List<BaseEvent> allEvents = new List<BaseEvent>().Concat(regularEvents).Concat(scheduledEvents).ToList();
 
             // shuffle the events and assign to member variable
-            availableEvents = allEvents.OrderBy(a => Guid.NewGuid()).ToList();
+            allAvailableEvents = allEvents.OrderBy(a => Guid.NewGuid()).ToList();
+
+
+            if (Filter == EventBrowserFilter.ALL)
+            {
+                filteredEvents = allAvailableEvents;
+                return;
+            } else if (Filter == EventBrowserFilter.FOOD)
+            {
+                filteredEvents = allAvailableEvents.Where(x => x.Type == "food").ToList();
+            }
+            else if (Filter == EventBrowserFilter.RIDES)
+            {
+                filteredEvents = allAvailableEvents.Where(x => x.Type == "rides").ToList();
+            }
+            else if (Filter == EventBrowserFilter.EVENTS)
+            {
+                filteredEvents = allAvailableEvents.Where(x => x.Type == "events").ToList();
+
+            }
 
         }
 
     }
 
+    public void SetFilter(EventBrowserFilter newFilter)
+    {
+        Filter = newFilter;
+
+        if (Filter == EventBrowserFilter.ALL)
+        {
+            filteredEvents = allAvailableEvents;
+            return;
+        }
+        else if (Filter == EventBrowserFilter.FOOD)
+        {
+            filteredEvents = allAvailableEvents?.Where(x => x.Type == "food").ToList();
+        }
+        else if (Filter == EventBrowserFilter.RIDES)
+        {
+            filteredEvents = allAvailableEvents?.Where(x => x.Type == "rides").ToList();
+        }
+        else if (Filter == EventBrowserFilter.EVENTS)
+        {
+            filteredEvents = allAvailableEvents?.Where(x => x.Type == "events").ToList();
+
+        }
+        StateHasChanged();
+
+    }
 
 
 
