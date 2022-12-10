@@ -60,7 +60,8 @@ namespace stampede_buddy
         WARNING,
         NAVIGATION,
         SEARCH_MAIN,
-        SEARCH_EVENT_BROWSER
+        SEARCH_EVENT_BROWSER,
+        MANAGE_EVENTS,
     }
 
 
@@ -151,7 +152,14 @@ namespace stampede_buddy
 
         public void GoToNextScreen()
         {
-            CurrentScheduleScreen += 1;
+
+            if (CurrentScheduleScreen == ScheduleScreen.EVENT_BROWSER && Schedule.Count == 0)
+            {
+                CurrentScheduleScreen += 2;
+            } else
+            {
+                CurrentScheduleScreen += 1;
+            }
             Console.WriteLine(CurrentScheduleScreen);
             NotifyStateChanged();
         }
@@ -215,6 +223,13 @@ namespace stampede_buddy
         public void enterEventSearch()
         {
             CurrentOverlayState = OverlayState.SEARCH_EVENT_BROWSER;
+            ShowOverlay = true;
+            NotifyStateChanged();
+        }
+
+        public void enterManage()
+        {
+            CurrentOverlayState = OverlayState.MANAGE_EVENTS;
             ShowOverlay = true;
             NotifyStateChanged();
         }
