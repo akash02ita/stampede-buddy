@@ -59,7 +59,15 @@
         @* passing at most 8 entries, this is to prevent index out of range *@
         @* Event Index based on class is also passed to ZERO, to force reset *@
         @* Note that Math.min is used to avoid errors in case theere are not at least 8 elements *@
-        <stampede_buddy.Shared.Components.QuickEventBrowser EventIndex=0 Events=@filteredEvents?.OrderBy(a => Guid.NewGuid()).ToList().GetRange(0, Math.Min(8,filteredEvents.ToList().Count()))></stampede_buddy.Shared.Components.QuickEventBrowser>
+        @if (filteredEvents != null)
+        {
+            <stampede_buddy.Shared.Components.QuickEventBrowser EventIndex=0 Events=@filteredEvents.OrderBy(a => Guid.NewGuid()).ToList().GetRange(0, Math.Min(8,filteredEvents.ToList().Count()))></stampede_buddy.Shared.Components.QuickEventBrowser>
+        }
+        else {
+            <div>Loading: ...please wait</div>
+            @* simulate also fake 'loading' for 2 seconds*@
+            @* Thread.Sleep(2000); *@ // does not always work
+        }
         @* <stampede_buddy.Shared.Components.QuickEventBrowser></stampede_buddy.Shared.Components.QuickEventBrowser> *@
 
     </div>
