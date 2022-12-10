@@ -1,0 +1,37 @@
+﻿
+@if (Event != null)
+{
+    var time = Event.Times?[0];
+    if (time != null)   
+    {
+        string timeString = time.Substring(0, time.Length - 2);
+        string[] sections = timeString.Split(":");
+        int hoursSinceMidnight = (time.Contains("pm")) ? int.Parse(sections[0]) + 12 : int.Parse(sections[0]);
+        
+        
+        int mins = int.Parse(sections[1]);
+
+        const int dividerHeight = 18;
+        const int gap = 40;
+        const int itemHeight = gap + dividerHeight;
+
+        const int length = 1;
+
+        var minsOffset = (itemHeight * mins) / 60;
+
+        var offsetString = $"top: { (dividerHeight / 2) + minsOffset + (hoursSinceMidnight * (itemHeight))}px; height:t{gap + dividerHeight}px";
+            <div class="schedule-card text-white" style=@offsetString>
+                <div class="lead mt-1" style="font-size: 1.2em">@Event?.EventName</div>
+            <div style="font-size: 0.8em">@time at @Event?.Location</div>
+            </div>
+    }
+
+}
+
+@code {
+    
+    // formula is roughly 30 * # hrs pixels = position from top
+
+    [Parameter]
+    public ScheduledEvent? Event { get; set; }
+}

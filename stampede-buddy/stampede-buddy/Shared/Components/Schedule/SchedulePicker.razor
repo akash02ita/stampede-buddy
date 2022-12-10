@@ -1,11 +1,10 @@
-﻿<div class="events-main-content">
+﻿@inject AppState AppState
+
+<div class="events-main-content">
 
     <div id="events-container" class="container-fluid">
 
-        <div class="title-back my-3">
-            <img class="icon-s" src="https://cdn-icons-png.flaticon.com/512/3114/3114883.png" />
-            <h1 class="mt-1">Pick a Schedule</h1>
-        </div>
+        <BackButton   Title="Pick a Schedule"/>
 
         <div id="filter-panel" class="mb-2 row justify-content-center text-center">
             <div class="col-1 text-center">
@@ -19,99 +18,40 @@
             <hr />
         </div>
 
+        @if (AppState.Schedule.Count > 0) 
+        {
+            //List<List<ScheduledEvent>> permutations = computeScheduleOptions(AppState.Schedule);
+            //List<ScheduledEvent> selectedOption = permutations[optionsIndex];
+            <ScheduleView Events="@AppState.Schedule" />
+        } else {
+            <ScheduleView /> // if the user has no events in their schedule, the component will render error message.
+        }
+        
 
-        <div id="schedule-list" class="d-grid gap-3">
+    </div>
 
-            <div id="times-container" class="row justify-content-center">
+        <div id="schedule-picker-menu" class="d-flex flex-column justify-content-center align-items-center">
 
-                <div id="time-lines" class="row gap-4 justify-content-center">
-                    <div class="row align-items-center">
-                        <div class="col-1 schedule-time-label">10am</div>
-                        <div class="col-11">
-                            <hr class="time-divider">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center">
-                        <div class="col-1 schedule-time-label">11am</div>
-                        <div class="col-11">
-                            <hr class="time-divider">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center">
-                        <div class="col-1 schedule-time-label">12am</div>
-                        <div class="col-11">
-                            <hr class="time-divider">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center">
-                        <div class="col-1 schedule-time-label">2pm</div>
-                        <div class="col-11">
-                            <hr class="time-divider">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center">
-                        <div class="col-1 schedule-time-label">3pm</div>
-                        <div class="col-11">
-                            <hr class="time-divider">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center">
-                        <div class="col-1 schedule-time-label">4pm</div>
-                        <div class="col-11">
-                            <hr class="time-divider">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center">
-                        <div class="col-1 schedule-time-label">5pm</div>
-                        <div class="col-11">
-                            <hr class="time-divider">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center">
-                        <div class="col-1 schedule-time-label">6pm</div>
-                        <div class="col-11">
-                            <hr class="time-divider">
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <div id="event-times" class="row justify-content-center">
-                    <div class="schedule-card text-white">
-                        <h5 class="my-2">Superdogs</h5>
-                    </div>
-                </div>
-            </div>
-
+            <img class="schedule-map" src="images/map.png" />
+            <Continue className="mt-2 w-100 btn btn-primary btn-block btn-lg " ButtonText="Use this schedule!" />
         </div>
 
-
     </div>
-
-    <div id="schedule-picker-menu" class="">
-
-        <hr class="menu-control" />
-
-        <img class="schedule-map" src="map.png" />
-
-        <div class="mt-2 w-100 btn btn-primary btn-block btn-lg " @onclick=" () => { setScreenCallback.InvokeAsync(MainLayout.ScheduleScreens.ATTEND); }">Use this schedule!</div>
-
-    </div>
-
-    </div>
-    @code {
+@code {
 
 
-        [Parameter]
-        public EventCallback<MainLayout.ScheduleScreens> setScreenCallback { get; set; }
+    [Parameter]
+    public EventCallback<ScheduleScreen> setScreenCallback { get; set; }
+    [Parameter]
+    public ScheduleScreen currentScreen { get; set; } = ScheduleScreen.DAY_PICKER;
+
+
+    private List<List<ScheduledEvent>> computeScheduleOptions (List<ScheduledEvent> desiredEvents)
+    {
+        return new List<List<ScheduledEvent>>();
+    }
+
+    private int optionsIndex { get; set; } = 0;
 
     }
 

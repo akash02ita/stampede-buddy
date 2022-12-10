@@ -7,20 +7,52 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BuildWebCompiler2022" Version="1.14.9.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.10" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="compilerconfig.json" />
     <Content Remove="wwwroot\images\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
-    <Folder Include="Shared\Components\" />
-    <Folder Include="Shared\Components\Schedule\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Shared\Components\" />
     <None Remove="Shared\Components\Schedule\" />
+    <None Remove="Styles\app.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\app.scss">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\CODEOWNERS" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\CONTRIBUTING.md" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\dependabot.yml" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\ISSUE_TEMPLATE\bug_report.yml" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\ISSUE_TEMPLATE\config.yml" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\ISSUE_TEMPLATE\feature_request.yml" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\PULL_REQUEST_TEMPLATE.md" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\release-drafter.yml" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\SUPPORT.md" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\workflows\browserstack.yml" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\workflows\bundlewatch.yml" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\workflows\calibreapp-image-actions.yml" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\workflows\codeql.yml" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\workflows\cspell.yml" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\workflows\css.yml" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\workflows\docs.yml" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\workflows\issue-close-require.yml" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\workflows\issue-labeled.yml" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\workflows\js.yml" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\workflows\lint.yml" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\workflows\node-sass.yml" />
+    <None Include="Styles\bootstrap\bootstrap-5.2.3\.github\workflows\release-notes.yml" />
   </ItemGroup>
 </Project>

@@ -1,34 +1,40 @@
-﻿
+﻿@inject AppState AppState
+@implements IDisposable
+<stampede_buddy.Shared.Components.Schedule.ScheduleNavigator/>
 
-<stampede_buddy.Shared.Components.Schedule.ScheduleNavigator currentScreen="@currentScreen" setScreenCallback="@setScreenCallback" />
-
-@switch (currentScreen)
+@switch (AppState.CurrentScheduleScreen)
 {
-    case MainLayout.ScheduleScreens.DAY_PICKER:
-        <stampede_buddy.Shared.Components.Schedule.DayPicker setScreenCallback="@setScreenCallback"/>
+    case ScheduleScreen.DAY_PICKER:
+        <stampede_buddy.Shared.Components.Schedule.DayPicker/>
         break;
 
-    case MainLayout.ScheduleScreens.EVENT_BROWSER:
-        <stampede_buddy.Shared.Components.Schedule.EventBrowser setScreenCallback="@setScreenCallback" />
+    case ScheduleScreen.EVENT_BROWSER:
+        <stampede_buddy.Shared.Components.Schedule.EventBrowser/>
         break;
 
-    case MainLayout.ScheduleScreens.SCHEDULE_PICKER:
-        <stampede_buddy.Shared.Components.Schedule.SchedulePicker setScreenCallback="@setScreenCallback" />
+    case ScheduleScreen.SCHEDULE_PICKER:
+        <stampede_buddy.Shared.Components.Schedule.SchedulePicker />
         break;
 
-    case MainLayout.ScheduleScreens.ATTEND:
-        <stampede_buddy.Shared.Components.Schedule.Attend setScreenCallback="@setScreenCallback"/>
+    case ScheduleScreen.ATTEND:
+        <stampede_buddy.Shared.Components.Schedule.Attend/>
         break;
     default:
+        <h1> STATE BROKE :( </h1>
         break;
 }
 
 @code {
-    [Parameter]
-    public MainLayout.ScheduleScreens currentScreen { get; set; } = MainLayout.ScheduleScreens.DAY_PICKER;
 
-    [Parameter]
-    public EventCallback<MainLayout.ScheduleScreens> setScreenCallback { get; set; }
+    protected override void OnInitialized()
+    {
+        AppState.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        AppState.OnChange -= StateHasChanged;
+    }
 
 }
 

@@ -1,5 +1,6 @@
-﻿
-<h1 class="m-4">Pick a day to visit!</h1>
+﻿@inject AppState AppState
+
+<h2 class="m-4">Pick a day to visit!</h2>
 
 <div class="day-picker">
     <h3>July</h3>
@@ -77,13 +78,13 @@ else {
 @* <h2 class="">You've selected:</h2>
 <h2 class="display-5">July 15th</h2> *@
 
-    <div class="mb-3 w-75 btn btn-primary btn-block btn-lg " @onclick="() => {setScreenCallback.InvokeAsync(MainLayout.ScheduleScreens.EVENT_BROWSER); }">Continue</div>
+<Continue ClassName="mb-3 w-75 btn btn-primary btn-block btn-lg " />
 
 @code {
     @using System.Collections; // for array list
 
     [Parameter]
-    public EventCallback<MainLayout.ScheduleScreens> setScreenCallback { get; set; }
+    public EventCallback<ScheduleScreen> setScreenCallback { get; set; }
 
     private int selectedDay = -1;
     private string @postfix = "th";
@@ -103,7 +104,7 @@ else {
         new ArrayList() {12, true, "date-promo-2 date-item"},
         new ArrayList() {13, true, "date-item"},
         new ArrayList() {14, true, "date-item"},
-        new ArrayList() {15, true, "date-item data-selected"},
+        new ArrayList() {15, true, "date-item"},
         new ArrayList() {16, true, "date-item"},
 
         new ArrayList() {17, false, "date date-invalid"},
@@ -123,6 +124,8 @@ else {
         Console.WriteLine("new selected day: " + day);
         selectedDay = day;
 
+        AppState.setSelectedDay(day);
+
         if (day == 1 || day == 21 || day == 31) {
             postfix = "st";
         }
@@ -135,6 +138,7 @@ else {
         else {
             postfix = "th";
         }
+
     }
 }
 

@@ -1,45 +1,70 @@
-﻿@if (!isCollapsed)
+﻿@inject AppState AppState
+@implements IDisposable
+
+@if (!AppState.isDiscoverCollapsed)
 {
+    var washroom = "Washroom";
+    var atm = "ATM";
+    var helpDesk = "Help Desk";
     <div id="explore-menu" class="row w-100 justify-content-center">
         <div class="menu-toggle" @onclick="toggleCollapsed">
-            <hr class="menu-control my-1" /> </div>
-            <h1 class="my-1 py-0">Discover</h1>
-            <p class="lead">Find the nearest...</p>
-            <div class="d-flex justify-content-center gap-4">
-                @*Need to make these buttons here look more like buttons. Find non-coloured icons? Maybe use bootstrap icons?*@
-                <img class="one-touch-icon" src="https://cdn-icons-png.flaticon.com/512/3033/3033725.png" />
-                <img class="one-touch-icon" src="https://cdn-icons-png.flaticon.com/512/584/584031.png" />
-                <img class="one-touch-icon" src="https://cdn-icons-png.flaticon.com/512/4014/4014943.png" />
-            </div>
+            <hr class="menu-control my-1" />
+        </div>
+        <h1 class="my-1 py-0">Discover</h1>
+        <p class="lead">Find the nearest...</p>
+        <div class="d-flex justify-content-center gap-4">
+            @*Need to make these buttons here look more like buttons. Find non-coloured icons? Maybe use bootstrap icons?*@
+            
+            
+            <img class="one-touch-icon" src="https://cdn-icons-png.flaticon.com/512/3033/3033725.png" @onclick="() => {AppState.enterNavigation(washroom);}" />
+            <img class="one-touch-icon" src="https://cdn-icons-png.flaticon.com/512/584/584031.png" @onclick="() => {AppState.enterNavigation(atm);}" />
+            <img class="one-touch-icon" src="https://cdn-icons-png.flaticon.com/512/4014/4014943.png" @onclick="() => {AppState.enterNavigation(helpDesk);}" />
+        </div>
 
-            <label for="search-bar" class="form-label"></label>
-            <input type="email" class="my-2" id="search-bar-sm" placeholder="Find something...">
+        <label for="search-bar" class="form-label"></label>
+        <div @onclick="AppState.enterMainSearch">
+            <input type="search" class="my-2" id="search-bar-sm" placeholder="Find something...">
+        </div>
 
-            <div class="lead mb-2">
-                Explore nearby <span class="btn btn-sm btn-danger dropdown-toggle mx-2">rides</span>
-            </div>
+        <div class="lead mb-2">
+            Explore nearby <span class="btn btn-sm btn-danger dropdown-toggle mx-2" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">rides</span>
 
-            <stampede_buddy.Shared.Components.QuickEventBrowser></stampede_buddy.Shared.Components.QuickEventBrowser>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
 
         </div>
-        }
-        else
-        {
-        <div id="discover-collapsed-menu" class="row w-100 justify-content-center">
-            <div class="menu-toggle" @onclick="toggleCollapsed"><hr class="menu-control my-1"/></div>
-            <h1 class="my-1 py-0">Discover</h1>
-        </div>
-        }
 
-        @code {
+        <stampede_buddy.Shared.Components.QuickEventBrowser></stampede_buddy.Shared.Components.QuickEventBrowser>
 
-            [Parameter]
-            public bool isCollapsed { get; set; } = true;
+    </div>
+}
+else
+{
+    <div id="discover-collapsed-menu" class="row w-100 justify-content-center">
+        <div class="menu-toggle" @onclick="toggleCollapsed"><hr class="menu-control my-1" /></div>
+        <h1 class="my-1 py-0">Discover</h1>
+    </div>
+}
 
-            private void toggleCollapsed()
-            {
-                isCollapsed = !isCollapsed;
-            }
+@code {
 
-        }
+    private void toggleCollapsed()
+    {
+        AppState.ToggleCollapsed();
+    }
+
+    protected override void OnInitialized()
+    {
+        AppState.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        AppState.OnChange -= StateHasChanged;
+    }
+
+}
 

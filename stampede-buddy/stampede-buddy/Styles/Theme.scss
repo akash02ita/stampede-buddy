@@ -1,0 +1,13 @@
+﻿@import "../wwwroot/css/open-iconic/font/css/open-iconic-bootstrap.min.css";
+@import "bootstrap/bootstrap-5.2.3/scss/_functions.scss";
+
+/* Source SASS file to build custom Bootstrap site file */
+
+$primary: rgb(235, 57, 57);
+
+@import "bootstrap/bootstrap-5.2.3/scss/bootstrap.scss";
+
+/* This is the original site.css file that contains the site specific customizations*/
+@import "app.scss";
+
+
