@@ -27,6 +27,24 @@
         </div>
 
         <div class="lead mb-2">
+            @* current choice *@
+            Explore nearby <span class="btn btn-sm btn-danger dropdown-toggle mx-2" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">@getStringNearbyEventType(currentChoice)</span>
+
+            @* other choices as dropdown menu *@
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                @* each object element e downcasted to NearbyEventType *@
+                @foreach (NearbyEventType e in otherChoices)
+                {
+                    @* do we need href? i don't think so... *@
+                    <li><a class="dropdown-item" @onclick="() => updateCurrentChoice(e)">@getStringNearbyEventType(e)</a></li>
+                    @* <li><a class="dropdown-item" href="#" @onclick="() => updateCurrentChoice(e)">@getStringNearbyEventType(e)</a></li> *@
+                }
+            </ul>
+
+        </div>
+
+        @* old dead code: keeping here for comparison and backup *@
+        @* <div class="lead mb-2">
             Explore nearby <span class="btn btn-sm btn-danger dropdown-toggle mx-2" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">rides</span>
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -35,7 +53,7 @@
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
 
-        </div>
+        </div> *@
 
         <stampede_buddy.Shared.Components.QuickEventBrowser></stampede_buddy.Shared.Components.QuickEventBrowser>
 
@@ -50,6 +68,40 @@ else
 }
 
 @code {
+    @using System.Collections; // for array list
+
+    public enum NearbyEventType
+    {
+        ALL,
+        RIDES,
+        FOOD,
+        EVENTS
+    }
+    
+    private NearbyEventType currentChoice = NearbyEventType.ALL;
+    private ArrayList otherChoices = new ArrayList() {
+        NearbyEventType.RIDES,
+        NearbyEventType.FOOD,
+        NearbyEventType.EVENTS
+    };
+
+    private string getStringNearbyEventType(NearbyEventType e) {
+        if (e == NearbyEventType.ALL) return "All";
+        if (e == NearbyEventType.RIDES) return "Rides";
+        if (e == NearbyEventType.FOOD) return "Food";
+        if (e == NearbyEventType.EVENTS) return "Events";
+
+        return "ERROR: gsnet"; // (g)et(s)tring(n)earby(e)vent(t)ype
+    }
+
+    private void updateCurrentChoice(NearbyEventType e) {
+        otherChoices.Add(currentChoice);
+        otherChoices.Remove(e);
+        currentChoice = e;
+
+        // ENUM should be sorted exactly in the order defined: ALL RIDES FOOD EVENTS
+        otherChoices.Sort();
+    }
 
     private void toggleCollapsed()
     {
