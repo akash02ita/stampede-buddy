@@ -68,17 +68,18 @@
 {
 <h2 class="">You've selected:</h2>
 <h2 class="display-5">July @selectedDay@postfix</h2>
+    <Continue ClassName="mb-3 w-75 btn btn-primary btn-block btn-lg " />
 }
 else {
-    <h2 class="">No selection so far</h2>
-    <h2 class="display-5">...</h2>
+    <h2 class="">No selection so far...</h2>
+    <p class="lead mx-5 text-center">Pick a day (click on a white bubble) from the calendar above to continue!</p>
 }
 
 @* dead code *@
 @* <h2 class="">You've selected:</h2>
 <h2 class="display-5">July 15th</h2> *@
 
-<Continue ClassName="mb-3 w-75 btn btn-primary btn-block btn-lg " />
+
 
 @code {
     @using System.Collections; // for array list

@@ -516,6 +516,21 @@ flex-col {
     margin-left: 20px;
 }
 
+#schedule-list-disabled {
+    height: 450px;
+    padding-bottom: 50px;
+    overflow-y: hidden;
+}
+
+.schedule-card-disabled{
+    position: absolute;
+    background: rgba(255, 0, 0, 0.549);
+    width: 80%;
+    border-radius: 5px;
+    margin-left: 20px;
+    top: 20%;
+}
+
 .schedule-time-label {
     font-size: 0.7em;
 }
