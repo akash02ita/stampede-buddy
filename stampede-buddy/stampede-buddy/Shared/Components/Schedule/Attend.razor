@@ -23,7 +23,19 @@
             <h2 class="col-10 text-left">Your favourites:</h2>
         </div>
 
-        <QuickEventBrowser Events="@AppState.Favorites"/>
+
+        @if(AppState.Favorites.Count > 0)
+        {
+            
+            <QuickEventBrowser Events="@AppState.Favorites"/>
+        } else
+        {
+            <div class="my-2 mx-2">
+            <h4>Oh no!</h4>
+            <div>No events were added to your favorites!</div>
+            <a href="" @onclick="() => {AppState.setScheduleScreen(ScheduleScreen.EVENT_BROWSER);}">Click here to jump to the Event Browser, where you can add some by pressing "Add to Favorites" on an event!</a>
+            </div>
+        }
 
     </div>
 

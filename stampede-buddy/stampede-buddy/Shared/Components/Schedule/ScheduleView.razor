@@ -1,5 +1,6 @@
-﻿
-@if (Events != null || Events?.Count > 0)
+﻿@inject AppState AppState
+
+@if (Events != null && Events?.Count > 0)
 {
     <div id="schedule-list" class="d-grid gap-3">
 
@@ -40,10 +41,6 @@
                     }
                 }
 
-                <div class="schedule-card-disabled text-white">
-                    <h5 class="my-2">Empty Event</h5>
-                </div>
-
             </div>
         </div>
 
@@ -51,8 +48,45 @@
 
 } else
 {
-    <div>
-        <h1>No events were added to your schedule.</h1>
+    <div id="schedule-list-disabled" class="d-grid gap-3">
+
+        <div id="times-container" class="row justify-content-center">
+
+            <div id="time-lines" class="">
+
+
+                <div class="d-flex align-items-center w-100" style="height: 18px;">
+                    <div class="col-1 schedule-time-label">12am</div>
+                    <div class="col-11">
+                        <hr class="time-divider">
+                    </div>
+                </div>
+
+                @for (int i = 1; i < 25; i++)
+                {
+                    var hour = (i < 12) ? $"{i}am" : $"{i - 12}pm";
+                    <div class="d-flex align-items-center w-100" style="height: 18px;">
+                        <div class="col-1 schedule-time-label">@hour</div>
+                        <div class="col-11">
+                            <hr class="time-divider">
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+
+
+            <div class="row justify-content-center event-times">
+
+                <div class="schedule-card-disabled text-white" @onclick="() => { AppState.setScheduleScreen(ScheduleScreen.EVENT_BROWSER);}">
+                    <h5 class="my-2">No events were found in your schedule.</h5>
+                    <p class="lead my-2">Click on this menu to jump to the Event Browser, where you can add some by pressing "Add to Schedule" on a scheduled event! </p>
+                </div>
+
+            </div>
+        </div>
+
     </div>
 }
 

@@ -516,6 +516,21 @@ flex-col {
     margin-left: 20px;
 }
 
+#schedule-list-disabled {
+    height: 450px;
+    padding-bottom: 50px;
+    overflow-y: hidden;
+}
+
+.schedule-card-disabled{
+    position: absolute;
+    background: rgba(255, 0, 0, 0.549);
+    width: 80%;
+    border-radius: 5px;
+    margin-left: 20px;
+    top: 20%;
+}
+
 .schedule-time-label {
     font-size: 0.7em;
 }
@@ -674,10 +689,11 @@ flex-col {
     background-color: rgb(235, 57, 57);
     border-radius: 10px;
     padding: 10px;
+    cursor: pointer;
 }
 
 #navigate-header {
-    height: 150px;
+    height: 180px;
     width: 100%;
     background-color: white;
     position: absolute;
@@ -730,7 +746,7 @@ flex-col {
 
 
 #input-bar {
-    width: 80%;
+    width: 100%;
     display: flex;
     gap: 10px;
     justify-content: center;
@@ -751,6 +767,7 @@ flex-col {
     padding: 11px 0px 11px 20px;
     font-family: "Poppins";
     font-size: 1.3em;
+
 }
 
 .main-container {
@@ -811,4 +828,40 @@ flex-col {
 }
 .nav-link {
     cursor: pointer;
+}
+
+/* Overlay modal container */
+
+.overlay-container {
+    width: 390px;
+    height: 844px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+    margin-top: 20px;
+}
+
+.navigation-overlay-container {
+    width: 390px;
+    height: 670px;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top-left-radius: 70px;
+    border-top-right-radius: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+    margin-top: 20px;
 }

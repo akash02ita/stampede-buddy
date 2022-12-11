@@ -1,0 +1,209 @@
+﻿@inject AppState AppState
+@inject HttpClient Http
+@implements IDisposable
+
+@if (AppState.ShowOverlay)
+{
+
+    @if (AppState.CurrentOverlayState == OverlayState.NAVIGATION)
+    {
+        <div class="navigation-overlay-container">
+
+            <div id="navigate-header" class="">
+                <h3 class="text-center">Heading to @AppState.NavigationDestination</h3>
+                <div class="d-flex justify-content-center align-items-center gap-4">
+                    <div class="mt-3">
+                        <img class="nav-dir-icon" src=" https://cdn-icons-png.flaticon.com/512/271/271226.png" />
+                    </div>
+                    <div class="mt-3 lead text-center">Turn right in 30m</div>
+                </div>
+                <p class="text-center w-100 mt-2">(this feature is still under development)</p>
+            </div>
+
+            <div id="nav-menu">
+                <div class="row w-100">
+                    <div class="btn btn-danger btn-block btn" @onclick="dismissOverlay">Exit Navigation</div>
+
+                </div>
+            </div>
+
+        </div>
+    }
+    else if (AppState.CurrentOverlayState == OverlayState.SEARCH_MAIN)
+    {
+        <div class="overlay-container">
+            <div class="mt-4">
+                <div class="d-flex flex-column gap-1 mx-2 justify-content-center align-items-center">
+                    <div id="input-bar">
+
+                        <!-- <img class="icon-s" src="https://cdn-icons-png.flaticon.com/512/507/507257.png" /> -->
+                        <img class="icon-s " src="https://cdn-icons-png.flaticon.com/512/2223/2223615.png" @onclick="dismissOverlay" style="cursor: pointer;" />
+                        <!-- <img class="icon-s" src="https://cdn-icons-png.flaticon.com/512/751/751463.png" /> -->
+                        <label for="search-bar mr-3" class="form-label"></label>
+                        <input type="search" class="" id="search-bar" placeholder="Search here!" @bind-value="SearchText" @bind-value:event="oninput">
+
+
+                    </div>
+                    <hr>
+
+
+                    <div id="search-result-event-browser" class="d-flex flex-column mx-3 gap-2" style="height: 700px; overflow-y: scroll; border-radius: 40px; max-width: 100%;">
+
+                        @if (searchResults != null)
+                        {
+                            // only show the first 10 results to prevent user from being overwhelmed lol
+                            foreach (var searchResult in searchResults.GetRange(0, Math.Min(searchResults.Count, 10)))
+                            {
+
+                                <stampede_buddy.Shared.Components.MainSearchEventCard Event="searchResult" />
+
+
+                            }
+                        }
+
+                    </div>
+
+                    <!-- end phone container -->
+                </div>
+            </div>
+        </div>
+    }
+    else if (AppState.CurrentOverlayState == OverlayState.SEARCH_EVENT_BROWSER)
+    {
+        <div class="overlay-container">
+            <div class="mt-4">
+                <div class="d-flex flex-column gap-1 w-100 justify-content-center align-items-center">
+                    <div id="input-bar">
+
+                        <!-- <img class="icon-s" src="https://cdn-icons-png.flaticon.com/512/507/507257.png" /> -->
+                        <img class="icon-s " src="https://cdn-icons-png.flaticon.com/512/2223/2223615.png" @onclick="dismissOverlay" style="cursor: pointer;" />
+                        <!-- <img class="icon-s" src="https://cdn-icons-png.flaticon.com/512/751/751463.png" /> -->
+                        <label for="search-bar mr-3" class="form-label"></label>
+                        <input type="search" class="" id="search-bar" placeholder="Search here!" @bind-value="SearchText" @bind-value:event="oninput">
+
+
+                    </div>
+                    <hr>
+
+
+                    <div id="search-result-event-browser" class="d-flex flex-column mx-3 gap-2" style="height: 700px; overflow-y: scroll; border-radius: 40px;">
+
+
+                        @if (searchResults != null)
+                        {
+                            // only show the first 10 results to prevent user from being overwhelmed lol
+                            foreach (var searchResult in searchResults.GetRange(0, Math.Min(searchResults.Count, 10)))
+                            {
+
+                                <stampede_buddy.Shared.Components.Schedule.EventBrowserEventCard Event="searchResult" />
+
+                            }
+                        }
+                    </div>
+
+                    <!-- end phone container -->
+                </div>
+            </div>
+        </div>
+    }
+    else if (AppState.CurrentOverlayState == OverlayState.MANAGE_EVENTS)
+    {
+        <div class="overlay-container">
+            <div class="mt-4">
+                <div class="search-content">
+                    <div id="input-bar">
+
+                        <!-- <img class="icon-s" src="https://cdn-icons-png.flaticon.com/512/507/507257.png" /> -->
+                        <img class="icon-s " src="https://cdn-icons-png.flaticon.com/512/2223/2223615.png" @onclick="dismissOverlay" style="cursor: pointer;" />
+                        <!-- <img class="icon-s" src="https://cdn-icons-png.flaticon.com/512/751/751463.png" /> -->
+                        <h1>Manage Plans</h1>
+
+                    </div>
+                    <hr>
+
+                    <div id="search-result-event-browser" class="d-flex flex-column mx-3 gap-2" style="height: 700px; overflow-y: scroll; border-radius: 40px;">
+
+                                @foreach (var Event in AppState.Favorites.Concat(AppState.Schedule))
+                                {
+
+                                    <stampede_buddy.Shared.Components.Schedule.ManagePlansCard Event="Event" />
+                                }
+
+                    </div>
+                    <!-- end phone container -->
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="overlay-container">
+        </div>
+    }
+
+}
+else
+{
+
+}
+
+
+@code {
+    public string SearchText = "";
+
+    [Parameter]
+    public bool Show { get; set; } = false;
+
+    private void dismissOverlay()
+    {
+        SearchText = "";
+        AppState.SetOverlayVisible(false);
+
+        if (AppState.CurrentOverlayState == OverlayState.NAVIGATION)
+        {
+            AppState.ToggleCollapsed();
+        }
+
+        StateHasChanged();
+    }
+
+    protected override void OnInitialized()
+    {
+        AppState.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        AppState.OnChange -= StateHasChanged;
+    }
+
+    private List<BaseEvent>? searchResults => SimpleSearch.search(allAvailableEvents, SearchText);
+
+    private List<BaseEvent> allAvailableEvents { get; set; } = new List<BaseEvent> { };
+
+    /// <summary>
+    ///  Loads all of the events for searching... (consider pulling this up into the AppState class so all components have scope to it??)
+    /// </summary>
+    /// <returns></returns>
+    protected override async Task OnInitializedAsync()
+    {
+        // get both kinds of events, concat arrays, then shuffle the combined array.
+        // need to dynamically render based on type
+
+        var regularEvents = await Http.GetFromJsonAsync<Event[]>("sample-data/events.json");
+        var scheduledEvents = await Http.GetFromJsonAsync<ScheduledEvent[]>("sample-data/scheduled-events.json");
+
+        if (regularEvents != null && scheduledEvents != null)
+        {
+            List<BaseEvent> allEvents = new List<BaseEvent>().Concat(regularEvents).Concat(scheduledEvents).ToList();
+
+            // shuffle the events and assign to member variable
+            allAvailableEvents = allEvents.OrderBy(a => Guid.NewGuid()).ToList();
+
+        }
+
+    }
+
+
+
+}
