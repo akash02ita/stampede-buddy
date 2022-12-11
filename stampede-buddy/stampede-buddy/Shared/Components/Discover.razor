@@ -1,4 +1,5 @@
-﻿@inject AppState AppState
+﻿@inject HttpClient Http
+@inject AppState AppState
 @implements IDisposable
 
 @if (!AppState.isDiscoverCollapsed)
@@ -27,6 +28,24 @@
         </div>
 
         <div class="lead mb-2">
+            @* current choice *@
+            Explore nearby <span class="btn btn-sm btn-danger dropdown-toggle mx-2" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">@getStringNearbyEventType(currentChoice)</span>
+
+            @* other choices as dropdown menu *@
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                @* each object element e downcasted to NearbyEventType *@
+                @foreach (NearbyEventType e in otherChoices)
+                {
+                    @* do we need href? i don't think so... *@
+                    <li><a class="dropdown-item" @onclick="() => updateCurrentChoice(e)">@getStringNearbyEventType(e)</a></li>
+                    @* <li><a class="dropdown-item" href="#" @onclick="() => updateCurrentChoice(e)">@getStringNearbyEventType(e)</a></li> *@
+                }
+            </ul>
+
+        </div>
+
+        @* old dead code: keeping here for comparison and backup *@
+        @* <div class="lead mb-2">
             Explore nearby <span class="btn btn-sm btn-danger dropdown-toggle mx-2" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">rides</span>
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -35,9 +54,21 @@
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
 
-        </div>
+        </div> *@
 
-        <stampede_buddy.Shared.Components.QuickEventBrowser></stampede_buddy.Shared.Components.QuickEventBrowser>
+        @* passing at most 8 entries, this is to prevent index out of range *@
+        @* Event Index based on class is also passed to ZERO, to force reset *@
+        @* Note that Math.min is used to avoid errors in case theere are not at least 8 elements *@
+        @if (filteredEvents != null)
+        {
+            <stampede_buddy.Shared.Components.QuickEventBrowser EventIndex=0 Events=@filteredEvents.OrderBy(a => Guid.NewGuid()).ToList().GetRange(0, Math.Min(8,filteredEvents.ToList().Count()))></stampede_buddy.Shared.Components.QuickEventBrowser>
+        }
+        else {
+            <div>Loading: ...please wait</div>
+            @* simulate also fake 'loading' for 2 seconds*@
+            @* Thread.Sleep(2000); *@ // does not always work
+        }
+        @* <stampede_buddy.Shared.Components.QuickEventBrowser></stampede_buddy.Shared.Components.QuickEventBrowser> *@
 
     </div>
 }
@@ -50,6 +81,45 @@ else
 }
 
 @code {
+    @using System.Collections; // for array list
+
+    public enum NearbyEventType
+    {
+        ALL,
+        RIDES,
+        FOOD,
+        EVENTS
+    }
+    
+    private NearbyEventType currentChoice = NearbyEventType.ALL;
+    private ArrayList otherChoices = new ArrayList() {
+        NearbyEventType.RIDES,
+        NearbyEventType.FOOD,
+        NearbyEventType.EVENTS
+    };
+
+    private string getStringNearbyEventType(NearbyEventType e) {
+        if (e == NearbyEventType.ALL) return "All";
+        if (e == NearbyEventType.RIDES) return "Rides";
+        if (e == NearbyEventType.FOOD) return "Food";
+        if (e == NearbyEventType.EVENTS) return "Events";
+
+        return "ERROR: gsnet"; // (g)et(s)tring(n)earby(e)vent(t)ype
+    }
+
+    private void updateCurrentChoice(NearbyEventType e) {
+        otherChoices.Add(currentChoice);
+        otherChoices.Remove(e);
+        currentChoice = e;
+
+        // ENUM should be sorted exactly in the order defined: ALL RIDES FOOD EVENTS
+        otherChoices.Sort();
+
+        refreshFilter(e);
+        
+        @* TODO: DO I NEED THIS?: StateHasChanged(); *@
+        @* StateHasChanged(); *@
+    }
 
     private void toggleCollapsed()
     {
@@ -66,5 +136,52 @@ else
         AppState.OnChange -= StateHasChanged;
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+
+    // should be passed callbacks for adding to schedule & favorites respectively
+
+    private List<Event>? allAvailableEvents;
+    private List<Event>? filteredEvents;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // get both kinds of events, concat arrays, then shuffle the combined array. 
+        // need to dynamically render based on type
+
+        // TODO: maybe sample-data/nearby.json can be created and imported instead
+        var regularEvents = await Http.GetFromJsonAsync<Event[]>("sample-data/events.json");
+
+        if (regularEvents != null)
+        {
+            List<Event> allEvents = new List<Event>().Concat(regularEvents).ToList();
+
+            // shuffle the events and assign to member variable
+            allAvailableEvents = allEvents.OrderBy(a => Guid.NewGuid()).ToList();
+
+            refreshFilter(currentChoice);
+
+        }
+
+    }
+
+    public void refreshFilter(NearbyEventType newFilter)
+    {
+        if (newFilter == NearbyEventType.ALL)
+        {
+            filteredEvents = allAvailableEvents;
+        }
+        else if (newFilter == NearbyEventType.FOOD)
+        {
+            filteredEvents = allAvailableEvents?.Where(x => x.Type == "food").ToList();
+        }
+        else if (newFilter == NearbyEventType.RIDES)
+        {
+            filteredEvents = allAvailableEvents?.Where(x => x.Type == "rides").ToList();
+        }
+        else if (newFilter == NearbyEventType.EVENTS)
+        {
+            filteredEvents = allAvailableEvents?.Where(x => x.Type == "event").ToList();
+        }
+    }
 }
 
