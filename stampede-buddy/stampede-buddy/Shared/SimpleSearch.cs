@@ -17,8 +17,12 @@ namespace stampede_buddy
         /// <param name="allEvents">The list of events</param>
         /// <param name="searchPhrase">The search phrase</param>
         /// <returns>The list of valid results</returns>
-        public static List<BaseEvent>? search(List<BaseEvent>? allEvents, String searchPhrase)
+        public static List<BaseEvent>? search(List<BaseEvent> allEvents, String searchPhrase)
         {
+            if (allEvents.Count == 0 || searchPhrase.Length == 0)
+            { 
+                return null;
+            }
             // filters by whether the item matches the query.
             // Sorts by how well it matches the query.
             List<BaseEvent>? result = allEvents?.Where(x => MatchScore(x,searchPhrase) > 0).ToList();

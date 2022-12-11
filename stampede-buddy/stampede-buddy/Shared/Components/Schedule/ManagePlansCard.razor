@@ -10,19 +10,20 @@
             <div class="card-content">
                 <h2>@Event.EventName</h2>
                 <div>@Event.BriefDescription</div>
-                @if ( Event is ScheduledEvent)
+                @if (Event is ScheduledEvent)
                 {
                     var schedEvent = (ScheduledEvent)Event;
-                    var list = schedEvent.Times ?? new string[] {};
+                    var list = schedEvent.Times ?? new string[] { };
                     <div>@Event.Location at @(string.Join(", ", list))</div>
                     <div class="d-grid gap-2 mt-2">
-                        <button class="btn btn-primary" type="button" @onclick="AddEventToSchedule">Add to Schedule</button>
+                        <button class="btn btn-primary" type="button" @onclick="RemoveEventFromSchedule">Remove from Schedule</button>
                     </div>
-                } else if (Event is Event)
+                }
+                else if (Event is Event)
                 {
                     <div>All day at @Event.Location</div>
                     <div class="d-grid gap-2 mt-2">
-                        <button class="btn btn-primary" type="button" @onclick="AddEventToFavorites">Add to Favourites</button>
+                        <button class="btn btn-primary" type="button" @onclick="RemoveEventFromFavorites">Remove from Favourites</button>
                     </div>
                 }
             </div>
@@ -37,26 +38,26 @@
     [Parameter]
     public BaseEvent? Event { get; set; }
 
-    public void AddEventToFavorites()
+    public void RemoveEventFromFavorites()
     {
-            if (Event != null)
-            {
-                var castedEvent = (Event) Event;
-                AppState.addToFavorites(castedEvent);
-            }
-        
+        if (Event != null)
+        {
+            var castedEvent = (Event)Event;
+            AppState.removeFromFavorites(castedEvent);
+        }
+
     }
 
 
-    public void AddEventToSchedule()
+    public void RemoveEventFromSchedule()
     {
 
-            if (Event != null)
-            {
-                var castedEvent = (ScheduledEvent) Event;
-                AppState.addToSchedule(castedEvent);
-            }
-        
+        if (Event != null)
+        {
+            var castedEvent = (ScheduledEvent)Event;
+            AppState.removeFromSchedule(castedEvent);
+        }
+
     }
 
 }
