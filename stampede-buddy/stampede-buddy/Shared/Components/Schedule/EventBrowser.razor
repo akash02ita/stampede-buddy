@@ -118,14 +118,17 @@
         <div class="w-100" @onclick="AppState.enterEventSearch">
         <input type="search" class="" id="search-bar-sm" placeholder="Search here!">
         </div>
-        <div class="mt-3 w-100 btn btn-primary  text-white btn-block btn-lg " @onclick="AppState.enterManage">Manage Plans</div>
         
         @if (AppState.Favorites.Count == 0 && AppState.Schedule.Count == 0)
         {
-        <Continue ClassName="mt-3 w-100 btn btn-primary disabled text-white btn-block btn-lg" ButtonText="Add events to continue..." />
+            <div class="mt-3 w-100 btn btn-primary disabled text-white btn-block btn-lg " @onclick="AppState.enterManage">Manage Plans</div>
+
+            <Continue ClassName="mt-3 w-100 btn btn-primary disabled text-white btn-block btn-lg" ButtonText="Add events to continue..." />
             
         } else
         {
+            <div class="mt-3 w-100 btn btn-primary  text-white btn-block btn-lg " @onclick="AppState.enterManage">Manage Plans</div>
+
             <Continue ClassName="mt-3 w-100 btn btn-primary  text-white btn-block btn-lg" />
 
         }

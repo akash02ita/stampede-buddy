@@ -1,0 +1,45 @@
+﻿@inject AppState AppState
+
+@if (Event != null)
+{
+    <div class="event-card">
+        <img class="event-card-img"
+         src="@Event.Image" alt="Snow"
+         style="width:100%; height: 225px; object-fit: cover;">
+        <div class="dim flex">
+            <div class="card-content">
+                <h2>@Event.EventName</h2>
+                <div>@Event.BriefDescription</div>
+                @if (Event is ScheduledEvent)
+                {
+                    var schedEvent = (ScheduledEvent)Event;
+                    var list = schedEvent.Times ?? new string[] { };
+                    <div>@Event.Location at @(string.Join(", ", list))</div>
+
+                }
+                else if (Event is Event)
+                {
+                    <div>All day at @Event.Location</div>
+                }
+                <div class="d-grid gap-2 mt-2">
+                    <button class="btn btn-primary" type="button" @onclick="() => {
+                                var destination = Event.Location;
+                                if (destination is not null)
+                                {
+                                    AppState.enterNavigation(destination);
+                                    }
+                                    }">Begin Navigation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+@code {
+    [Parameter]
+    public BaseEvent? Event { get; set; }
+
+}

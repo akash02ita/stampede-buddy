@@ -1,4 +1,5 @@
-﻿
+﻿@inject AppState AppState
+
 @if (Events != null && Events?.Count > 0)
 {
     <div id="schedule-list" class="d-grid gap-3">
@@ -40,10 +41,6 @@
                     }
                 }
 
-                <div class="schedule-card-disabled text-white">
-                    <h5 class="my-2">Empty Event</h5>
-                </div>
-
             </div>
         </div>
 
@@ -82,9 +79,9 @@
 
             <div class="row justify-content-center event-times">
 
-                <div class="schedule-card-disabled text-white">
+                <div class="schedule-card-disabled text-white" @onclick="() => { AppState.setScheduleScreen(ScheduleScreen.EVENT_BROWSER);}">
                     <h5 class="my-2">No events were found in your schedule.</h5>
-                    <p class="lead my-2">Add some in the Event Browser by pressing "Add to Schedule" on a scheduled event! </p>
+                    <p class="lead my-2">Click on this menu to jump to the Event Browser, where you can add some by pressing "Add to Schedule" on a scheduled event! </p>
                 </div>
 
             </div>
