@@ -3,8 +3,9 @@
 ## Authors:
 
 
-| Dylan Leclair   | dylan.leclair1@ucalgary.ca   |
+| Name            | Email                        |
 |-----------------|------------------------------|
+| Dylan Leclair   | dylan.leclair1@ucalgary.ca   |
 | Cameron Hermann | cam.hermann1@ucalgary.ca     |
 | Akashdeep Singh | akashdeep.singh4@ucalgary.ca |
 | Braden Foxcroft | braden.foxcroft@ucalgary.ca  |
