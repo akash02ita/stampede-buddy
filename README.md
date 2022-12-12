@@ -38,7 +38,7 @@ Most of the features actually do work:
 
 Other than pressing some buttons, our UI is really light on user input so you should hopefully be able to get a good feel for it just from navigating around! We didn't really program set paths for you to follow in. 
 
-One last thing: *refreshing resets the state of the app. this is not how our app would work when deployed (it would persist on the users device or in the cloud), but we kept the refresh to clear it in case of any issues & to make testing various states easier. 
+One last thing: *refreshing resets the state of the app. this is not how our app would work when deployed (it would persist on the users device or in the cloud), but we kept the refresh to clear it in case of any issues & to make testing various states easier.* 
 
 If you have any issues getting our project running, please shoot me an email! I disabled the web compiler we were using for custom SASS, so you should be able to run it like any other Blazor project. VS2022 might be required.  
 
