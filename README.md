@@ -1,4 +1,4 @@
-# Stampede Buddy: the Stampede companion app!
+# Stampede Buddy: the Stampede Companion app!
 
 ## Authors:
 
@@ -11,6 +11,10 @@
 | Braden Foxcroft | braden.foxcroft@ucalgary.ca  |
 | Shabnam Kaur    | shabnamjit.kaur@ucalgary.ca  |
 
+
+## Our demo video
+
+https://www.youtube.com/watch?v=vUzn0Ieu7CY
 
 ## Running the Project
 
