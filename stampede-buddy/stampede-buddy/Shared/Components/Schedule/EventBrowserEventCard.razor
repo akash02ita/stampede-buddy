@@ -39,24 +39,42 @@
 
     public void AddEventToFavorites()
     {
-            if (Event != null)
-            {
-                var castedEvent = (Event) Event;
-                AppState.addToFavorites(castedEvent);
-            }
-        
+        if (Event != null)
+        {
+            var castedEvent = (Event) Event;
+            AppState.addToFavorites(castedEvent);
+        }
+
     }
 
 
     public void AddEventToSchedule()
     {
+        var castedEvent = (ScheduledEvent)Event;
 
-            if (Event != null)
-            {
-                var castedEvent = (ScheduledEvent) Event;
-                AppState.addToSchedule(castedEvent);
-            }
-        
+        if (castedEvent != null)
+        {
+            // check if event w/ conflicting time exists
+
+            
+                if (castedEvent.Times != null)
+                {
+                    for (int i =0; i < AppState.Schedule.Count; i++)
+                    {
+                        if (AppState.Schedule[i].Times?[0] == castedEvent.Times[0])
+                        {
+                            // found a conflict. 
+                            AppState.enterResolveConflict(castedEvent, AppState.Schedule[i]);
+                            return;
+                        }
+                    }
+                }
+            // if no conflict is found, proceed as usual!
+            AppState.addToSchedule(castedEvent);
+        }
+
+
+
     }
 
 }
