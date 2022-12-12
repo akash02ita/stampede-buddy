@@ -6,6 +6,14 @@ h1:focus {
   outline: none;
 }
 
+a, .btn-link {
+  color: #0071c1;
+}
+
+.btn-primary {
+  color: #fff;
+}
+
 .content {
   padding-top: 1.1rem;
 }
@@ -352,20 +360,6 @@ flex-col {
   color: white;
 }
 
-#warning-modal {
-  display: flex;
-  flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.62);
-  position: absolute;
-  height: 100%;
-  z-index: 1000;
-  top: 0px;
-  left: 0px;
-  border-radius: 70px;
-  justify-content: center;
-  align-items: center;
-}
-
 .inner-modal {
   padding: 10px 10px 20px 10px;
   width: 90%;
@@ -445,14 +439,13 @@ flex-col {
 
 #schedule-list {
   height: 450px;
-  padding-bottom: 20px;
+  padding-bottom: 50px;
   overflow-y: auto;
 }
 
 #times-container {
   position: relative;
   height: 420px;
-  padding-bottom: 35px;
 }
 
 .timeslot {
@@ -464,11 +457,18 @@ flex-col {
   /*    border-bottom: 0.5px solid rgba(0, 0, 0, 0.42);*/
   opacity: 100%;
   width: 95%;
+  margin: 1.1px 0px 1.1px 0px;
 }
 
 #time-lines {
   width: 100%;
   /*    background-color: rgba(0, 0, 0, 0.04);*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding-bottom: 120px;
 }
 
 .event-times {
@@ -477,12 +477,26 @@ flex-col {
 
 .schedule-card {
   position: absolute;
-  top: 30px;
-  /* use transform programatically instead */
   background: rgba(255, 0, 0, 0.549);
-  width: 90%;
+  width: 80%;
   border-radius: 5px;
   height: 48px;
+  margin-left: 20px;
+}
+
+#schedule-list-disabled {
+  height: 450px;
+  padding-bottom: 50px;
+  overflow-y: hidden;
+}
+
+.schedule-card-disabled {
+  position: absolute;
+  background: rgba(255, 0, 0, 0.549);
+  width: 80%;
+  border-radius: 5px;
+  margin-left: 20px;
+  top: 20%;
 }
 
 .schedule-time-label {
@@ -639,10 +653,11 @@ flex-col {
   background-color: rgb(235, 57, 57);
   border-radius: 10px;
   padding: 10px;
+  cursor: pointer;
 }
 
 #navigate-header {
-  height: 150px;
+  height: 180px;
   width: 100%;
   background-color: white;
   position: absolute;
@@ -691,7 +706,7 @@ flex-col {
 
 /* SEARCH SCREEN STYLES */
 #input-bar {
-  width: 80%;
+  width: 100%;
   display: flex;
   gap: 10px;
   justify-content: center;
@@ -772,4 +787,57 @@ flex-col {
 
 .nav-link {
   cursor: pointer;
+}
+
+/* Overlay modal container */
+.overlay-container {
+  width: 390px;
+  height: 844px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  z-index: 1;
+  margin-top: 20px;
+}
+
+.navigation-overlay-container {
+  width: 390px;
+  height: 670px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top-left-radius: 70px;
+  border-top-right-radius: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  z-index: 1;
+  margin-top: 20px;
+}
+
+.warning-modal {
+  width: 390px;
+  height: 670px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top-left-radius: 70px;
+  border-top-right-radius: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  z-index: 1;
+  margin-top: 20px;
 }
