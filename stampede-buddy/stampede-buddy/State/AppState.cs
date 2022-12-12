@@ -3,6 +3,7 @@
 namespace stampede_buddy
 {
 
+
     public abstract class BaseEvent
     {
 
@@ -62,6 +63,7 @@ namespace stampede_buddy
         SEARCH_MAIN,
         SEARCH_EVENT_BROWSER,
         MANAGE_EVENTS,
+        RESOLVE_CONFLICT
     }
 
 
@@ -91,6 +93,19 @@ namespace stampede_buddy
 
         #region schedule screen management
 
+
+        public ScheduledEvent? conflictA { get; private set; }
+        public ScheduledEvent? conflictB { get; private set; }
+
+        public void enterResolveConflict(ScheduledEvent A, ScheduledEvent B)
+        {
+            CurrentOverlayState = OverlayState.RESOLVE_CONFLICT;
+            ShowOverlay = true;
+            conflictA = A;
+            conflictB = B;
+            // set navigation to show
+            NotifyStateChanged();
+        }
 
         public int SelectedDay {get; private set;}
 

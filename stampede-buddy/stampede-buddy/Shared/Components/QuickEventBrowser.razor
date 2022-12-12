@@ -5,11 +5,13 @@
 
 @if (Events?.Count > 0)
 {
+    const string POINTER_LEFT = "<";
+    const string POINTER_RIGHT = ">";
     <div class="w-100">
         <div class="d-flex gap-2 justify-content-center">
 
-            <div class="left-favourites" @onclick="DecrementEvent">
-                l
+            <div class="left-favourites" style="cursor: pointer;" @onclick="DecrementEvent">
+                    @POINTER_LEFT
             </div>
 
             <div class="justify-content-center w-100">
@@ -55,7 +57,7 @@
             </div>
 
 
-            <div class="right-favourites" @onclick="IncrementEvent"> r </div>
+            <div class="right-favourites" @onclick="IncrementEvent"> @POINTER_RIGHT </div>
 
         </div>
     </div>

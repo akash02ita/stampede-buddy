@@ -1,57 +1,200 @@
 ﻿@inject AppState AppState
 
+
+
 <div class="events-main-content">
 
     <div id="events-container" class="container-fluid">
 
-        <BackButton   Title="Pick a Schedule"/>
+        <BackButton Title="Pick a Schedule" />
 
         <div id="filter-panel" class="mb-2 row justify-content-center text-center">
-            <div class="col-1 text-center">
-                l
+            <div class="col-1 text-center btn btn-primary text-white" @onclick="DecrementSchedule">
+                @POINTER_LEFT
             </div>
-            <div class="col-6">Option <span>1</span> / 6</div>
-            <div class="col-1 text-center"> r </div>
+            <div class="col-6">Option <span>@(scheduleIndex + 1)</span> / @scheduleOptions?.Count</div>
+            <div class="col-1 text-center btn btn-primary text-white" @onclick="IncrementSchedule">@POINTER_RIGHT</div>
         </div>
 
         <div class="row">
             <hr />
         </div>
 
-        @if (AppState.Schedule.Count > 0) 
+        @if (AppState.Schedule.Count > 0 && scheduleOptions != null)
         {
             //List<List<ScheduledEvent>> permutations = computeScheduleOptions(AppState.Schedule);
             //List<ScheduledEvent> selectedOption = permutations[optionsIndex];
-            <ScheduleView Events="@AppState.Schedule" />
-        } else {
-            <ScheduleView /> // if the user has no events in their schedule, the component will render error message.
+            <ScheduleView Events="@scheduleOptions[scheduleIndex]" />
         }
-        
+        else
+        {
+            <ScheduleView />
+            // if the user has no events in their schedule, the component will render error message.
+        }
+
 
     </div>
 
-        <div id="schedule-picker-menu" class="d-flex flex-column justify-content-center align-items-center">
+    <div id="schedule-picker-menu" class="d-flex flex-column justify-content-center align-items-center">
 
-            <img class="schedule-map" src="images/map.png" />
-            <Continue className="mt-2 w-100 btn btn-primary btn-block btn-lg " ButtonText="Use this schedule!" />
+        <img class="schedule-map" src="images/map.png" />
+        <div class="mt-2 w-100 btn btn-primary btn-block btn-lg " @onclick="() => {
+if (scheduleOptions != null)
+{
+
+    AppState.Schedule = scheduleOptions[scheduleIndex];
+}
+AppState.GoToNextScreen();}">
+            Use this schedule!
         </div>
-
     </div>
+
+</div>
 @code {
 
+    const string POINTER_LEFT = "<";
+    const string POINTER_RIGHT = ">";
 
     [Parameter]
     public EventCallback<ScheduleScreen> setScreenCallback { get; set; }
     [Parameter]
     public ScheduleScreen currentScreen { get; set; } = ScheduleScreen.DAY_PICKER;
 
+    public List<List<ScheduledEvent>>? scheduleOptions { get; set; }
 
-    private List<List<ScheduledEvent>> computeScheduleOptions (List<ScheduledEvent> desiredEvents)
+
+    protected override async Task OnInitializedAsync()
     {
-        return new List<List<ScheduledEvent>>();
+        // get both kinds of events, concat arrays, then shuffle the combined array.
+        // need to dynamically render based on type
+        scheduleOptions = getScheduleOptions();
+
     }
 
-    private int optionsIndex { get; set; } = 0;
+    public List<List<ScheduledEvent>> getScheduleOptions()
+    {
+        return generateSchedules(AppState.Schedule);
+    }
+
+    public int scheduleIndex { get; set; } = 0;
+
+    /// <summary>
+    /// Increments the event (moves to the right, wraps around at the end).
+    /// </summary>
+    private void IncrementSchedule()
+    {
+        if (scheduleIndex == scheduleOptions?.Count)
+        {
+            scheduleIndex = 0;
+        }
+        else
+        {
+            scheduleIndex += 1;
+        }
 
     }
+
+    /// <summary>
+    /// Decrements the event (moves to the left, wraps around at the beginning).
+    /// </summary>
+    private void DecrementSchedule()
+    {
+
+        if (scheduleIndex - 1 < 0 && scheduleOptions is not null)
+        {
+            scheduleIndex = scheduleOptions.Count - 1;
+        }
+        else
+        {
+            scheduleIndex -= 1;
+        }
+    }
+
+    /*
+    *
+    *
+    public List<List<ScheduledEvent>> generateFakeSchedules(List<ScheduledEvent> eventsToSchedule)
+    {
+    // generate a set of times with desired num events
+    // then place events at those times
+
+    List<List<ScheduledEvent>> possibleSchedules = new List<List<ScheduledEvent>>();
+
+        Random rnd = new Random();
+
+        int fakeScheduleCount = rnd.Next(20);
+
+
+        for (int x = 0; x < fakeScheduleCount; x++)
+        {
+        HashSet<int> eventSlots = new HashSet<int> { };
+        List<ScheduledEvent> fakeSchedule;
+        for (int i = 0; i < eventsToSchedule.Count; i++)
+        {
+
+        var fakeEvent =
+
+        eventsToSchedule.Add(  );
+        }
+
+        var fakeEventTimes = eventSlots.ToList();
+
+        foreach (ScheduledEvent e in eventsToSchedule)
+        {
+
+        }
+
+        possibleSchedules.Add();
+    }
+
+    return ()
+
+    }*/
+
+    public List<List<ScheduledEvent>> generateSchedules(List<ScheduledEvent> eventsToSchedule)
+    {
+        // generate a set of times with desired num events
+        // then place events at those times
+
+        if (eventsToSchedule.Count == 0)
+        {
+            return new List<List<ScheduledEvent>>();
+        }
+
+        List<List<ScheduledEvent>> possibleSchedules = new List<List<ScheduledEvent>>();
+
+        Random rnd = new Random();
+
+        int fakeScheduleCount = rnd.Next(20);
+
+        for (int x = 0; x < fakeScheduleCount; x++)
+        {
+            HashSet<int> eventSlots = new HashSet<int> { };
+            List<ScheduledEvent> possibleSchedule = new List<ScheduledEvent>();
+            for (int i = 0; i < eventsToSchedule.Count; i++)
+            {
+
+                var time = rnd.Next(23) + 1;
+                var isSuccess = eventSlots.Add(time);
+
+                if (isSuccess)
+                {
+                    var e = eventsToSchedule[i];
+                    var copyEvent = new ScheduledEvent();
+                    copyEvent.EventName = e.EventName;
+                    copyEvent.Location = e.Location;
+                    copyEvent.Times = new string[] { (time <= 12) ? $"{time.ToString()}:00am" : $"{(time - 12).ToString()}:00pm" };
+
+                    possibleSchedule.Add(copyEvent);
+                }
+
+            }
+
+            possibleSchedules.Add(possibleSchedule);
+        }
+
+        return (possibleSchedules);
+
+    }
+}
 

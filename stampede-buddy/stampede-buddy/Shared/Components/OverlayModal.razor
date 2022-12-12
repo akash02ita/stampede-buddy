@@ -135,6 +135,29 @@
             </div>
         </div>
     }
+    else if (AppState.CurrentOverlayState == OverlayState.RESOLVE_CONFLICT)
+    {
+            <div id="warning-modal">
+                <div class="inner-modal">
+                    <div class="row my-3">
+                        <img class="col-3 icon-m" src="https://cdn-icons-png.flaticon.com/512/4201/4201973.png" />
+
+                        <div class="col-9">
+                            <strong class="lead">Scheduling Conflict</strong>
+                            <br />
+                            Do you want to replace <strong>@AppState.conflictA?.EventName</strong> with <strong>@AppState.conflictB?.EventName</strong> in
+                            your schedule?
+                        </div>
+                        <p class="my-2 text-center" style="font-size: 0.8em;">Note that this feature is still in development and may not work as fully intended.</p>
+                    </div>
+                    <div class="row gap-3 mx-4">
+                        <div class="col btn btn-primary" @onclick="() => {if (AppState.conflictA != null && AppState.conflictB != null) { AppState.Schedule.Remove(AppState.conflictA); AppState.Schedule.Add(AppState.conflictB);} }">Replace</div>
+                        <div class="col btn btn-light" @onclick="dismissOverlay">Cancel</div>
+                    </div>
+                </div>
+
+            </div>
+    }
     else
     {
         <div class="overlay-container">
