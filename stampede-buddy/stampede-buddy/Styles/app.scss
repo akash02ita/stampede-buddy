@@ -510,9 +510,9 @@ flex-col {
 }
 
 .schedule-card-disabled{
-    position: absolute;
+    position: fixed;
     background: rgba(255, 0, 0, 0.549);
-    width: 80%;
+    width: 10%;
     border-radius: 5px;
     margin-left: 20px;
     top: 20%;
