@@ -46,3 +46,12 @@ One last thing: *refreshing resets the state of the app. this is not how our app
 
 If you have any issues getting our project running, please shoot me an email! I disabled the web compiler we were using for custom SASS, so you should be able to run it like any other Blazor project. VS2022 might be required.  
 
+Here we go!
+
+# Publishing command
+
+In directory `./stampede-buddy/stampede-buddy` execute following command:
+-  `dotnet publish -c ../../../Release`
+
+`./Release/net6.0/publish/wwwroot` or similar, is the directory to host website.
+We currently decided to copy the contents of this path to `./dist` directory to be deployed on netlify.
