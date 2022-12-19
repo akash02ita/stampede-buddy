@@ -16,6 +16,10 @@
 
 https://www.youtube.com/watch?v=vUzn0Ieu7CY
 
+## Our deployed live link
+
+https://stampede-buddy.netlify.app/
+
 ## Running the Project
 
 Our project is Blazor WebAssembly Project, which was started and developed in Visual Studio 2022. 
@@ -48,7 +52,7 @@ If you have any issues getting our project running, please shoot me an email! I 
 
 Here we go!
 
-# Publishing command
+## Publishing command for setting up deployment
 
 In directory `./stampede-buddy/stampede-buddy` execute following command:
 -  `dotnet publish -c ../../../Release`
